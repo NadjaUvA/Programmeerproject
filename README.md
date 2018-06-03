@@ -7,7 +7,7 @@ The European Union has formulated [20-20-20 targets](https://www.eea.europa.eu/t
 ## Solution
 This project offers an overview of the performance of an European Country on the environmental goals relatively to the other European Countries as well as its progress since 1990, which is often used as an index year. The product will consist of one screen that will approximately as follows:
 
-![Example sketch of the visualization](/doc/sketch.png)
+![Example sketch of the visualization](/doc/sketch.PNG)
 
 The following **main feautures** for users willl be available and form the *Minimum Viable Product*:
 * Users can click on the map and subsequently the circles on the right will contain the most up-to-date values on the three environmental variables:

@@ -1,6 +1,8 @@
 # Programmeerproject
 Nadja van 't Hoff (11030720)
 
+## Application goals
+
 ## Problem statement
 The European Union has formulated [20-20-20 targets](https://www.eea.europa.eu/themes/climate/trends-and-projections-in-europe/trends-and-projections-in-europe-2016/1-overall-progress-towards-the) to reduce greenhouse gas emission and to increase the use of renewable energy. Moreover, the European Union wants to reduce [waste](https://www.theguardian.com/environment/2018/jan/16/eu-declares-war-on-plastic-waste-2030) and recycle more. Though it is generally known that these goals need to reached, only few people are aware of the progress each country in Europe makes. Especially to politicians and environmental activists, an overview that combines information about these goals can be extremely valuable.
 
@@ -24,4 +26,19 @@ The following features are *nice-to-have*:
 * A possibility to compare the streamgraphs of countries through the dropdown menu used for the radar chart.
 
 ## Prerequisites
+**Data sources**:
+* [Energy data](https://data.oecd.org/energy.htm#profile-Energy)
+* [Waste data](https://data.oecd.org/waste/municipal-waste.htm) and [recycling data](http://ec.europa.eu/eurostat/tgm/table.do?tab=table&plugin=1&language=en&pcode=t2020_rt120)
+* [Gas emission data](https://data.oecd.org/air/air-and-ghg-emissions.htm)
+The data will be loaded into one JSON file which then will be loaded into Python.
+
+**External components**:
+* d3js.org/d3.v3.min.js
+* liquidFillGauge.js
+
+**Similar visiualization**:
+A similar visualization from [Eurostat](http://ec.europa.eu/eurostat/tgm/graph.do?tab=graph&plugin=1&language=en&pcode=t2020_rt120&toolbox=type) compares the recycling rate of different European countries through a different kind of charts. The user can define the chart he prefers and which countries he likes to compare. The charts are interactive: On hover, they return the exact values in the chart. They also have an interactive map with different shadings per country. A legend reveals the corresponding percentage range of recycling and on hover of the country, the exact percentage is shown.
+
+**Hardest parts**:
+
 

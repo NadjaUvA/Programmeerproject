@@ -22,3 +22,6 @@ The following features are *nice-to-have*:
 * Different colors in the map that shows the environmental performance for that country and a legend to explain the colors.
 * Updating the radar chart to the year which is clicked on on the streamgraph.
 * A possibility to compare the streamgraphs of countries through the dropdown menu used for the radar chart.
+
+## Prerequisites
+

@@ -23,6 +23,8 @@ The data structure is as follows:
 The **European map** contains the countries of the European Union. On hover, the country lights up and the country code is shown. On click, the radar chart updates to the values of the chosen country and the values in the circle menu are updated to that country. When clicked, the country stays in a different color from the rest, so the user can see which country he has clicked on. The following components are necessary to implement this map:
 * D3
 * jQuery
+* tooltip
+* TopoJSON
 
 The **circle menu** is a menu that contains the most up-to-date values on total energy production, green house gas emission per capita and recycled waste per capita of the country that is clicked on. When the user opens the webpage for the first time, the menu is empty. When a circle is clicked on, the stacked graph updates its values to give insight into that variable. The following components are necessary to implement this menu:
 * D3
@@ -31,12 +33,28 @@ The **circle menu** is a menu that contains the most up-to-date values on total 
 The **radar chart** shows the most up-to-date values on CO2 recycled waste, CO2 emission and renewable energy for the country that was clicked on in the map. It contains a dropdown menu which contains the country codes of all countries and when the checkbox is checked, the radar chart updates and shows the values of that country also in the radar chart, allowing for comparison. When a checked box is clicked on again, the chart updates and the values of the unchecked country disappear. The axes contain the maximum values of Europe. The following components are needed to implement this chart:
 * D3
 * Angular
+* Dropdown menu
 
 The **stacked graph** depicts the progress that the selected country has made during the last year concerning one of the variables. When the user opens the application for the first time, this graph isn't shown. When the user clicks on the map and as a second step on a circle with a variable, the graph appears with this variable for the chosen country. When the user clicks on the map *or* on another circle, the graps update. A slider allows the user to see the exact values for each year.  legend shows the user which part of the variable is represented by which color. The following components are needed to implement this chart:
 * D3
 * Colorbrewer
+* Legend
+* Slider
 
 ## APIs and D3 plugins
 
+The following plugins will be used:
+
 * jQuery plugin for European map
 * D3 legends plugin for stacked graph
+
+Other:
+* Bootstrap
+
+## Examples
+
+The following pages are used as an example for the visualization:
+* [European map](http://code.minnpost.com/simple-map-d3/)
+* [Circle menu](http://bl.ocks.org/brattonc/5e5ce9beee483220e2f6)
+* [Radar chart](https://gist.github.com/chrisrzhou/2421ac6541b68c1680f8)
+* [Stacked graph](http://www.delimited.io/blog/2014/3/3/creating-multi-series-charts-in-d3-lines-bars-area-and-streamgraphs)

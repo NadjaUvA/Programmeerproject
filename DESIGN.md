@@ -11,8 +11,8 @@ The following data sources are used:
 For the stacked graph, the data on gas emission, waste and energy from 1990 to 2015 is saved in three separate CSV files. For the radar chart the data on recycled waste, CO2 emission and renewable energy per country for 2015 is saved in one CSV file. The files are read into Python and converted into two JSON files. These then are loaded into Javascript where the strings containing numbers need to be converted into the number type. For the map of Europe and the circles that function as a menu, the values can be obtained through the data for the stacked graph.
 
 The data structure is as follows:
-* Radar chart:
-* Stacked graph:
+* Radar chart: [{country:"NLD", axes: [{axis:"waste", value:1}, {axis:"energy", value:2}, {axis:"emission", value:3}], {country: "FRA", axes: [{axis:"waste", value:1}, {axis:"energy", value:2}, {axis:"emission", value:3}], ...]
+* Stacked graph: [{country:"NLD, years:[1990, ..., 2015], waste: [{variable:"recycled", values:[1, ..., 100]}, {variable:"total", values:[1, ..., 100]}, energy: [{variable:"renewable", values:[1, ..., 100]}, {variable:"total", values:[1, ..., 100]}, ...} ...]
 
 ## Diagram
 

@@ -24,7 +24,7 @@ The **European map** contains the countries of the European Union. On hover, the
 * D3
 * jQuery
 * tooltip
-* TopoJSON
+* Bower and topoJSON
 
 The **circle menu** is a menu that contains the most up-to-date values on total energy production, green house gas emission per capita and recycled waste per capita of the country that is clicked on. When the user opens the webpage for the first time, the menu is empty. When a circle is clicked on, the stacked graph updates its values to give insight into that variable. The following components are necessary to implement this menu:
 * D3

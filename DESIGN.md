@@ -23,11 +23,11 @@ The data structure is as follows:
 The **European map** contains the countries of the European Union. On hover, the country lights up and the country code is shown. On click, the radar chart updates to the values of the chosen country and the values in the circle menu are updated to that country. When clicked, the country stays in a different color from the rest, so the user can see which country he has clicked on. The following components are necessary to implement this map:
 * D3
 * jQuery
-* tooltip
-* Bower and topoJSON
+* topoJSON
 
 The **circle menu** is a menu that contains the most up-to-date values on total energy production, green house gas emission per capita and recycled waste per capita of the country that is clicked on. When the user opens the webpage for the first time, the menu is empty. When a circle is clicked on, the stacked graph updates its values to give insight into that variable. The following components are necessary to implement this menu:
 * D3
+* tooltip
 * liquidFillGauge
 
 The **radar chart** shows the most up-to-date values on CO2 recycled waste, CO2 emission and renewable energy for the country that was clicked on in the map. It contains a dropdown menu which contains the country codes of all countries and when the checkbox is checked, the radar chart updates and shows the values of that country also in the radar chart, allowing for comparison. When a checked box is clicked on again, the chart updates and the values of the unchecked country disappear. The axes contain the maximum values of Europe. The following components are needed to implement this chart:

@@ -3,29 +3,26 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>An overview of the European environment goals</title>
+		<title>Application</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<script src="https://d3js.org/d3.v3.min.js"></script>
-		<script src="https://d3js.org/queue.v1.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+			integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="application.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+	  <script src="/datamap.world.min.js"></script>
 		<script src="application.js"></script>
 	</head>
 	<body>
 		<div>
-			<h3 class="header"> Application </h3>
+			<h3 class="header">An overview of the European environment goals</h3>
 		</div>
-		<div class="container container-fluid text-center">
-			<div class="col-sm-8 text-left">
-				<svg class="map"></svg>
-				<svg class="radar_chart"></svg>
-				<svg class="stacked_graph"></svg>
-			</div>
+		<div id="container" style="position: relative; width: 425px; height: 330px;">
+			<footer class="container-fluid text-center">
+				<p class="student-info"> Assignment week 6 | Nadja van 't Hoff (11030720) </p>
+				<p class="source">Source: <a href="https://data.oecd.org/pop/population.htm#indicator-chart"> OECD Data</a></p>
+			</footer>
 		</div>
-		<footer class="container-fluid text-center">
-			<p class="student-info">  Nadja van 't Hoff (11030720) </p>
-			<p class="source">Source: <a href="https://data.oecd.org"> OECD Data</a></p>
-		</footer>
 	</body>
 </html>

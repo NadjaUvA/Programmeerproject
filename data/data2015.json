@@ -1,0 +1,164 @@
+[
+    {
+        "country": "BEL",
+        "waste": "220.295345",
+        "energy": "3.340029",
+        "emission": "8.2"
+    },
+    {
+        "country": "BGR",
+        "waste": "",
+        "energy": "13.151687",
+        "emission": "6.1"
+    },
+    {
+        "country": "CYP",
+        "waste": "",
+        "energy": "0.035778",
+        "emission": "7"
+    },
+    {
+        "country": "DNK",
+        "waste": "365.031978",
+        "energy": "3.23932",
+        "emission": "5.6"
+    },
+    {
+        "country": "DEU",
+        "waste": "421.427275",
+        "energy": "22.253217",
+        "emission": "8.9"
+    },
+    {
+        "country": "EST",
+        "waste": "101.672278",
+        "energy": "4.51757",
+        "emission": "11.8"
+    },
+    {
+        "country": "FIN",
+        "waste": "202.799842",
+        "energy": "7.820343",
+        "emission": "7.7"
+    },
+    {
+        "country": "GRC",
+        "waste": "74.325254",
+        "energy": "1.36821",
+        "emission": "5.9"
+    },
+    {
+        "country": "HUN",
+        "waste": "122.166156",
+        "energy": "1.089072",
+        "emission": "4.3"
+    },
+    {
+        "country": "IRL",
+        "waste": "204.543492",
+        "energy": "0.221442",
+        "emission": "7.6"
+    },
+    {
+        "country": "ITA",
+        "waste": "215.832645",
+        "energy": "9.58328",
+        "emission": "5.4"
+    },
+    {
+        "country": "HRV",
+        "waste": "",
+        "energy": "",
+        "emission": "3.7"
+    },
+    {
+        "country": "LVA",
+        "waste": "114.943213",
+        "energy": "0.584046",
+        "emission": "3.5"
+    },
+    {
+        "country": "LTU",
+        "waste": "",
+        "energy": "7.018562",
+        "emission": "3.6"
+    },
+    {
+        "country": "LUX",
+        "waste": "289.33908",
+        "energy": "0.041403",
+        "emission": "15.5"
+    },
+    {
+        "country": "NLD",
+        "waste": "271.102552",
+        "energy": "1.114833",
+        "emission": "9.2"
+    },
+    {
+        "country": "AUT",
+        "waste": "317.063301",
+        "energy": "9.837",
+        "emission": "7.2"
+    },
+    {
+        "country": "POL",
+        "waste": "120.651975",
+        "energy": "3.7972",
+        "emission": "7.3"
+    },
+    {
+        "country": "PRT",
+        "waste": "136.7544",
+        "energy": "3.943615",
+        "emission": "4.5"
+    },
+    {
+        "country": "SVN",
+        "waste": "241.438562",
+        "energy": "2.798163",
+        "emission": "6.2"
+    },
+    {
+        "country": "SVK",
+        "waste": "33.785545",
+        "energy": "0.257323",
+        "emission": "5.4"
+    },
+    {
+        "country": "ESP",
+        "waste": "136.803",
+        "energy": "7.777368",
+        "emission": "5.3"
+    },
+    {
+        "country": "CZE",
+        "waste": "93.475404",
+        "energy": "3.32985",
+        "emission": "9.4"
+    },
+    {
+        "country": "GBR",
+        "waste": "209.71818",
+        "energy": "17.984625",
+        "emission": "6"
+    },
+    {
+        "country": "SWE",
+        "waste": "215.16048",
+        "energy": "11.103435",
+        "emission": "3.8"
+    },
+    {
+        "country": "FRA",
+        "waste": "211.344518",
+        "energy": "17.329653",
+        "emission": "4.4"
+    },
+    {
+        "country": "NOR",
+        "waste": "180.030924",
+        "energy": "14.534534",
+        "emission": "7.1"
+    }
+]

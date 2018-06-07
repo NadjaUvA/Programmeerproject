@@ -56,5 +56,5 @@ Other:
 The following pages are used as an example for the visualization:
 * [European map](http://code.minnpost.com/simple-map-d3/)
 * [Circle menu](http://bl.ocks.org/brattonc/5e5ce9beee483220e2f6)
-* [Radar chart](https://gist.github.com/chrisrzhou/2421ac6541b68c1680f8)
+* [Radar chart](https://gist.github.com/nbremer/6506614)
 * [Stacked graph](http://www.delimited.io/blog/2014/3/3/creating-multi-series-charts-in-d3-lines-bars-area-and-streamgraphs)

@@ -1,0 +1,374 @@
+[
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 4.21427275
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.22253217
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.155
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.5227363250278473
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.1500919619846425
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.529032258064516
+        }
+    ],
+    [
+        {
+            "axis": "Renewable energy",
+            "value": 0.5910016066441091
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.39354838709677414
+        }
+    ],
+    [
+        {
+            "axis": "Renewable energy",
+            "value": 0.0016077675421041372
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.45161290322580644
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.8661802395205673
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.14556636912316995
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.36129032258064514
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 1.0
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 1.0
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.5741935483870968
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.24125699505329834
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.20300750224113664
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.7612903225806452
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.48122144443546044
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.3514252793202889
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.4967741935483871
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.17636555203979146
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.061483694694569324
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.3806451612903226
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.2898866856683635
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.048939980228476634
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.27741935483870966
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.4853589317397645
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.009951010678590876
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.49032258064516127
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.5121468348245851
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.4306469487085845
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.34838709677419355
+        }
+    ],
+    [
+        {
+            "axis": "CO2 emission",
+            "value": 0.23870967741935484
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.27274744616375385
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.026245463745758646
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.22580645161290322
+        }
+    ],
+    [
+        {
+            "axis": "Renewable energy",
+            "value": 0.31539538755228064
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.23225806451612904
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.6865694205483023
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.001860539983949287
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 1.0
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.6432961701399132
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.05009761060614292
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.5935483870967742
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.7523559100440284
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.4420484462987981
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.4645161290322581
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.28629370275096694
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.17063600287544944
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.47096774193548385
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.3245029643608141
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.17721550102171743
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.2903225806451613
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.572906824789639
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.12574195452280001
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.4
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.08016933645312824
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.011563406764963468
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.34838709677419355
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.32461828674947535
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.3494940978645919
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.3419354838709677
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.22180672572746982
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.1496345449738795
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.6064516129032258
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.49763789019113674
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.8081809025634362
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.3870967741935484
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.5105518621214064
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.49895864494558245
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.24516129032258063
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.5014970091814773
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.7787482142469558
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.2838709677419355
+        }
+    ],
+    [
+        {
+            "axis": "Recycled waste",
+            "value": 0.42719333721340175
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.6531430489353517
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.45806451612903226
+        }
+    ]
+]

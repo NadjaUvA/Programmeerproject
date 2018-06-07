@@ -4,15 +4,12 @@
 * Nadja van 't Hoff (11030720)
 */
 
-
-$.echo file_get_contents("..data/data2015.json");
-
 // add map
 window.onload = function() {
 
   // wait loading the figures until the data is loaded
   queue()
-    .defer(d3.json, "data2015.json")
+    .defer(d3.json, "../data/data2015.json")
     .await(make_figures);
 
   // create European map

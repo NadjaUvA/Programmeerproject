@@ -4,8 +4,18 @@
 * Nadja van 't Hoff (11030720)
 */
 
+
+$.echo file_get_contents("..data/data2015.json");
+
 // add map
 window.onload = function() {
+
+  // wait loading the figures until the data is loaded
+  queue()
+    .defer(d3.json, "data2015.json")
+    .await(make_figures);
+
+  // create European map
   var map = new Datamap({element: document.getElementById("container"),
 
     // zoom in on Europe
@@ -57,7 +67,15 @@ window.onload = function() {
       "FRA": {fillKey: "european_union"},
       "NOR": {fillKey: "european_union"}
     }
+  });
 
-    });
+  function make_figures(error, data2015) {
 
-}
+		// return error if problem arrises
+		if (error) {
+			return alert(error);
+		}
+
+
+  };
+};

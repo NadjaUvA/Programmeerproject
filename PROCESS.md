@@ -6,3 +6,5 @@ Today I started with a world map that I initialized yesterday with the help of [
 I used code from [Datamaps](http://datamaps.github.io/) and trial and error to zoom in on Europe:
 
 [europe](\doc\log2.PNG)
+
+bla

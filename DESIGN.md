@@ -50,6 +50,7 @@ The following plugins will be used:
 
 Other:
 * Bootstrap
+* Colorbrewer
 
 ## Examples
 

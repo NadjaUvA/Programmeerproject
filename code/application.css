@@ -1,7 +1,7 @@
 /* Nadja van 't Hoff (11030720) */
 
 body {
-  font: 13px sans-serif;
+  font: 14px sans-serif;
   font-style: italic;
   background-color: WhiteSmoke;
 }
@@ -15,6 +15,7 @@ body {
 }
 
 footer {
+    font: 11px sans-serif;
     background-color: white;
     color: LightSlateGrey;
     padding: 15px;

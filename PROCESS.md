@@ -1,7 +1,7 @@
 ## 7th of june 2018
 Today I started with a world map that I initialized yesterday with the help of [Datamaps](http://datamaps.github.io/):
 
-![worldmap](/doc/log1.PNG)
+![worldmap](/doc/log1.PNG =100x20)
 
 I had some difficulties with getting a European map instead of just the world or USA. I used code from [Datamaps](http://datamaps.github.io/) and trial and error to zoom in on Europe:
 

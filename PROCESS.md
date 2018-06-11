@@ -21,3 +21,7 @@ Today I worked on the circle menu and I changed the data for the circle menu and
 
 ## 11th of june 2018
 Today, I implement the click function for the European map based on an example from [Stackoverflow](https://stackoverflow.com/questions/27215394/d3-datamaps-onclick-events-on-bubbles).
+
+I linked the European map with the circle menu and checked that the data values are correctly updated. Furthermore, I improved the layout of the application and I made the circles have moving waves. In addition, the axes of the radar chart are now correctly scaled. I started experimenting with changing the colors of the map which wasn't very succesful until now. I will go on with this tomorrow as well as with the dropdown menu for the radar chart. Currently, my application looks as follows:
+
+![update](/doc/log5.PNG)

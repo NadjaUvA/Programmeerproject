@@ -2,20 +2,6 @@
     [
         {
             "axis": "Recycled waste",
-            "value": 4.21427275
-        },
-        {
-            "axis": "Renewable energy",
-            "value": 0.0592535187
-        },
-        {
-            "axis": "CO2 emission",
-            "value": 0.155
-        }
-    ],
-    [
-        {
-            "axis": "Recycled waste",
             "value": 0.5227363250278473
         },
         {

@@ -29,9 +29,6 @@ with open("data2015.csv", "r") as File:
 
 # read data and convert into dict
 data = []
-data.append([{"axis": "Recycled waste", "value": maximum_recycled/100},
-             {"axis": "Renewable energy", "value": maximum_renewable/100},
-             {"axis": "CO2 emission", "value": maximum_co2/100}])
 
 # open CSV file to read data
 with open("data2015.csv", "r") as File:

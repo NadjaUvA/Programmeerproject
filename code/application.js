@@ -65,6 +65,7 @@ window.onload = function() {
       "FRA": {fillKey: "european_union"},
       "NOR": {fillKey: "european_union"}
     }
+
   });
 
   function make_figures(error, data2015, data_radar) {
@@ -73,6 +74,43 @@ window.onload = function() {
 		if (error) {
 			return alert(error);
 		}
+
+    // store maximum values from data
+    max_recycled = data2015["max"][0]
+    max_renewable = data2015["max"][1]
+    max_co2 = data2015["max"][2]
+
+    // draw first circle
+    var config1 = liquidFillGaugeDefaultSettings();
+    var gauge1 = loadLiquidFillGauge("fillgauge1", 60, max_recycled);
+
+    // draw second circle
+    var config2 = liquidFillGaugeDefaultSettings();
+    config2.circleColor = "#fdbf6f";
+    config2.waveColor = "#fdbf6f";
+    config2.waveTextColor = "#ff7f00";
+    var gauge2 = loadLiquidFillGauge("fillgauge2", 45, max_renewable, config2);
+
+    // draw third circle
+    var config3 = liquidFillGaugeDefaultSettings();
+    config3.circleColor = "#cab2d6";
+    config3.waveColor = "#cab2d6";
+    config3.waveTextColor = "#6a3d9a";
+    var gauge3 = loadLiquidFillGauge("fillgauge3", 55, max_co2, config3);
+
+    // update circle menu when country is clicked
+    map.svg.selectAll('.datamaps-subunit').on('click', function() {
+      country = d3.select(this)[0][0].classList[1];
+      map.updateChoropleth({BEL: "#000000"});
+      // update_country_colors(old_country, country)
+      gauge1.update(data2015[country][0]);
+      gauge2.update(data2015[country][1]);
+      gauge3.update(data2015[country][2]);
+    });
+
+    // make list of country codes
+    // var data_keys = Object.keys(data2015)
+    // countries = datakeys.slice(1, keys.length)
 
     var w = 400, h = 400;
 
@@ -300,24 +338,6 @@ window.onload = function() {
     };
 
     RadarChart.draw("#radar_chart", data_radar.slice(0,2), mycfg);
-
-    // draw first circle
-    var gauge1 = loadLiquidFillGauge("fillgauge1", 60);
-    var config1 = liquidFillGaugeDefaultSettings();
-
-    // draw second circle
-    var config2 = liquidFillGaugeDefaultSettings();
-    config2.circleColor = "#fdbf6f";
-    config2.waveColor = "#fdbf6f";
-    config2.waveTextColor = "#ff7f00";
-    var gauge2 = loadLiquidFillGauge("fillgauge2", 45, config2);
-
-    // draw third circle
-    var config3 = liquidFillGaugeDefaultSettings();
-    config3.circleColor = "#cab2d6";
-    config3.waveColor = "#cab2d6";
-    config3.waveTextColor = "#6a3d9a";
-    var gauge3 = loadLiquidFillGauge("fillgauge3", 55, config3);
 
 
 

@@ -325,18 +325,20 @@ window.onload = function() {
       ExtraWidthX: 300
     }
 
+    var selected_countries = [];
     // update the chart when input field is changed
 		$("input").change(function(){
-      var selected_countries = [];
+      var selected_countries_old = selected_countries;
+      selected_countries = [];
 			for (var i = 0, n = countries.length; i < n; i++) {
 				var country_checked = document.getElementById("checkbox" + countries[i]).checked;
 				if (country_checked) {
-					selected_countries.push(document.getElementsByClassName("dropdown-item")[i].id);
+					selected_countries.push(countries[i]);
 				};
 			};
 
       // execute update
-      update_radar(selected_countries, data_radar)
+      update_radar(selected_countries, selected_countries_old, data_radar)
 
     });
 
@@ -374,7 +376,7 @@ window.onload = function() {
     /**
     * updates the radar chart based on selected countries
     */
-    function update_radar(countries, data) {
+    function update_radar(countries, countries_old, data) {
 
       // prepare needed data for radar chart
       var data_countries = [];
@@ -382,7 +384,16 @@ window.onload = function() {
         data_countries.push(data[countries[i]]);
       };
 
-      RadarChart.draw("#radar_chart", data_countries, mycfg);
+      // draw chart if at least one country is selected
+      if (data_countries.length > 0) {
+        RadarChart.draw("#radar_chart", data_countries, mycfg);
+      }
+
+      // return error message when no country is selected
+      else {
+        alert("At least one country has to be selected for the radar chart!");
+        document.getElementById("checkbox" + countries_old[0]).checked = true;
+      }
     };
 
   };

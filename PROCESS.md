@@ -28,4 +28,6 @@ I linked the European map with the circle menu and checked that the data values 
 
 ## 12th of june 2018
 
-Today, I worked a bit more on the layout of the page. Moreover, I added a dropdown menu for the radar chart and I added the units of the variables in the circle menu. The texxt however doesn't position where I want it to be. Furthermore I worked on the colors of the maps using an [example](https://github.com/markmarkoh/datamaps/blob/master/src/examples/highmaps_world.html).
+Today, I worked a bit more on the layout of the page. Moreover, I added a dropdown menu for the radar chart and I added the units of the variables in the circle menu. The text however doesn't position where I want it to be. Furthermore I worked on the colors of the maps using an [example](https://github.com/markmarkoh/datamaps/blob/master/src/examples/highmaps_world.html). I linked the radar chart to the dropdown menu as well as the map. When a user unchecks all boxes, an alert pops up because at least one box has to be checked. Legends for the map and the radar chart are missing. Currently, my application looks as follows:
+
+![update](/doc/log6.PNG)

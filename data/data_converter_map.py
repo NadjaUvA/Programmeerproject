@@ -28,56 +28,55 @@ with open("data2015.csv", "r") as File:
                     maximum_co2 = float(line[2])
 
 # read data and convert into dict
-data = {}
+data = []
 
 # open CSV file to read data
 with open("data2015.csv", "r") as File:
     reader = csv.reader(File, delimiter=";")
     next(reader, None)
-
     i = 0
     nr_variables = 3
     for line in reader:
 
         # add country if it is first time this country is registered
         if i % nr_variables == 0:
-            country = []
+            value = 0
 
+        # add values for waste
         if line[1] == "Recycled waste":
-            line_data = {}
-            line_data["axis"] = line[1]
             if line[2] != ".":
-                line_data["value"] = float(line[2])/maximum_recycled
+                value += float(line[2])/maximum_recycled
 
-            # punish if value not available
+        # punish missing values with highest score
             else:
-                line_data["value"] = 0
-            country.append(line_data)
+                value = value - 1
 
-        if line[1] == "Renewable energy":
-            line_data = {}
-            line_data["axis"] = line[1]
+        # add values for energy
+        if line[1] == "Renewable energy" and line[2] != ".":
             if line[2] != ".":
-                line_data["value"] = float(line[2])/maximum_renewable
-            else:
-                line_data["value"] = 0
-            country.append(line_data)
+                value += float(line[2])/maximum_renewable
 
-        if line[1] == "CO2 emission":
-            line_data = {}
-            line_data["axis"] = line[1]
-            if line[2] != ".":
-                line_data["value"] = float(line[2])/maximum_co2
+        # punish missing values with highest score
             else:
-                line_data["value"] = 1
-            country.append(line_data)
+                value = value - 1
+
+        # punish country for co2 emission
+        if line[1] == "CO2 emission" and line[2] != ".":
+            if line[2] != ".":
+                value = value - float(line[2])/maximum_co2
+
+        # punish missing values with highest score
+            else:
+                value = value - 1
 
         # append object if all variables are added
         if i % nr_variables == nr_variables - 1:
-            data[line[0]] = country
-
+            tuple = []
+            tuple.append(line[0])
+            tuple.append(value)
+            data.append(tuple)
         i += 1
 
 # write dict with data to json data file
-with open("data_radar.json", "w") as f:
+with open("data_map.json", "w") as f:
     jsonString = json.dump(data, f, indent = 4)

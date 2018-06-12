@@ -15,6 +15,7 @@
 		<script src="https://d3js.org/queue.v1.min.js"></script>
 		<script src="code/liquid_fill_gauge.js"></script>
 		<script src="code/application.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 	</head>
 	<body>
@@ -23,23 +24,26 @@
 			<h2 class="header">An overview of the European environment goals</h2>
 		</div>
 		<div class="container">
-			<div class="row" style="height: 350px;">
+			<div class="row">
 				<div class="col-sm text-left">
 					<div class="container">
-						<div id="map" style="position: relative; height: 350px;"></div>
+						<div id="map" style="position: relative; height: 360px; width: 475px;"></div>
 					</div>
 				</div>
 				<div class="col-sm text-left">
 					<div class="container">
 						<div class="circle_menu">
-							<div class="row">
-								<svg id="fillgauge1" width="11%"></svg>
+							<div class="row" style="height: 125px;">
+								<svg id="fillgauge1" width="65px"></svg>
+								<strong class="unit">tonnes per capita recycled waste </strong>
 							</div>
-							<div class="row">
-								<svg id="fillgauge2" width="11%"></svg>
+							<div class="row" style="height: 125px;">
+								<svg id="fillgauge2" width="65px"></svg>
+								<strong class="unit">tonnes per capita renewed energy </strong>
 							</div>
-							<div class="row">
-								<svg id="fillgauge3" width="11%"></svg>
+							<div class="row" style="height: 125px;">
+								<svg id="fillgauge3" width="65px"></svg>
+								<strong class="unit">tonnes per capita CO2 emission </strong>
 							</div>
 						</div>
 					</div>
@@ -49,6 +53,38 @@
 				<div class="w-100"></div>
 				<div class="col-6 text-left">
 					<div class="container">
+						<div class="col-sm-2 sidenav" id="dropdown">
+							<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">Countries<span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" id="AUT" href="#"><input type="checkbox" id="checkbox0"/>Austria</a></li>
+								<li><a class="dropdown-item" id="BEL" href="#"><input type="checkbox" id="checkbox1"/>Belgium</a></li>
+								<li><a class="dropdown-item" id="BGR" href="#"><input type="checkbox" id="checkbox2"/>Bulgaria</a></li>
+								<li><a class="dropdown-item" id="HRV" href="#"><input type="checkbox" id="checkbox3"/>Croatia</a></li>
+								<li><a class="dropdown-item" id="CYP" href="#"><input type="checkbox" id="checkbox4"/>Cyprus</a></li>
+								<li><a class="dropdown-item" id="CZE" href="#"><input type="checkbox" id="checkbox5"/>Czech Republic</a></li>
+								<li><a class="dropdown-item" id="DNK" href="#"><input type="checkbox" id="checkbox6"/>Denmark</a></li>
+								<li><a class="dropdown-item" id="EST" href="#"><input type="checkbox" id="checkbox7"/>Estonia</a></li>
+								<li><a class="dropdown-item" id="FIN" href="#"><input type="checkbox" id="checkbox8"/>Finland</a></li>
+								<li><a class="dropdown-item" id="FRA" href="#"><input type="checkbox" id="checkbox9"/>France</a></li>
+								<li><a class="dropdown-item" id="DEU" href="#"><input type="checkbox" id="checkbox10"/>Germany</a></li>
+								<li><a class="dropdown-item" id="GBR" href="#"><input type="checkbox" id="checkbox11"/>Great Britain</a></li>
+								<li><a class="dropdown-item" id="GRC" href="#"><input type="checkbox" id="checkbox12"/>Greece</a></li>
+								<li><a class="dropdown-item" id="HUN" href="#"><input type="checkbox" id="checkbox13"/>Hungary</a></li>
+								<li><a class="dropdown-item" id="IRL" href="#"><input type="checkbox" id="checkbox14"/>Ireland</a></li>
+								<li><a class="dropdown-item" id="ITA" href="#"><input type="checkbox" id="checkbox15"/>Italy</a></li>
+								<li><a class="dropdown-item" id="LVA" href="#"><input type="checkbox" id="checkbox16"/>Latvia</a></li>
+								<li><a class="dropdown-item" id="LTU" href="#"><input type="checkbox" id="checkbox17"/>Lithuania</a></li>
+								<li><a class="dropdown-item" id="LUX" href="#"><input type="checkbox" id="checkbox18"/>Luxembourg</a></li>
+								<li><a class="dropdown-item" id="NLD" href="#"><input type="checkbox" id="checkbox19"/>Netherlands</a></li>
+								<li><a class="dropdown-item" id="NOR" href="#"><input type="checkbox" id="checkbox20"/>Norway</a></li>
+								<li><a class="dropdown-item" id="POL" href="#"><input type="checkbox" id="checkbox21"/>Poland</a></li>
+								<li><a class="dropdown-item" id="PRT" href="#"><input type="checkbox" id="checkbox22"/>Portugal</a></li>
+								<li><a class="dropdown-item" id="SVK" href="#"><input type="checkbox" id="checkbox23"/>Slovakia</a></li>
+								<li><a class="dropdown-item" id="SVN" href="#"><input type="checkbox" id="checkbox24"/>Slovenia</a></li>
+								<li><a class="dropdown-item" id="ESP" href="#"><input type="checkbox" id="checkbox25"/>Spain</a></li>
+								<li><a class="dropdown-item" id="SWE" href="#"><input type="checkbox" id="checkbox26"/>Sweden</a></li>
+							</ul>
+						</div>
 						<div id="radar_chart"></div>
 					</div>
 					<div class="col-6 text-left">

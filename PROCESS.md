@@ -25,3 +25,7 @@ Today, I implement the click function for the European map based on an example f
 I linked the European map with the circle menu and checked that the data values are correctly updated. Furthermore, I improved the layout of the application and I made the circles have moving waves. In addition, the axes of the radar chart are now correctly scaled. I started experimenting with changing the colors of the map which wasn't very succesful until now. I will go on with this tomorrow as well as with the dropdown menu for the radar chart. Currently, my application looks as follows:
 
 ![update](/doc/log5.PNG)
+
+## 12th of june 2018
+
+Today, I worked a bit more on the layout of the page. Moreover, I added a dropdown menu for the radar chart and I added the units of the variables in the circle menu. The texxt however doesn't position where I want it to be. Furthermore I worked on the colors of the maps using an [example](https://github.com/markmarkoh/datamaps/blob/master/src/examples/highmaps_world.html).

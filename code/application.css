@@ -10,12 +10,60 @@ body {
 	text-align: center;
 	font-style: normal;
 	font-weight: bold;
-	background-color: white;
-    padding: 15px;
+	background-color: White;
+  padding: 20px;
+}
+
+.unit {
+  padding: 14px 16px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.dropdown {
+	position: absolute;
+	padding: none;
+}
+
+.btn {
+	font-style: normal;
+	float: left;
+	float: top;
+  color: White;
+	background: Silver;
+  border-color: White;
+}
+
+.dropdown:hover .dropdown-menu {
+  backgroubnd-color: red
+}
+
+.dropdown-menu > li > a:hover {
+  background-color: Gainsboro;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 35%;
+  left: -15%;
+  padding-left: 5px;
+  height: auto;
+  max-height: 175px;
+  overflow-x: hidden;
+}
+
+.dropdown-item {
+	font: 14px sans-serif;
+	position: relative;
+}
+
+input[type="checkbox"] {
+      transform:scale(1.1, 1.1);
 }
 
 footer {
-    font: 11px sans-serif;
+    font: 14px sans-serif;
     background-color: white;
     color: LightSlateGrey;
     padding: 15px;

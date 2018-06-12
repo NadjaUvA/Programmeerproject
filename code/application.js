@@ -225,118 +225,76 @@ window.onload = function() {
   queue()
     .defer(d3.json, "../data/data2015.json")
     .defer(d3.json, "../data/data_radar.json")
+    .defer(d3.json, "../data/data_map.json")
     .await(make_figures);
 
-  // create European map
-  var map = new Datamap({element: document.getElementById("map"),
 
-    // zoom in on Europe
-    setProjection: function(element) {
-      var projection = d3.geo.equirectangular()
-        .center([12, 52])
-        .rotate([1, 0])
-        .scale(490)
-        .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
-      var path = d3.geo.path()
-        .projection(projection);
 
-      return {path: path, projection: projection};
-    },
-
-    // set hover specifications
-    geographyConfig: {
-      highlightFillColor: "#2b8cbe",
-      highlightBorderColor: "#c0c0c0"
-    },
-
-    // color countries belonging to European Union
-    fills: {
-      defaultFill: "#ece7f2",
-      european_union: "#a6bddb",
-      update_colors: "#2b8cbe"
-    },
-
-    data: {
-      "BEL": {fillKey: "european_union"},
-      "BGR": {fillKey: "european_union"},
-      "CYP": {fillKey: "european_union"},
-      "DNK": {fillKey: "european_union"},
-      "DEU": {fillKey: "european_union"},
-      "EST": {fillKey: "european_union"},
-      "FIN": {fillKey: "european_union"},
-      "GRC": {fillKey: "european_union"},
-      "HUN": {fillKey: "european_union"},
-      "IRL": {fillKey: "european_union"},
-      "ITA": {fillKey: "european_union"},
-      "HRV": {fillKey: "european_union"},
-      "LVA": {fillKey: "european_union"},
-      "LTU": {fillKey: "european_union"},
-      "LUX": {fillKey: "european_union"},
-      "NLD": {fillKey: "european_union"},
-      "AUT": {fillKey: "european_union"},
-      "POL": {fillKey: "european_union"},
-      "PRT": {fillKey: "european_union"},
-      "SVN": {fillKey: "european_union"},
-      "SVK": {fillKey: "european_union"},
-      "ESP": {fillKey: "european_union"},
-      "CZE": {fillKey: "european_union"},
-      "GBR": {fillKey: "european_union"},
-      "SWE": {fillKey: "european_union"},
-      "FRA": {fillKey: "european_union"},
-      "NOR": {fillKey: "european_union"}
-    },
-
-  });
-
-  function make_figures(error, data2015, data_radar) {
+  function make_figures(error, data2015, data_radar, data_map) {
 
 		// return error if problem arrises
 		if (error) {
 			return alert(error);
 		}
 
-    // make list of country codes
+    // // make list of country codes
     var data_keys = Object.keys(data2015)
     countries = data_keys.slice(1, data_keys.length)
 
-    // make object with number indices
-    country_object = {}
-    i = 0
-    for (country in countries) {
-      country_object[i] = 0
-      i += 1
-    };
-
     // store maximum values from data
-    max_recycled = data2015["max"][0]
-    max_renewable = data2015["max"][1]
-    max_co2 = data2015["max"][2]
+    var max_recycled = data2015["max"][0],
+      max_renewable = data2015["max"][1],
+      max_co2 = data2015["max"][2];
 
-    black = "#000000"
 
-    if (true) {
-      map.updateChoropleth({
-        BEL: black
-      });
-    }
+    // determine min and max of performance values
+    var onlyValues = data_map.map(function(obj){ return obj[1]; });
+    var minValue = Math.min.apply(null, onlyValues)
+        maxValue = Math.max.apply(null, onlyValues);
 
-    color1 = "#eff3ff"
-    color2 = "#bdd7e7"
-    color3 = "#6baed6"
-    color4 = "#2171b5"
+    // create color palette function
+    var paletteScale = d3.scale.linear()
+          .domain([minValue, maxValue])
+          .range(["#fff7fb", "#034e7b"]);
 
-    // establish list with index of performance of countries for colorscheme
-    i = 0
-    color_values = []
-    for (country in countries) {
-      value = 0
-      value += data2015[countries[i]][0]/max_recycled
-      value += data2015[countries[i]][1]/max_renewable
-      value += data2015[countries[i]][2]/max_co2
-      color_values.push(value)
-      i += 1
-    }
+    // fill dataset in appropriate format
+    var dataset = {}
+    data_map.forEach(function(item){
+        var iso = item[0],
+                value = item[1];
+        dataset[iso] = { numberOfThings: value, fillColor: paletteScale(value) };
+    });
 
+    // create European map
+    var map = new Datamap({element: document.getElementById("map"),
+
+      // zoom in on Europe
+      setProjection: function(element) {
+        var projection = d3.geo.equirectangular()
+          .center([11, 53])
+          .rotate([1, 0])
+          .scale(550)
+          .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+        var path = d3.geo.path()
+          .projection(projection);
+
+        return {path: path, projection: projection};
+      },
+
+      fills: { defaultFill: "#ece7f2" },
+
+      data: dataset,
+
+      // set hover specifications
+      geographyConfig: {
+        // don't change color on mouse hover
+        highlightFillColor: function(geo) {
+            return geo['fillColor'] || '#F5F5F5';
+        },
+        highlightBorderColor: "#000000"
+      },
+
+    });
 
     // draw first circle
     var config1 = liquidFillGaugeDefaultSettings();
@@ -356,14 +314,6 @@ window.onload = function() {
     config3.waveTextColor = "#6a3d9a";
     var gauge3 = loadLiquidFillGauge("fillgauge3", 0, max_co2, config3);
 
-    // update circle menu when country is clicked
-    map.svg.selectAll('.datamaps-subunit').on('click', function() {
-      country = d3.select(this)[0][0].classList[1];
-      gauge1.update(data2015[country][0]);
-      gauge2.update(data2015[country][1]);
-      gauge3.update(data2015[country][2]);
-    });
-
     var colorscale = d3.scale.category10();
 
     //Options for the Radar chart, other than default
@@ -375,7 +325,46 @@ window.onload = function() {
       ExtraWidthX: 300
     }
 
-    RadarChart.draw("#radar_chart", data_radar.slice(0,6), mycfg);
+    // update the chart when input field is changed
+		$("input").change(function(){
+      var selected_countries = [];
+			for (var i = 0, n = countries.length; i < n; i++) {
+				var country_checked = document.getElementById("checkbox" + i).checked;
+				if (country_checked) {
+					selected_countries.push(document.getElementsByClassName("dropdown-item")[i].id);
+				};
+			};
+
+      countries = selected_countries.concat([selected_country])
+
+      // execute update
+      update_radar(countries, data_radar)
+
+    });
+
+    var selected_country = 0;
+    // update circle menu and radar chart when country is clicked
+    map.svg.selectAll('.datamaps-subunit').on('click', function() {
+      selected_country = d3.select(this)[0][0].classList[1];
+      gauge1.update(data2015[selected_country][0]);
+      gauge2.update(data2015[selected_country][1]);
+      gauge3.update(data2015[selected_country][2]);
+      update_radar([selected_country], data_radar)
+    });
+
+
+    /**
+    * updates the radar chart based on selected countries
+    */
+    function update_radar(countries, data) {
+      data_countries = []
+
+      for (i = 0, n = countries.length; i < n; i++) {
+        data_countries.push(data[countries[i]]);
+      };
+
+      RadarChart.draw("#radar_chart", data_countries, mycfg);
+    };
 
   };
 };

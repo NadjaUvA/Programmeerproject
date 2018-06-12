@@ -1,5 +1,5 @@
-[
-    [
+{
+    "BEL": [
         {
             "axis": "Recycled waste",
             "value": 0.5227363250278473
@@ -13,7 +13,11 @@
             "value": 0.529032258064516
         }
     ],
-    [
+    "BGR": [
+        {
+            "axis": "Recycled waste",
+            "value": 0
+        },
         {
             "axis": "Renewable energy",
             "value": 0.31043757035141273
@@ -23,7 +27,11 @@
             "value": 0.39354838709677414
         }
     ],
-    [
+    "CYP": [
+        {
+            "axis": "Recycled waste",
+            "value": 0
+        },
         {
             "axis": "Renewable energy",
             "value": 0.005181607889895659
@@ -33,7 +41,7 @@
             "value": 0.45161290322580644
         }
     ],
-    [
+    "DNK": [
         {
             "axis": "Recycled waste",
             "value": 0.8661802395205673
@@ -47,7 +55,7 @@
             "value": 0.36129032258064514
         }
     ],
-    [
+    "DEU": [
         {
             "axis": "Recycled waste",
             "value": 1.0
@@ -61,7 +69,7 @@
             "value": 0.5741935483870968
         }
     ],
-    [
+    "EST": [
         {
             "axis": "Recycled waste",
             "value": 0.24125699505329834
@@ -75,7 +83,7 @@
             "value": 0.7612903225806452
         }
     ],
-    [
+    "FIN": [
         {
             "axis": "Recycled waste",
             "value": 0.48122144443546044
@@ -89,7 +97,7 @@
             "value": 0.4967741935483871
         }
     ],
-    [
+    "GRC": [
         {
             "axis": "Recycled waste",
             "value": 0.17636555203979146
@@ -103,7 +111,7 @@
             "value": 0.3806451612903226
         }
     ],
-    [
+    "HUN": [
         {
             "axis": "Recycled waste",
             "value": 0.2898866856683635
@@ -117,7 +125,7 @@
             "value": 0.27741935483870966
         }
     ],
-    [
+    "IRL": [
         {
             "axis": "Recycled waste",
             "value": 0.4853589317397645
@@ -131,7 +139,7 @@
             "value": 0.49032258064516127
         }
     ],
-    [
+    "ITA": [
         {
             "axis": "Recycled waste",
             "value": 0.5121468348245851
@@ -145,13 +153,21 @@
             "value": 0.34838709677419355
         }
     ],
-    [
+    "HRV": [
+        {
+            "axis": "Recycled waste",
+            "value": 0
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0
+        },
         {
             "axis": "CO2 emission",
             "value": 0.23870967741935484
         }
     ],
-    [
+    "LVA": [
         {
             "axis": "Recycled waste",
             "value": 0.27274744616375385
@@ -165,7 +181,11 @@
             "value": 0.22580645161290322
         }
     ],
-    [
+    "LTU": [
+        {
+            "axis": "Recycled waste",
+            "value": 0
+        },
         {
             "axis": "Renewable energy",
             "value": 0.411511755166027
@@ -175,7 +195,7 @@
             "value": 0.23225806451612904
         }
     ],
-    [
+    "LUX": [
         {
             "axis": "Recycled waste",
             "value": 0.6865694205483023
@@ -189,7 +209,7 @@
             "value": 1.0
         }
     ],
-    [
+    "NLD": [
         {
             "axis": "Recycled waste",
             "value": 0.6432961701399132
@@ -203,7 +223,7 @@
             "value": 0.5935483870967742
         }
     ],
-    [
+    "AUT": [
         {
             "axis": "Recycled waste",
             "value": 0.7523559100440284
@@ -217,7 +237,7 @@
             "value": 0.4645161290322581
         }
     ],
-    [
+    "POL": [
         {
             "axis": "Recycled waste",
             "value": 0.28629370275096694
@@ -231,7 +251,7 @@
             "value": 0.47096774193548385
         }
     ],
-    [
+    "PRT": [
         {
             "axis": "Recycled waste",
             "value": 0.3245029643608141
@@ -245,7 +265,7 @@
             "value": 0.2903225806451613
         }
     ],
-    [
+    "SVN": [
         {
             "axis": "Recycled waste",
             "value": 0.572906824789639
@@ -259,7 +279,7 @@
             "value": 0.4
         }
     ],
-    [
+    "SVK": [
         {
             "axis": "Recycled waste",
             "value": 0.08016933645312824
@@ -273,7 +293,7 @@
             "value": 0.34838709677419355
         }
     ],
-    [
+    "ESP": [
         {
             "axis": "Recycled waste",
             "value": 0.32461828674947535
@@ -287,7 +307,7 @@
             "value": 0.3419354838709677
         }
     ],
-    [
+    "CZE": [
         {
             "axis": "Recycled waste",
             "value": 0.22180672572746982
@@ -301,7 +321,7 @@
             "value": 0.6064516129032258
         }
     ],
-    [
+    "GBR": [
         {
             "axis": "Recycled waste",
             "value": 0.49763789019113674
@@ -315,7 +335,7 @@
             "value": 0.3870967741935484
         }
     ],
-    [
+    "SWE": [
         {
             "axis": "Recycled waste",
             "value": 0.5105518621214064
@@ -329,7 +349,7 @@
             "value": 0.24516129032258063
         }
     ],
-    [
+    "FRA": [
         {
             "axis": "Recycled waste",
             "value": 0.5014970091814773
@@ -343,7 +363,7 @@
             "value": 0.2838709677419355
         }
     ],
-    [
+    "NOR": [
         {
             "axis": "Recycled waste",
             "value": 0.42719333721340175
@@ -357,4 +377,4 @@
             "value": 0.45806451612903226
         }
     ]
-]
+}

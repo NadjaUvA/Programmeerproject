@@ -329,16 +329,14 @@ window.onload = function() {
 		$("input").change(function(){
       var selected_countries = [];
 			for (var i = 0, n = countries.length; i < n; i++) {
-				var country_checked = document.getElementById("checkbox" + i).checked;
+				var country_checked = document.getElementById("checkbox" + countries[i]).checked;
 				if (country_checked) {
 					selected_countries.push(document.getElementsByClassName("dropdown-item")[i].id);
 				};
 			};
 
-      countries = selected_countries.concat([selected_country])
-
       // execute update
-      update_radar(countries, data_radar)
+      update_radar(selected_countries, data_radar)
 
     });
 
@@ -349,16 +347,37 @@ window.onload = function() {
       gauge1.update(data2015[selected_country][0]);
       gauge2.update(data2015[selected_country][1]);
       gauge3.update(data2015[selected_country][2]);
-      update_radar([selected_country], data_radar)
+      start_radar(selected_country, data_radar, countries);
     });
 
+    /**
+    * resets the radar chart with country selected from map
+    */
+    function start_radar(country, data, countries) {
+      for (var i = 0, n = countries.length; i < n; i++) {
+
+        // uncheck all boxes of countries that are not clicked on
+        if (countries[i] != country) {
+          document.getElementById("checkbox" + countries[i]).checked = false;
+        }
+
+        // check box of selected country
+        else {
+          document.getElementById("checkbox" + country).checked = true;
+        }
+      };
+
+      // draw radar chart of selected country
+      RadarChart.draw("#radar_chart", [data[country]], mycfg);
+    };
 
     /**
     * updates the radar chart based on selected countries
     */
     function update_radar(countries, data) {
-      data_countries = []
 
+      // prepare needed data for radar chart
+      var data_countries = [];
       for (i = 0, n = countries.length; i < n; i++) {
         data_countries.push(data[countries[i]]);
       };

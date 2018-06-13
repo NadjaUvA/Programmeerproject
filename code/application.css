@@ -14,6 +14,10 @@ body {
   padding: 20px;
 }
 
+.datamaps-subunit {
+  stroke-width: 2px !important;
+}
+
 .unit {
   padding: 14px 16px;
   display: table-cell;

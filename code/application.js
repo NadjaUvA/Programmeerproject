@@ -342,15 +342,37 @@ window.onload = function() {
 
     });
 
-    var selected_country = 0;
+    var selected_country = 0, selected_country_old = 0;
     // update circle menu and radar chart when country is clicked
     map.svg.selectAll('.datamaps-subunit').on('click', function() {
+      selected_country_old = selected_country;
       selected_country = d3.select(this)[0][0].classList[1];
+      change_border_color(selected_country, selected_country_old);
       gauge1.update(data2015[selected_country][0]);
       gauge2.update(data2015[selected_country][1]);
       gauge3.update(data2015[selected_country][2]);
       start_radar(selected_country, data_radar, countries);
     });
+
+    function change_border_color(selected_country, selected_country_old) {
+      if (selected_country_old != 0) {
+        var country_old = document.getElementsByClassName("datamaps-subunit " + selected_country_old)[0];
+        country_old.style.stroke = "#000000";
+      }
+      var country = document.getElementsByClassName("datamaps-subunit " + selected_country)[0];
+      country.style.stroke = "#000000";
+    }
+
+    // function change_border_color(selected_country, selected_country_old) {
+    //   if (selected_country_old != 0) {
+    //     var country_old = document.getElementsByClassName("datamaps-subunit " + selected_country_old)[0];
+    //     country_old.style.stroke = "#ffffff";
+    //   }
+    //   var country = document.getElementsByClassName("datamaps-subunit " + selected_country)[0];
+    //   console.log(country.style.stroke);
+    //   country.style.stroke = "#000000";
+    //   console.log(country.style.stroke);
+    // }
 
     /**
     * resets the radar chart with country selected from map

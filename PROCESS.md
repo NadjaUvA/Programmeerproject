@@ -27,7 +27,11 @@ I linked the European map with the circle menu and checked that the data values 
 ![update](/doc/log5.PNG)
 
 ## 12th of june 2018
-
 Today, I worked a bit more on the layout of the page. Moreover, I added a dropdown menu for the radar chart and I added the units of the variables in the circle menu. The text however doesn't position where I want it to be. Furthermore I worked on the colors of the maps using an [example](https://github.com/markmarkoh/datamaps/blob/master/src/examples/highmaps_world.html). I linked the radar chart to the dropdown menu as well as the map. When a user unchecks all boxes, an alert pops up because at least one box has to be checked. Legends for the map and the radar chart are missing. Currently, my application looks as follows:
 
 ![update](/doc/log6.PNG)
+
+## 13th of june 2018
+Today, I added that the country that is clicked on gets a black border until the next country is clicked on. Furthermore, I updated the layout of the text next to the circles. I added a legend for the map using an [example](http://eyeseast.github.io/visible-data/2013/08/27/responsive-legends-with-d3/). I added a legend for the radar chart that updates when new countries are selected. However, the button to select the countries doesn't work anymore after it is used once. I will sort this problem out soon. Currently, my application looks as follows:
+
+![update](/doc/log7.PNG)

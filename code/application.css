@@ -18,11 +18,25 @@ body {
   stroke-width: 2px !important;
 }
 
+#legend {
+    padding: 1.5em 0 0 1.5em;
+}
+
+li.key {
+    border-top-width: 15px;
+    border-top-style: solid;
+    font-size: .75em;
+    width: 10%;
+    padding-left: 0;
+    padding-right: 0;
+    display: table-cell;
+    font-weight: bold;
+}
+
 .unit {
   padding: 14px 16px;
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
+  position: relative;
+  top: 33%;
 }
 
 .dropdown {
@@ -64,6 +78,10 @@ body {
 
 input[type="checkbox"] {
       transform:scale(1.1, 1.1);
+}
+
+#radar_legend {
+  position: absolute;
 }
 
 footer {

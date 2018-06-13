@@ -6,6 +6,9 @@
 
 var w = 400, h = 400;
 
+var selected_country = 0;
+var selected_country_old = 0;
+
 var RadarChart = {
   draw: function(id, data_radar, options){
   var cfg = {
@@ -287,14 +290,37 @@ window.onload = function() {
 
       // set hover specifications
       geographyConfig: {
+
         // don't change color on mouse hover
         highlightFillColor: function(geo) {
             return geo['fillColor'] || '#F5F5F5';
         },
-        highlightBorderColor: "#000000"
+        highlightOnHover: false,
+        popupOnHover: true
       },
-
     });
+
+    // set color scale for legend of map
+    var colors = d3.scale.quantize()
+    .range(['#f1eef6','#bdc9e1','#74a9cf','#2b8cbe','#045a8d']);
+
+    // add legend of map
+    var legend = d3.select('#legend')
+      .append('ul')
+      .attr('class', 'list-inline');
+
+    // add data for legend of map
+    var keys = legend.selectAll('li.key')
+        .data(colors.range());
+
+    // add colors and text to legend of map
+    var legendText = ["Environment unfriendly", "", "", "", "Environment friendly"]
+    keys.enter().append('li')
+        .attr('class', 'key')
+        .style('border-top-color', String)
+        .text(function(d, i) {
+            return legendText[i];
+        });
 
     // draw first circle
     var config1 = liquidFillGaugeDefaultSettings();
@@ -313,8 +339,6 @@ window.onload = function() {
     config3.waveColor = "#cab2d6";
     config3.waveTextColor = "#6a3d9a";
     var gauge3 = loadLiquidFillGauge("fillgauge3", 0, max_co2, config3);
-
-    var colorscale = d3.scale.category10();
 
     //Options for the Radar chart, other than default
     var mycfg = {
@@ -338,41 +362,40 @@ window.onload = function() {
 			};
 
       // execute update
-      update_radar(selected_countries, selected_countries_old, data_radar)
+      update_radar(selected_countries, selected_countries_old, data_radar);
+
+      // update country border if page is opened for the first time
+      if (selected_country_old == 0 && selected_countries.length == 1)  {
+        update_border_color(selected_countries[0], selected_country_old, countries);
+      };
 
     });
 
-    var selected_country = 0, selected_country_old = 0;
     // update circle menu and radar chart when country is clicked
     map.svg.selectAll('.datamaps-subunit').on('click', function() {
       selected_country_old = selected_country;
       selected_country = d3.select(this)[0][0].classList[1];
-      change_border_color(selected_country, selected_country_old);
+      selected_country = update_border_color(selected_country, selected_country_old, countries);
       gauge1.update(data2015[selected_country][0]);
       gauge2.update(data2015[selected_country][1]);
       gauge3.update(data2015[selected_country][2]);
       start_radar(selected_country, data_radar, countries);
     });
 
-    function change_border_color(selected_country, selected_country_old) {
-      if (selected_country_old != 0) {
-        var country_old = document.getElementsByClassName("datamaps-subunit " + selected_country_old)[0];
-        country_old.style.stroke = "#000000";
+    function update_border_color(selected_country, selected_country_old, countries) {
+      if ($.inArray(selected_country, countries) != -1) {
+        if (selected_country_old != 0) {
+          var country_old = document.getElementsByClassName("datamaps-subunit " + selected_country_old)[0];
+          country_old.style.stroke = "#ffffff";
+        }
+        var country = document.getElementsByClassName("datamaps-subunit " + selected_country)[0];
+        country.style.stroke = "#000000";
       }
-      var country = document.getElementsByClassName("datamaps-subunit " + selected_country)[0];
-      country.style.stroke = "#000000";
-    }
-
-    // function change_border_color(selected_country, selected_country_old) {
-    //   if (selected_country_old != 0) {
-    //     var country_old = document.getElementsByClassName("datamaps-subunit " + selected_country_old)[0];
-    //     country_old.style.stroke = "#ffffff";
-    //   }
-    //   var country = document.getElementsByClassName("datamaps-subunit " + selected_country)[0];
-    //   console.log(country.style.stroke);
-    //   country.style.stroke = "#000000";
-    //   console.log(country.style.stroke);
-    // }
+      else {
+        selected_country = selected_country_old;
+      }
+      return selected_country;
+    };
 
     /**
     * resets the radar chart with country selected from map
@@ -393,6 +416,10 @@ window.onload = function() {
 
       // draw radar chart of selected country
       RadarChart.draw("#radar_chart", [data[country]], mycfg);
+
+      update_legend_radar([country]);
+
+      ;
     };
 
     /**
@@ -402,7 +429,9 @@ window.onload = function() {
 
       // prepare needed data for radar chart
       var data_countries = [];
+      var displayed_countries = [];
       for (i = 0, n = countries.length; i < n; i++) {
+        displayed_countries.push(countries[i]);
         data_countries.push(data[countries[i]]);
       };
 
@@ -416,7 +445,64 @@ window.onload = function() {
         alert("At least one country has to be selected for the radar chart!");
         document.getElementById("checkbox" + countries_old[0]).checked = true;
       }
+
+      update_legend_radar(displayed_countries);
     };
+
+    function update_legend_radar(displayed_countries) {
+
+      d3.selectAll("svg.legend-chart").remove();
+
+      var colorscale = d3.scale.category10();
+
+      //Legend titles
+      var LegendOptions = displayed_countries;
+
+      var svg = d3.select('#radar_legend')
+      	.append('svg')
+        .attr('class', 'legend-chart')
+      	.attr("width", w+300)
+      	.attr("height", h-300)
+
+      //Create the title for the legend
+      var text = svg.append("text")
+      	.attr("class", "title")
+      	.attr('transform', 'translate(90,0)')
+      	.attr("x", w - 70)
+      	.attr("y", 10)
+      	.attr("font-size", "12px")
+      	.attr("fill", "#404040")
+      	.text("Countries");
+
+      //Initiate Legend
+      var legend = svg.append("g")
+      	.attr("class", "legend")
+      	.attr("height", 100)
+      	.attr("width", 200)
+      	.attr('transform', 'translate(90,20)')
+      	;
+      	//Create colour squares
+      	legend.selectAll('rect')
+      	  .data(LegendOptions)
+      	  .enter()
+      	  .append("rect")
+      	  .attr("x", w - 65)
+      	  .attr("y", function(d, i){ return i * 20;})
+      	  .attr("width", 10)
+      	  .attr("height", 10)
+      	  .style("fill", function(d, i){ return colorscale(i);})
+      	  ;
+      	//Create text next to squares
+      	legend.selectAll('text')
+      	  .data(LegendOptions)
+      	  .enter()
+      	  .append("text")
+      	  .attr("x", w - 52)
+      	  .attr("y", function(d, i){ return i * 20 + 9;})
+      	  .attr("font-size", "11px")
+      	  .attr("fill", "#737373")
+      	  .text(function(d) { return d; })
+    }
 
   };
 };

@@ -23,25 +23,28 @@
 		<div>
 			<h2 class="header">An overview of the European environment goals</h2>
 		</div>
-		<div class="container">
+		<div class="container" id="figures">
 			<div class="row">
 				<div class="col-sm text-left">
 					<div class="container">
-						<div id="map" style="position: relative; height: 360px; width: 475px;"></div>
+						<div id="map" style="position: relative; height: 360px; width: 100%;"></div>
+						<div id="legend">
+							<normal>Environment friendliness of a country relative to other countries</normal>
+						</div>
 					</div>
 				</div>
 				<div class="col-sm text-left">
 					<div class="container">
 						<div class="circle_menu">
-							<div class="row" style="height: 125px;">
+							<div class="row" style="height: 125px; width: 100%;">
 								<svg id="fillgauge1" width="65px"></svg>
 								<strong class="unit">tonnes per capita recycled waste </strong>
 							</div>
-							<div class="row" style="height: 125px;">
+							<div class="row" style="height: 125px; width: 100%;">
 								<svg id="fillgauge2" width="65px"></svg>
 								<strong class="unit">tonnes per capita renewed energy </strong>
 							</div>
-							<div class="row" style="height: 125px;">
+							<div class="row" style="height: 125px; width: 100%;">
 								<svg id="fillgauge3" width="65px"></svg>
 								<strong class="unit">tonnes per capita CO2 emission </strong>
 							</div>
@@ -85,6 +88,7 @@
 								<li><a class="dropdown-item" id="SWE" href="#"><input type="checkbox" id="checkboxSWE"/>Sweden</a></li>
 							</ul>
 						</div>
+						<div id="radar_legend"></div>
 						<div id="radar_chart"></div>
 					</div>
 					<div class="col-6 text-left">

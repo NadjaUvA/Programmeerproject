@@ -14,6 +14,11 @@ body {
   padding: 20px;
 }
 
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .datamaps-subunit {
   stroke-width: 2px !important;
 }

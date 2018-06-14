@@ -25,11 +25,12 @@
 		</div>
 		<div class="container" id="figures">
 			<div class="row">
+				<h5 class="header" style="width: 100%">The current environmental friendliness of the countries of the European Union</h5>
 				<div class="col-sm text-left">
-					<div class="container">
+					<div class="container" style='border: "White"'>
 						<div id="map" style="position: relative; height: 360px; width: 100%;"></div>
 						<div id="legend">
-							<normal>Environment friendliness of a country relative to other countries</normal>
+							<normal>Environmental friendliness of a country relative to other countries</normal>
 						</div>
 					</div>
 				</div>
@@ -38,56 +39,58 @@
 						<div class="circle_menu">
 							<div class="row" style="height: 125px; width: 100%;">
 								<svg id="fillgauge1" width="65px"></svg>
-								<strong class="unit">tonnes per capita recycled waste </strong>
+								<strong class="unit">kg per capita of recycled waste </strong>
 							</div>
 							<div class="row" style="height: 125px; width: 100%;">
 								<svg id="fillgauge2" width="65px"></svg>
-								<strong class="unit">tonnes per capita renewed energy </strong>
+								<strong class="unit">TOE per capita of renewed energy </strong>
 							</div>
 							<div class="row" style="height: 125px; width: 100%;">
 								<svg id="fillgauge3" width="65px"></svg>
-								<strong class="unit">tonnes per capita CO2 emission </strong>
+								<strong class="unit">tonnes per capita of CO2 emission </strong>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
+				<h5 class="header" style="width: 100%">A comparison of the performance of different countries</h5>
 				<div class="w-100"></div>
 				<div class="col-6 text-left">
 					<div class="container">
 						<div class="col-sm-2 sidenav" id="dropdown">
-							<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">Countries<span class="caret"></span></button>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" id="AUT" href="#"><input type="checkbox" id="checkboxAUT"/>Austria</a></li>
-								<li><a class="dropdown-item" id="BEL" href="#"><input type="checkbox" id="checkboxBEL"/>Belgium</a></li>
-								<li><a class="dropdown-item" id="BGR" href="#"><input type="checkbox" id="checkboxBGR"/>Bulgaria</a></li>
-								<li><a class="dropdown-item" id="HRV" href="#"><input type="checkbox" id="checkboxHRV"/>Croatia</a></li>
-								<li><a class="dropdown-item" id="CYP" href="#"><input type="checkbox" id="checkboxCYP"/>Cyprus</a></li>
-								<li><a class="dropdown-item" id="CZE" href="#"><input type="checkbox" id="checkboxCZE"/>Czech Republic</a></li>
-								<li><a class="dropdown-item" id="DNK" href="#"><input type="checkbox" id="checkboxDNK"/>Denmark</a></li>
-								<li><a class="dropdown-item" id="EST" href="#"><input type="checkbox" id="checkboxEST"/>Estonia</a></li>
-								<li><a class="dropdown-item" id="FIN" href="#"><input type="checkbox" id="checkboxFIN"/>Finland</a></li>
-								<li><a class="dropdown-item" id="FRA" href="#"><input type="checkbox" id="checkboxFRA"/>France</a></li>
-								<li><a class="dropdown-item" id="DEU" href="#"><input type="checkbox" id="checkboxDEU"/>Germany</a></li>
-								<li><a class="dropdown-item" id="GBR" href="#"><input type="checkbox" id="checkboxGBR"/>Great Britain</a></li>
-								<li><a class="dropdown-item" id="GRC" href="#"><input type="checkbox" id="checkboxGRC"/>Greece</a></li>
-								<li><a class="dropdown-item" id="HUN" href="#"><input type="checkbox" id="checkboxHUN"/>Hungary</a></li>
-								<li><a class="dropdown-item" id="IRL" href="#"><input type="checkbox" id="checkboxIRL"/>Ireland</a></li>
-								<li><a class="dropdown-item" id="ITA" href="#"><input type="checkbox" id="checkboxITA"/>Italy</a></li>
-								<li><a class="dropdown-item" id="LVA" href="#"><input type="checkbox" id="checkboxLVA"/>Latvia</a></li>
-								<li><a class="dropdown-item" id="LTU" href="#"><input type="checkbox" id="checkboxLTU"/>Lithuania</a></li>
-								<li><a class="dropdown-item" id="LUX" href="#"><input type="checkbox" id="checkboxLUX"/>Luxembourg</a></li>
-								<li><a class="dropdown-item" id="NLD" href="#"><input type="checkbox" id="checkboxNLD"/>Netherlands</a></li>
-								<li><a class="dropdown-item" id="NOR" href="#"><input type="checkbox" id="checkboxNOR"/>Norway</a></li>
-								<li><a class="dropdown-item" id="POL" href="#"><input type="checkbox" id="checkboxPOL"/>Poland</a></li>
-								<li><a class="dropdown-item" id="PRT" href="#"><input type="checkbox" id="checkboxPRT"/>Portugal</a></li>
-								<li><a class="dropdown-item" id="SVK" href="#"><input type="checkbox" id="checkboxSVK"/>Slovakia</a></li>
-								<li><a class="dropdown-item" id="SVN" href="#"><input type="checkbox" id="checkboxSVN"/>Slovenia</a></li>
-								<li><a class="dropdown-item" id="ESP" href="#"><input type="checkbox" id="checkboxESP"/>Spain</a></li>
-								<li><a class="dropdown-item" id="SWE" href="#"><input type="checkbox" id="checkboxSWE"/>Sweden</a></li>
-							</ul>
+								<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">Countries<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" id="AUT" href="#"><input type="checkbox" id="checkboxAUT"/>Austria</a></li>
+									<li><a class="dropdown-item" id="BEL" href="#"><input type="checkbox" id="checkboxBEL"/>Belgium</a></li>
+									<li><a class="dropdown-item" id="BGR" href="#"><input type="checkbox" id="checkboxBGR"/>Bulgaria</a></li>
+									<li><a class="dropdown-item" id="HRV" href="#"><input type="checkbox" id="checkboxHRV"/>Croatia</a></li>
+									<li><a class="dropdown-item" id="CYP" href="#"><input type="checkbox" id="checkboxCYP"/>Cyprus</a></li>
+									<li><a class="dropdown-item" id="CZE" href="#"><input type="checkbox" id="checkboxCZE"/>Czech Republic</a></li>
+									<li><a class="dropdown-item" id="DNK" href="#"><input type="checkbox" id="checkboxDNK"/>Denmark</a></li>
+									<li><a class="dropdown-item" id="EST" href="#"><input type="checkbox" id="checkboxEST"/>Estonia</a></li>
+									<li><a class="dropdown-item" id="FIN" href="#"><input type="checkbox" id="checkboxFIN"/>Finland</a></li>
+									<li><a class="dropdown-item" id="FRA" href="#"><input type="checkbox" id="checkboxFRA"/>France</a></li>
+									<li><a class="dropdown-item" id="DEU" href="#"><input type="checkbox" id="checkboxDEU"/>Germany</a></li>
+									<li><a class="dropdown-item" id="GBR" href="#"><input type="checkbox" id="checkboxGBR"/>Great Britain</a></li>
+									<li><a class="dropdown-item" id="GRC" href="#"><input type="checkbox" id="checkboxGRC"/>Greece</a></li>
+									<li><a class="dropdown-item" id="HUN" href="#"><input type="checkbox" id="checkboxHUN"/>Hungary</a></li>
+									<li><a class="dropdown-item" id="IRL" href="#"><input type="checkbox" id="checkboxIRL"/>Ireland</a></li>
+									<li><a class="dropdown-item" id="ITA" href="#"><input type="checkbox" id="checkboxITA"/>Italy</a></li>
+									<li><a class="dropdown-item" id="LVA" href="#"><input type="checkbox" id="checkboxLVA"/>Latvia</a></li>
+									<li><a class="dropdown-item" id="LTU" href="#"><input type="checkbox" id="checkboxLTU"/>Lithuania</a></li>
+									<li><a class="dropdown-item" id="LUX" href="#"><input type="checkbox" id="checkboxLUX"/>Luxembourg</a></li>
+									<li><a class="dropdown-item" id="NLD" href="#"><input type="checkbox" id="checkboxNLD"/>Netherlands</a></li>
+									<li><a class="dropdown-item" id="NOR" href="#"><input type="checkbox" id="checkboxNOR"/>Norway</a></li>
+									<li><a class="dropdown-item" id="POL" href="#"><input type="checkbox" id="checkboxPOL"/>Poland</a></li>
+									<li><a class="dropdown-item" id="PRT" href="#"><input type="checkbox" id="checkboxPRT"/>Portugal</a></li>
+									<li><a class="dropdown-item" id="SVK" href="#"><input type="checkbox" id="checkboxSVK"/>Slovakia</a></li>
+									<li><a class="dropdown-item" id="SVN" href="#"><input type="checkbox" id="checkboxSVN"/>Slovenia</a></li>
+									<li><a class="dropdown-item" id="ESP" href="#"><input type="checkbox" id="checkboxESP"/>Spain</a></li>
+									<li><a class="dropdown-item" id="SWE" href="#"><input type="checkbox" id="checkboxSWE"/>Sweden</a></li>
+								</ul>
 						</div>
+						<p id="message-box"></p>
 						<div id="radar_legend"></div>
 						<div id="radar_chart"></div>
 					</div>

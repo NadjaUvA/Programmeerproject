@@ -35,3 +35,8 @@ Today, I worked a bit more on the layout of the page. Moreover, I added a dropdo
 Today, I added that the country that is clicked on gets a black border until the next country is clicked on. Furthermore, I updated the layout of the text next to the circles. I added a legend for the map using an [example](http://eyeseast.github.io/visible-data/2013/08/27/responsive-legends-with-d3/). I added a legend for the radar chart that updates when new countries are selected. However, the button to select the countries doesn't work anymore after it is used once. I will sort this problem out soon. Currently, my application looks as follows:
 
 ![update](/doc/log7.PNG)
+
+## 14th of june 2018
+Yoday, I corrected some faults in my script. I added an alert window in case more than 4 countries are selected for the radar chart. Furthermore, I changed the colors of the circle menu to show whether a variable influences the environment positively or negatively. On top of that I tested my website and all charts now interact perfectly. The only minor detail is the "Cancel" button that has no function in the alert window. I also updated the layout of my application. Currently, my application looks as follows:
+
+![update](/doc/log8.PNG)

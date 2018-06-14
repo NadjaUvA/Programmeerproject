@@ -26,7 +26,7 @@ var RadarChart = {
      TranslateY: 30,
      ExtraWidthX: 100,
      ExtraWidthY: 100,
-     color: d3.scale.category10()
+     color: ["#1f78b4", "#6a3d9a", "#33a02c", "#fb9a99"]
     };
 
     if('undefined' !== typeof options){
@@ -133,7 +133,7 @@ var RadarChart = {
              .append("polygon")
              .attr("class", "radar-chart-serie"+series)
              .style("stroke-width", "2px")
-             .style("stroke", cfg.color(series))
+             .style("stroke", cfg.color[series])
              .attr("points",function(d) {
                var str="";
                for(var pti=0;pti<d.length;pti++){
@@ -141,7 +141,7 @@ var RadarChart = {
                }
                return str;
               })
-             .style("fill", function(j, i){return cfg.color(series)})
+             .style("fill", function(j, i){return cfg.color[series]})
              .style("fill-opacity", cfg.opacityArea)
              .on('mouseover', function (d){
                       z = "polygon."+d3.select(this).attr("class");
@@ -180,7 +180,7 @@ var RadarChart = {
         return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total));
       })
       .attr("data-id", function(j){return j.axis})
-      .style("fill", cfg.color(series)).style("fill-opacity", .9)
+      .style("fill", cfg.color[series]).style("fill-opacity", .9)
       .on('mouseover', function (d){
             newX =  parseFloat(d3.select(this).attr('cx')) - 10;
             newY =  parseFloat(d3.select(this).attr('cy')) - 5;
@@ -232,7 +232,6 @@ window.onload = function() {
     .await(make_figures);
 
 
-
   function make_figures(error, data2015, data_radar, data_map) {
 
 		// return error if problem arrises
@@ -258,7 +257,7 @@ window.onload = function() {
     // create color palette function
     var paletteScale = d3.scale.linear()
           .domain([minValue, maxValue])
-          .range(["#fff7fb", "#034e7b"]);
+          .range(["#d0d1e6", "#034e7b"]);
 
     // fill dataset in appropriate format
     var dataset = {}
@@ -284,7 +283,7 @@ window.onload = function() {
         return {path: path, projection: projection};
       },
 
-      fills: { defaultFill: "#ece7f2" },
+      fills: { defaultFill: "#f0f0f0" },
 
       data: dataset,
 
@@ -302,7 +301,7 @@ window.onload = function() {
 
     // set color scale for legend of map
     var colors = d3.scale.quantize()
-    .range(['#f1eef6','#bdc9e1','#74a9cf','#2b8cbe','#045a8d']);
+    .range(['#d0d1e6','#a6bddb','#74a9cf','#3690c0','#0570b0','#045a8d']);
 
     // add legend of map
     var legend = d3.select('#legend')
@@ -314,7 +313,7 @@ window.onload = function() {
         .data(colors.range());
 
     // add colors and text to legend of map
-    var legendText = ["Environment unfriendly", "", "", "", "Environment friendly"]
+    var legendText = ["Environment unfriendly", "", "", "", "", "Environment friendly"]
     keys.enter().append('li')
         .attr('class', 'key')
         .style('border-top-color', String)
@@ -328,16 +327,13 @@ window.onload = function() {
 
     // draw second circle
     var config2 = liquidFillGaugeDefaultSettings();
-    config2.circleColor = "#fdbf6f";
-    config2.waveColor = "#fdbf6f";
-    config2.waveTextColor = "#ff7f00";
-    var gauge2 = loadLiquidFillGauge("fillgauge2", 0, max_renewable, config2);
+    var gauge2 = loadLiquidFillGauge("fillgauge2", 0, max_renewable);
 
     // draw third circle
     var config3 = liquidFillGaugeDefaultSettings();
-    config3.circleColor = "#cab2d6";
-    config3.waveColor = "#cab2d6";
-    config3.waveTextColor = "#6a3d9a";
+    config3.circleColor = "#fdbf6f";
+    config3.waveColor = "#fdbf6f";
+    config3.waveTextColor = "#ff7f00";
     var gauge3 = loadLiquidFillGauge("fillgauge3", 0, max_co2, config3);
 
     //Options for the Radar chart, other than default
@@ -427,6 +423,12 @@ window.onload = function() {
     */
     function update_radar(countries, countries_old, data) {
 
+      // set maximum number of countries
+      max_number = 4;
+      if (countries.length > max_number) {
+        countries = alert_function(countries, max_number);
+      };
+
       // prepare needed data for radar chart
       var data_countries = [];
       var displayed_countries = [];
@@ -442,18 +444,43 @@ window.onload = function() {
 
       // return error message when no country is selected
       else {
-        alert("At least one country has to be selected for the radar chart!");
+        alert("Oops! At least one country has to be selected for the radar chart!");
         document.getElementById("checkbox" + countries_old[0]).checked = true;
+        displayed_countries = str(countries_old[0]);
       }
 
       update_legend_radar(displayed_countries);
+    };
+
+    function alert_function(countries, max_number) {
+      var txt;
+      var country = prompt("Oops! At most 4 countries can be selected at the same"
+                            + "time. Type the country code of the country that you"
+                            + "want to remove. You can choose between " + countries[0]
+                            + ", " + countries[1] + ", " + countries[2] + ", "
+                            + countries[3] + " or " + countries[4], countries[0]);
+      if (countries.indexOf(country) < 0) {
+          alert_function(countries, max_number);
+      }
+      else if (country == null) {
+        alert('hoi');
+      }
+      else {
+          // remove country from countries
+          var index = countries.indexOf(country);
+          if (index > -1) {
+            countries.splice(index, 1);
+          };
+          document.getElementById("checkbox" + country).checked = false;
+          return countries;
+      }
     };
 
     function update_legend_radar(displayed_countries) {
 
       d3.selectAll("svg.legend-chart").remove();
 
-      var colorscale = d3.scale.category10();
+      var colorscale = ["#1f78b4", "#6a3d9a", "#33a02c", "#fb9a99"];
 
       //Legend titles
       var LegendOptions = displayed_countries;
@@ -486,17 +513,19 @@ window.onload = function() {
       	  .data(LegendOptions)
       	  .enter()
       	  .append("rect")
+          .attr("class", "radar_legend")
       	  .attr("x", w - 65)
       	  .attr("y", function(d, i){ return i * 20;})
       	  .attr("width", 10)
       	  .attr("height", 10)
-      	  .style("fill", function(d, i){ return colorscale(i);})
+      	  .style("fill", function(d, i){ return colorscale[i];})
       	  ;
       	//Create text next to squares
       	legend.selectAll('text')
       	  .data(LegendOptions)
       	  .enter()
       	  .append("text")
+          .attr("class", "radar_legend")
       	  .attr("x", w - 52)
       	  .attr("y", function(d, i){ return i * 20 + 9;})
       	  .attr("font-size", "11px")

@@ -27,6 +27,17 @@ body {
     padding: 1.5em 0 0 1.5em;
 }
 
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+
 li.key {
     border-top-width: 15px;
     border-top-style: solid;

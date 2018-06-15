@@ -229,10 +229,11 @@ window.onload = function() {
     .defer(d3.json, "../data/data2015.json")
     .defer(d3.json, "../data/data_radar.json")
     .defer(d3.json, "../data/data_map.json")
+    .defer(d3.json, "../data/data_energy.json")
     .await(make_figures);
 
 
-  function make_figures(error, data2015, data_radar, data_map) {
+  function make_figures(error, data2015, data_radar, data_map, data_energy) {
 
 		// return error if problem arrises
 		if (error) {
@@ -240,14 +241,13 @@ window.onload = function() {
 		}
 
     // // make list of country codes
-    var data_keys = Object.keys(data2015)
-    countries = data_keys.slice(1, data_keys.length)
+    var data_keys = Object.keys(data2015);
+    countries = data_keys.slice(1, data_keys.length);
 
     // store maximum values from data
     var max_recycled = data2015["max"][0],
       max_renewable = data2015["max"][1],
       max_co2 = data2015["max"][2];
-
 
     // determine min and max of performance values
     var onlyValues = data_map.map(function(obj){ return obj[1]; });

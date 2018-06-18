@@ -8,6 +8,8 @@ var w = 400, h = 400;
 
 var selected_country = 0;
 var selected_country_old = 0;
+var selected_variable = 0;
+var graph_started = false;
 
 var RadarChart = {
   draw: function(id, data_radar, options){
@@ -229,11 +231,13 @@ window.onload = function() {
     .defer(d3.json, "../data/data2015.json")
     .defer(d3.json, "../data/data_radar.json")
     .defer(d3.json, "../data/data_map.json")
+    .defer(d3.json, "../data/data_waste.json")
     .defer(d3.json, "../data/data_energy.json")
+    .defer(d3.json, "../data/data_emission.json")
     .await(make_figures);
 
 
-  function make_figures(error, data2015, data_radar, data_map, data_energy) {
+  function make_figures(error, data2015, data_radar, data_map, data_waste, data_energy, data_emission) {
 
 		// return error if problem arrises
 		if (error) {
@@ -248,6 +252,201 @@ window.onload = function() {
     var max_recycled = data2015["max"][0],
       max_renewable = data2015["max"][1],
       max_co2 = data2015["max"][2];
+
+
+    // set width, height and margins
+    var width = 650, height_graph = 350;
+    var margin = {top: 50, right: 150, bottom: 70, left: 60},
+    			inner_width = width - margin.left - margin.right,
+    			inner_height_graph = height_graph - margin.top - margin.bottom;
+
+    // define functions to scale width and height for the linegraph
+    var y = d3.scale.linear()
+    	.range([inner_height_graph, 0]);
+    var x = d3.time.scale()
+    	.range([0, inner_width]);
+
+    var color = d3.scale.ordinal()
+      .range(["#a6cee3", "#b2df8a"])
+
+    // create axes of the linegraph
+    var x_axis = d3.svg.axis()
+    	.scale(x)
+    	.orient("bottom");
+    var	y_axis = d3.svg.axis()
+    	.scale(y)
+    	.orient("left");
+
+    // set attributes of the linegraph
+    var stacked_graph = d3.select("#stacked_graph").append("svg")
+      .attr("width", width)
+      .attr("height", height_graph)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    // adjust data for every country
+    for (k = 0, o = countries.length; k < o; k++) {
+      data = data_energy[countries[k]];
+      // convert years to Javascript years and determine maximum value for y domain
+      var parseDate = d3.time.format("%Y").parse;
+      var years = [];
+      for (var j = 0, m = data.length; j < m; j++) {
+        for (var i = 0, n = (data[0]["values"]).length; i < n; i++) {
+          data[j]["values"][i]["year"] = parseDate(data[j]["values"][i]["year"])
+          years.push(data[j]["values"][i]["year"]);
+          data[j]["values"][i]["y"] = +data[j]["values"][i]["y"];
+          data[j]["values"][i]["y0"] = +data[j]["values"][i]["y0"];
+        };
+      };
+    };
+
+    function start_graph(data, variable) {
+
+      // determine maximum value for y domain
+      var total_max = 0
+      for (var j = 0, m = data.length; j < m; j++) {
+        for (var i = 0, n = (data[0]["values"]).length; i < n; i++) {
+          if (data[j]["values"][i]["y"] > total_max) {
+            total_max = data[j]["values"][i]["y"];
+          };
+        };
+      };
+
+      // get variable names
+      var varNames = []
+      for (var i = 0, n = data.length; i < n; i++) {
+        varNames.push(data[i]["name"]);
+      };
+
+      // define the domains of the data values
+  		x.domain([years[0], years[(years.length - 1)]]);
+  		y.domain([0, total_max * 1.1]);
+
+      color.domain(varNames);
+
+      // add the x axis of the line graph
+      stacked_graph.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + inner_height_graph + ")")
+        .call(x_axis);
+
+      // add the y axis of the line graph
+      stacked_graph.append("g")
+        .attr("class", "y axis")
+        .call(y_axis)
+        .append("text")
+        .attr("class", "text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", - 40)
+        .attr( "dy", ".71em")
+        .style("text-anchor", "end")
+        .text(variable);
+
+      var stack = d3.layout.stack()
+        .offset("wiggle")
+        .values(function (d) { return d.values; })
+        .x(function (d) { return d.year; })
+        .y(function (d) { return d.y; });
+
+      var graph = stacked_graph.selectAll(".series")
+        .data(data)
+        .enter().append("g")
+          .attr("class", "series");
+
+      var area = d3.svg.area()
+        .interpolate("cardinal")
+        .x(function (d) { return x(d.year); })
+        .y0(function (d) { return y(d.y0); })
+        .y1(function (d) { return y(d.y); });
+
+      graph.append("path")
+        .attr("class", "streamPath")
+        .attr("d", function (d) { return area(d.values); })
+        .style("fill", function (d) { return color(d.name); })
+        .style("stroke", "grey");
+    };
+
+
+    function update_graph(country, variable) {
+
+      // select needed data based on variable
+      if (variable == "waste") {
+        var data_variable = data_waste;
+      }
+      else if (variable == "energy") {
+        var data_variable = data_energy;
+      }
+      else {
+        var data_variable = data_emission;
+      }
+
+      data = data_variable[country]
+
+      // start graph if first time
+      if (graph_started == false) {
+        start_graph(data, variable)
+      }
+
+      // if graph already exists, update
+      else {
+
+        // determine maximum value for y domain
+        var total_max = 0
+        for (var j = 0, m = data.length; j < m; j++) {
+          for (var i = 0, n = (data[0]["values"]).length; i < n; i++) {
+            if (data[j]["values"][i]["y"] > total_max) {
+              total_max = data[j]["values"][i]["y"];
+            };
+          };
+        };
+
+        // get variable names
+        var varNames = []
+        for (var i = 0, n = data.length; i < n; i++) {
+          varNames.push(data[i]["name"]);
+        };
+
+        // define the domains of the data values
+    		x.domain([years[0], years[(years.length - 1)]]);
+    		y.domain([0, total_max * 1.1]);
+
+        color.domain(varNames);
+
+        // change the y axis
+        stacked_graph.selectAll(".y.axis")
+          .transition()
+          .call(y_axis);
+
+        // change the x axis
+        stacked_graph.selectAll(".x.axis")
+          .transition()
+          .call(x_axis);
+
+        var stack = d3.layout.stack()
+          .offset("wiggle")
+          .values(function (d) { return d.values; })
+          .x(function (d) { return d.year; })
+          .y(function (d) { return d.y; });
+
+        var area = d3.svg.area()
+          .interpolate("cardinal")
+          .x(function (d) { return x(d.year); })
+          .y0(function (d) { return y(d.y0); })
+          .y1(function (d) { return y(d.y); });
+
+        stacked_graph.selectAll(".series")
+          .data(data)
+          .select("path")
+          .attr("class", "streamPath")
+          .attr("d", function (d) { return area(d.values); })
+          .style("fill", function (d) { return color(d.name); })
+          .style("stroke", "grey");
+      };
+      return true;
+    };
+
+
+
 
     // determine min and max of performance values
     var onlyValues = data_map.map(function(obj){ return obj[1]; });
@@ -336,6 +535,27 @@ window.onload = function() {
     config3.waveTextColor = "#ff7f00";
     var gauge3 = loadLiquidFillGauge("fillgauge3", 0, max_co2, config3);
 
+    d3.selectAll("#fillgauge1").on("click", function(d, i) {
+      selected_variable = "waste";
+      if (selected_country != 0) {
+        graph_started = update_graph(selected_country, selected_variable);
+      }
+    });
+
+    d3.selectAll("#fillgauge2").on("click", function(d, i) {
+      selected_variable = "energy";
+      if (selected_country != 0) {
+        graph_started = update_graph(selected_country, selected_variable);
+      }
+    });
+
+    d3.selectAll("#fillgauge3").on("click", function(d, i) {
+      selected_variable = "emission";
+      if (selected_country != 0) {
+        graph_started = update_graph(selected_country, selected_variable);
+      }
+    });
+
     //Options for the Radar chart, other than default
     var mycfg = {
       w: w,
@@ -376,6 +596,9 @@ window.onload = function() {
       gauge2.update(data2015[selected_country][1]);
       gauge3.update(data2015[selected_country][2]);
       start_radar(selected_country, data_radar, countries);
+      if (selected_variable != 0) {
+        graph_started = update_graph(selected_country, selected_variable);
+      }
     });
 
     function update_border_color(selected_country, selected_country_old, countries) {

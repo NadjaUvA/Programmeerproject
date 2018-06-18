@@ -40,3 +40,8 @@ Today, I added that the country that is clicked on gets a black border until the
 Yoday, I corrected some faults in my script. I added an alert window in case more than 4 countries are selected for the radar chart. Furthermore, I changed the colors of the circle menu to show whether a variable influences the environment positively or negatively. On top of that I tested my website and all charts now interact perfectly. The only minor detail is the "Cancel" button that has no function in the alert window. I also updated the layout of my application. Currently, my application looks as follows:
 
 ![update](/doc/log8.PNG)
+
+## 18th of june 2018
+Today, I started with the stacked linegraph. I implemented the graph first with the energy data. I also fully implemented the interactivity with the map which is completely working now. I prepared the data for the other two variables next to energy: waste and emission. The click function on the circle menu works. However, the graph does not update the data of the two new variables. I will go on with this problem the next time. Currently, my application looks as follows:
+
+![update](/doc/log8.PNG)

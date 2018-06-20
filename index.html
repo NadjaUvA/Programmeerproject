@@ -8,28 +8,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="code/application.css">
-		 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
 	  <script src="code/datamap.world.min.js"></script>
 		<script src="https://d3js.org/queue.v1.min.js"></script>
 		<script src="code/liquid_fill_gauge.js"></script>
 		<script src="code/application.js"></script>
+		<script src="code/radarChart.js"></script>
+		<script src="code/slider.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 	</head>
 	<body>
 
 		<div>
-			<h2 class="header">An overview of the European environment goals</h2>
+			<h3 class="header">An overview of the European environment goals</h3>
 		</div>
 		<div class="container" id="figures">
 			<div class="row">
-				<h5 class="header" style="width: 100%">The current environmental friendliness of the countries of the European Union</h5>
+				<h6 class="subheader" style="width: 100%">The current environmental friendliness of the countries of the European Union</h6>
 				<div class="col-sm text-left">
 					<div class="container" style='border: "White"'>
-						<div id="map" style="position: relative; height: 360px; width: 100%;"></div>
-						<div id="legend">
+						<div id="map" style="position: relative; height: 250px; width: 400px;"></div>
+						<div id="legend" style="width: 400px;">
 							<normal>Environmental friendliness of a country relative to other countries</normal>
 						</div>
 					</div>
@@ -37,16 +39,16 @@
 				<div class="col-sm text-left">
 					<div class="container">
 						<div class="circle_menu">
-							<div class="row" style="height: 125px; width: 100%;">
-								<svg id="fillgauge1" width="65px"></svg>
+							<div class="row" style="height: 100px; width: 100%;">
+								<svg id="fillgauge1" width="50px"></svg>
 								<strong class="unit">kg per capita of recycled waste </strong>
 							</div>
-							<div class="row" style="height: 125px; width: 100%;">
-								<svg id="fillgauge2" width="65px"></svg>
+							<div class="row" style="height: 100px; width: 100%;">
+								<svg id="fillgauge2" width="50px"></svg>
 								<strong class="unit">TOE per capita of renewed energy </strong>
 							</div>
-							<div class="row" style="height: 125px; width: 100%;">
-								<svg id="fillgauge3" width="65px"></svg>
+							<div class="row" style="height: 100px; width: 100%;">
+								<svg id="fillgauge3" width="50px"></svg>
 								<strong class="unit">tonnes per capita of CO2 emission </strong>
 							</div>
 						</div>
@@ -54,7 +56,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<h5 class="header" style="width: 100%">A comparison of the performance of different countries</h5>
+				<h6 class="subheader" style="width: 100%">A comparison of the performance of different countries</h6>
 				<div class="w-100"></div>
 				<div class="col-6 text-left">
 					<div class="container">
@@ -92,12 +94,12 @@
 						</div>
 						<p id="message-box"></p>
 						<div id="radar_legend"></div>
-						<div id="radar_chart"></div>
+						<div id="radarchart"></div>
 					</div>
-					<div class="col-6 text-left">
-						<div class="container">
-							<div id="stacked_graph">	</div>
-					</div>
+				</div>
+				<div class="col-6 text-left">
+					<div class="container">
+						<div id="stacked_graph"></div>
 				</div>
 			</div>
 		</div>

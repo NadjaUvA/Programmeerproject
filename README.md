@@ -1,6 +1,8 @@
 # Programmeerproject
 Nadja van 't Hoff (11030720)
 
+https://nadjauva.github.io/Programmeerproject/index.html
+
 ## Application goals
 The goal of this application is to inform the user. The user can obtain information on the environmental betterment that a country has been through since 1990 and the environmental performance of that country relatively to Europe through interactive charts.
 
@@ -20,7 +22,7 @@ The following **main feautures** for users willl be available and form the *Mini
 * After clicking on a country, users can click on one of the circles to obtain more information about the environmental variable in that country:
   1. A streamgraph shows the development of that variable since 1990. It shows the total of that variable (total energy production, total gas emissions, total waste) as well as the part that needs to be increased or decreased according to the targets of the European Union (increase renewable energy production and recycled waste, decrease CO2 emissions). A slider allows the user to see the values for any year since 1990.
   1. A radar chart shows the performance of that country relatively to the average of the European performance. Through a dropdown menu, the most up-to-date values of that country can be compared to those of another selected country.
-  
+
 The following features are *nice-to-have*:
 * Different colors in the map that show the environmental performance for that country and a legend to explain the colors.
 * Updating the radar chart to the year that is clicked on on the streamgraph.
@@ -47,4 +49,3 @@ A similar visualization from [Eurostat](http://ec.europa.eu/eurostat/tgm/graph.d
 * Correct explanation of the use such that the user understands immediately how the platform works.
 * The interactivity of the circle menu (step 2 in the visualization sketch).
 * Loading different data files into one JSON file without using redundant code.
-

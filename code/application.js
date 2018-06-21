@@ -9,7 +9,33 @@ var widthRadar = 250, heightRadar = 250;
 var selected_country = 0;
 var selected_country_old = 0;
 var selected_variable = 0;
+var legendText = 0;
+var legendColor = 0;
+var axisText = 0;
 var graph_started = false;
+var startDropdown = false;
+
+// set width, height and margins
+var width = 525, height_graph = 275;
+var margin = {top: 50, right: 125, bottom: 50, left: 40},
+      inner_width = width - margin.left - margin.right,
+      inner_height_graph = height_graph - margin.top - margin.bottom;
+
+// define functions to scale width and height for the linegraph
+var y = d3.scale.linear()
+  .range([inner_height_graph, 0]);
+var x = d3.time.scale()
+  .range([0, inner_width]);
+
+var color = d3.scale.ordinal();
+
+// create axes of the linegraph
+var x_axis = d3.svg.axis()
+  .scale(x)
+  .orient("bottom");
+var	y_axis = d3.svg.axis()
+  .scale(y)
+  .orient("left");
 
 // add map
 window.onload = function() {
@@ -41,29 +67,6 @@ window.onload = function() {
       max_renewable = data2015["max"][1],
       max_co2 = data2015["max"][2];
 
-
-    // set width, height and margins
-    var width = 500, height_graph = 300;
-    var margin = {top: 10, right: 70, bottom: 100, left: 70},
-    			inner_width = width - margin.left - margin.right,
-    			inner_height_graph = height_graph - margin.top - margin.bottom;
-
-    // define functions to scale width and height for the linegraph
-    var y = d3.scale.linear()
-    	.range([inner_height_graph, 0]);
-    var x = d3.time.scale()
-    	.range([0, inner_width]);
-
-    var color = d3.scale.ordinal();
-
-    // create axes of the linegraph
-    var x_axis = d3.svg.axis()
-    	.scale(x)
-    	.orient("bottom");
-    var	y_axis = d3.svg.axis()
-    	.scale(y)
-    	.orient("left");
-
     // set attributes of the linegraph
     var stacked_graph = d3.select("#stacked_graph").append("svg")
       .attr("width", width)
@@ -90,13 +93,8 @@ window.onload = function() {
       };
     };
 
-    function start_graph(data, variable, years, total_max) {
 
-      // get variable names
-      var varNames = []
-      for (var i = 0, n = data.length; i < n; i++) {
-        varNames.push(data[i]["name"]);
-      };
+    function start_graph(country, data, variable, years, total_max, varNames, axisText, legendText, legendColor) {
 
       // define the domains of the data values
   		x.domain([years[0], years[(years.length - 1)]]);
@@ -120,7 +118,7 @@ window.onload = function() {
         .attr("y", - 40)
         .attr( "dy", ".71em")
         .style("text-anchor", "end")
-        .text(variable);
+        .text(axisText);
 
       var stack = d3.layout.stack()
         .offset("wiggle")
@@ -144,7 +142,124 @@ window.onload = function() {
         .attr("d", function (d) { return area(d.values); })
         .style("fill", function (d) { return color(d.name); })
         .style("stroke", "grey");
+
+      // add a group for the interactive effects
+      var mouseG = stacked_graph.append("g")
+        .attr("class", "mouse-over-effects");
+
+      // add interactive effects
+      stackedGraphValues(data, country, years);
+
+      updateLegendGraph(legendText, legendColor)
     };
+
+
+    function stackedGraphValues(data, country, years) {
+
+      // stacked_graph.selectAll(".mouse-per-line").remove();
+      var mouseG = d3.select(".mouse-over-effects");
+
+      // add data for the graph
+      var mousePerLine = mouseG.selectAll('.mouse-per-line')
+        .data(data)
+        .enter()
+        .append("g")
+        .attr("class", "mouse-per-line");
+
+      // initiate the circles on the graphs at data values
+      mousePerLine.append("circle")
+        .attr("class", "circles_")
+        .attr("r", 5)
+        .style("stroke", "grey")
+        .style("fill", "none")
+        .style("stroke-width", "1px")
+        .style("opacity", "0");
+
+      mousePerLine.append("text")
+        .attr("class", "texts_")
+        .attr("transform", "translate(10,3)");
+
+      // append a rect to catch mouse movements on canvas
+      mouseG.append('svg:rect')
+        .attr('width', inner_width)
+        .attr('height', inner_height_graph)
+        .attr('fill', 'none')
+        .attr('pointer-events', 'all')
+
+        // on mouse out hide line, circles and text
+        .on('mouseout', function() {
+          d3.selectAll(".circles_").style("opacity", "0");
+          d3.selectAll(".texts_").style("opacity", "0");
+        })
+
+        // show line, circles and text
+        .on('mouseover', function() {
+          d3.selectAll(".circles_").style("opacity", "1");
+          d3.selectAll(".texts_").style("opacity", "1");
+        })
+
+        // define properties for mouse moving over canvas
+        .on('mousemove', function() {
+          var mouse = d3.mouse(this);
+
+          // find position for circles and text
+          d3.selectAll(".mouse-per-line")
+            .attr("transform", function(d, i) {
+              var xDate = x.invert(mouse[0]),
+                  bisect = d3.bisector(function(d) { return d.year; }).right;
+                  idx = bisect(d.values, xDate);
+
+              // save data of where the mouse is
+              var y_values = [data[0]['values'][idx]['y'].toFixed(2), data[1]['values'][idx]['y'].toFixed(2)];
+              var x_value = years[idx];
+
+              // set position of the circles
+              d3.selectAll(".circles_")
+                .data(y_values)
+                .attr("cx", x(x_value))
+                .attr("cy", function(d, i) { return y(d); });
+
+              // set position of text and add data value as text
+              d3.selectAll(".texts_")
+                .data(y_values)
+                .attr("x", function(d, i) { return x(x_value); })
+                .attr("y", function(d, i) { return y(d); })
+                .text(function(d) { return d; });
+
+            });
+        });
+    };
+
+    function updateLegendGraph(legendText, legendColor) {
+
+      d3.selectAll('.legend-graph').remove();
+
+
+      var legend = stacked_graph.selectAll(".legendGraph")
+        .data(legendText)
+        .enter().append("g")
+          .attr("class", "legend-graph")
+          .attr("transform", function (d, i) {
+            return "translate(55," + i * 20 + ")";
+          });
+
+      legend.append("rect")
+          .attr("x", inner_width - margin.right * 1.5 - 15)
+          .attr("y", - 50)
+          .attr("width", 10)
+          .attr("height", 10)
+          .style("fill", function(d, i){ return legendColor[i]; })
+          .style("stroke", "grey");
+
+      legend.append("text")
+          .attr("x", inner_width - margin.right * 1.5)
+          .attr("y", - 44)
+          .attr("dy", ".35em")
+          .style("text-anchor", "start")
+          .text(function (d) { return d; });
+    };
+
+
 
 
     function update_graph(country, variable) {
@@ -153,14 +268,23 @@ window.onload = function() {
       if (variable == "waste") {
         var data = data_waste[country];
         color.range(["#b2df8a", "#C0C0C0"]);
+        legendText = ["Total waste " + country, "Recycled waste " + country];
+        legendColor = ["#C0C0C0", "#b2df8a"];
+        axisText = "Waste in thousand tonnes";
       }
       else if (variable == "energy") {
         var data = data_energy[country];
         color.range(["#b2df8a", "#C0C0C0"]);
+        legendText = ["Total energy production " + country, "Renewable energy production " + country];
+        legendColor = ["#C0C0C0", "#b2df8a"];
+        axisText = "Energy production in million TOE";
       }
       else {
         var data = data_emission[country];
         color.range(["#fdbf6f", "#C0C0C0"]);
+        legendText = ["Total gas emission " + country, "CO2 emission " + country]
+        legendColor = ["#C0C0C0", "#fdbf6f"];
+        axisText = "Gas emission in million tonnes";
       }
 
       if (typeof(data) != "undefined") {
@@ -177,19 +301,19 @@ window.onload = function() {
           };
         };
 
+        // get variable names
+        var varNames = []
+        for (var i = 0, n = data.length; i < n; i++) {
+          varNames.push(data[i]["name"]);
+        };
+
         // start graph if first time
         if (graph_started == false) {
-          start_graph(data, variable, years, total_max)
+          start_graph(country, data, variable, years, total_max, varNames, axisText, legendText, legendColor)
         }
 
         // if graph already exists, update
         else {
-
-          // get variable names
-          var varNames = []
-          for (var i = 0, n = data.length; i < n; i++) {
-            varNames.push(data[i]["name"]);
-          };
 
           // define the domains of the data values
       		x.domain([years[0], years[(years.length - 1)]]);
@@ -209,7 +333,7 @@ window.onload = function() {
 
           // change text on axis
           stacked_graph.selectAll(".y.axis.text")
-            .text(variable);
+            .text(axisText);
 
           var stack = d3.layout.stack()
             .offset("wiggle")
@@ -230,6 +354,10 @@ window.onload = function() {
             .attr("d", function (d) { return area(d.values); })
             .style("fill", function (d) { return color(d.name); })
             .style("stroke", "grey");
+
+          stackedGraphValues(data, country, years);
+
+          updateLegendGraph(legendText, legendColor)
 
         };
       }
@@ -432,7 +560,6 @@ window.onload = function() {
 
       updateLegendRadar([country]);
 
-      ;
     };
 
     /**
@@ -461,9 +588,18 @@ window.onload = function() {
 
       // return error message when no country is selected
       else {
-        alert("Oops! At least one country has to be selected for the radar chart!");
-        document.getElementById("checkbox" + countriesOld[0]).checked = true;
-        displayed_countries = str(countriesOld[0]);
+        if (startDropdown) {
+          alert("Oops! At least one country has to be selected for the radar chart!");
+          document.getElementById("checkbox" + countriesOld[0]).checked = true;
+          if (typeof(countriesOld[0]) != undefined) {
+            displayed_countries = str(countriesOld[0]);
+          }
+        }
+
+        // return no error message if country is selected for first time
+        else {
+          startDropdown = true;
+        }
       }
 
       updateLegendRadar(displayed_countries);

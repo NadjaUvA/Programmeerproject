@@ -50,3 +50,6 @@ Today, I started with the stacked linegraph. I implemented the graph first with 
 Today, I fixed the problem of the data of the new two variables. Furthermore, I started with the slider, but I figured that a tooltip would be ebtter suitedd for my application. To fullfill th requirements, I will implement a search bar instead. Currently, my application looks as follows:
 
 ![update](/doc/log10.PNG)
+
+## 21th of june 2018
+Today I added the interactive values on hover of the stacked graph using an [example](https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91) which I also used in the subject *Data Processing*. I further implemented a search bar in the dropdown menu of the radar chart using an example from [W3Schools](https://www.w3schools.com/howto/howto_js_filter_dropdown.asp).

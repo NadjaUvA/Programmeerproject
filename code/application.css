@@ -93,9 +93,9 @@ li.key {
   height: auto;
   max-height: 125px;
   overflow-x: hidden;
-  max-width: 125px;
-  min-width: 125px;
-  width: 125px !important;
+  max-width: 140px;
+  min-width: 140px;
+  width: 140px !important;
 }
 
 .dropdown-item {
@@ -107,6 +107,19 @@ li.key {
 input[type="checkbox"] {
       transform:scale(1.1, 1.1);
 }
+
+/* The search field */
+#myInput {
+  font-size: 11px;
+  padding: 3px 5px 3px 5px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  width: 125px !important;
+  height: 25px !important;
+}
+
+/* The search field when it gets focus/clicked on */
+#myInput:focus {outline: 3px solid #ddd;}
 
 #radar_legend {
   position: absolute;
@@ -122,6 +135,7 @@ input[type="checkbox"] {
 	font: 11px sans-serif;
 	font-weight: bold;
 }
+
 
 footer {
     font: 12px sans-serif;

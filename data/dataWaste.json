@@ -2,16 +2,6 @@
     "AUS": [
         {
             "name": "partial",
-            "values": []
-        },
-        {
-            "name": "total",
-            "values": []
-        }
-    ],
-    "AUT": [
-        {
-            "name": "partial",
             "values": [
                 {
                     "year": "1992",
@@ -131,7 +121,7 @@
             ]
         }
     ],
-    "BEL": [
+    "AUT": [
         {
             "name": "partial",
             "values": [
@@ -403,7 +393,7 @@
             ]
         }
     ],
-    "CZE": [
+    "BEL": [
         {
             "name": "partial",
             "values": [
@@ -635,7 +625,7 @@
             ]
         }
     ],
-    "DNK": [
+    "CZE": [
         {
             "name": "partial",
             "values": [
@@ -867,7 +857,7 @@
             ]
         }
     ],
-    "FIN": [
+    "DNK": [
         {
             "name": "partial",
             "values": [
@@ -1099,7 +1089,7 @@
             ]
         }
     ],
-    "FRA": [
+    "FIN": [
         {
             "name": "partial",
             "values": [
@@ -1331,7 +1321,7 @@
             ]
         }
     ],
-    "DEU": [
+    "FRA": [
         {
             "name": "partial",
             "values": [
@@ -1573,7 +1563,7 @@
             ]
         }
     ],
-    "GRC": [
+    "DEU": [
         {
             "name": "partial",
             "values": [
@@ -1805,7 +1795,7 @@
             ]
         }
     ],
-    "HUN": [
+    "GRC": [
         {
             "name": "partial",
             "values": [
@@ -2047,7 +2037,7 @@
             ]
         }
     ],
-    "ISL": [
+    "HUN": [
         {
             "name": "partial",
             "values": [
@@ -2279,7 +2269,7 @@
             ]
         }
     ],
-    "IRL": [
+    "ISL": [
         {
             "name": "partial",
             "values": [
@@ -2501,7 +2491,7 @@
             ]
         }
     ],
-    "ITA": [
+    "IRL": [
         {
             "name": "partial",
             "values": [
@@ -2703,7 +2693,7 @@
             ]
         }
     ],
-    "JPN": [
+    "ITA": [
         {
             "name": "partial",
             "values": [
@@ -2955,7 +2945,7 @@
             ]
         }
     ],
-    "KOR": [
+    "JPN": [
         {
             "name": "partial",
             "values": [
@@ -3227,7 +3217,7 @@
             ]
         }
     ],
-    "LUX": [
+    "KOR": [
         {
             "name": "partial",
             "values": [
@@ -3499,7 +3489,7 @@
             ]
         }
     ],
-    "MEX": [
+    "LUX": [
         {
             "name": "partial",
             "values": [
@@ -3771,7 +3761,7 @@
             ]
         }
     ],
-    "NLD": [
+    "MEX": [
         {
             "name": "partial",
             "values": [
@@ -4003,7 +3993,7 @@
             ]
         }
     ],
-    "NZL": [
+    "NLD": [
         {
             "name": "partial",
             "values": [
@@ -4265,7 +4255,7 @@
             ]
         }
     ],
-    "NOR": [
+    "NZL": [
         {
             "name": "partial",
             "values": [
@@ -4397,7 +4387,7 @@
             ]
         }
     ],
-    "POL": [
+    "NOR": [
         {
             "name": "partial",
             "values": [
@@ -4659,7 +4649,7 @@
             ]
         }
     ],
-    "PRT": [
+    "POL": [
         {
             "name": "partial",
             "values": [
@@ -4931,7 +4921,7 @@
             ]
         }
     ],
-    "SVK": [
+    "PRT": [
         {
             "name": "partial",
             "values": [
@@ -5183,7 +5173,7 @@
             ]
         }
     ],
-    "ESP": [
+    "SVK": [
         {
             "name": "partial",
             "values": [
@@ -5425,7 +5415,7 @@
             ]
         }
     ],
-    "SWE": [
+    "ESP": [
         {
             "name": "partial",
             "values": [
@@ -5647,7 +5637,7 @@
             ]
         }
     ],
-    "CHE": [
+    "SWE": [
         {
             "name": "partial",
             "values": [
@@ -5889,7 +5879,7 @@
             ]
         }
     ],
-    "TUR": [
+    "CHE": [
         {
             "name": "partial",
             "values": [
@@ -6161,7 +6151,7 @@
             ]
         }
     ],
-    "GBR": [
+    "TUR": [
         {
             "name": "partial",
             "values": [
@@ -6403,7 +6393,7 @@
             ]
         }
     ],
-    "USA": [
+    "GBR": [
         {
             "name": "partial",
             "values": [
@@ -6635,7 +6625,7 @@
             ]
         }
     ],
-    "CHL": [
+    "USA": [
         {
             "name": "partial",
             "values": [
@@ -6897,7 +6887,7 @@
             ]
         }
     ],
-    "EST": [
+    "CHL": [
         {
             "name": "partial",
             "values": [
@@ -7049,7 +7039,7 @@
             ]
         }
     ],
-    "ISR": [
+    "EST": [
         {
             "name": "partial",
             "values": [
@@ -7271,7 +7261,7 @@
             ]
         }
     ],
-    "SVN": [
+    "ISR": [
         {
             "name": "partial",
             "values": [
@@ -7443,7 +7433,7 @@
             ]
         }
     ],
-    "OECD": [
+    "SVN": [
         {
             "name": "partial",
             "values": [
@@ -7665,7 +7655,7 @@
             ]
         }
     ],
-    "OECDE": [
+    "OECD": [
         {
             "name": "partial",
             "values": [
@@ -7937,7 +7927,7 @@
             ]
         }
     ],
-    "BRA": [
+    "OECDE": [
         {
             "name": "partial",
             "values": [
@@ -8209,7 +8199,7 @@
             ]
         }
     ],
-    "CHN": [
+    "BRA": [
         {
             "name": "partial",
             "values": [
@@ -8331,7 +8321,7 @@
             ]
         }
     ],
-    "COL": [
+    "CHN": [
         {
             "name": "partial",
             "values": [
@@ -8573,7 +8563,7 @@
             ]
         }
     ],
-    "IDN": [
+    "COL": [
         {
             "name": "partial",
             "values": [
@@ -8685,7 +8675,7 @@
             ]
         }
     ],
-    "LVA": [
+    "IDN": [
         {
             "name": "partial",
             "values": [
@@ -8817,7 +8807,7 @@
             ]
         }
     ],
-    "RUS": [
+    "LVA": [
         {
             "name": "partial",
             "values": [

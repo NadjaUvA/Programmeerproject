@@ -1,30 +1,24 @@
 var radarChart = {
-  draw: function(id, data_radar, options){
+  draw: function(id, data_radar){
   var cfg = {
      radius: 5,
-     w: widthRadar + 100,
-     h: heightRadar + 100,
+     w: widthRadar,
+     h: heightRadar,
      factor: 1,
      factorLegend: .85,
-     levels: 3,
-     maxValue: 0,
+     levels: 6,
+     maxValue: 0.6,
      radians: 2 * Math.PI,
      opacityArea: 0.5,
      ToRight: 5,
      TranslateX: 80,
      TranslateY: 30,
-     ExtraWidthX: 100,
+     ExtraWidthX: 300,
      ExtraWidthY: 100,
      color: ["#1f78b4", "#6a3d9a", "#33a02c", "#fb9a99"]
     };
 
-    if('undefined' !== typeof options){
-      for(var i in options){
-      if('undefined' !== typeof options[i]){
-        cfg[i] = options[i];
-      }
-      }
-    }
+
     cfg.maxValue = Math.max(cfg.maxValue, d3.max(data_radar, function(i){return d3.max(i.map(function(o){return o.value;}))}));
     var allAxis = (data_radar[0].map(function(i, j){return i.axis}));
     var total = allAxis.length;
@@ -202,6 +196,7 @@ var radarChart = {
 
       series++;
     });
+
     //Tooltip
     tooltip = g.append('text')
            .style('opacity', 0)
@@ -209,3 +204,150 @@ var radarChart = {
            .style('font-size', '13px');
     }
 };
+
+
+
+/**
+* resets the radar chart with country selected from map
+*/
+function startRadar(country, data, countries) {
+  for (var i = 0, n = countries.length; i < n; i++) {
+
+    // uncheck all boxes of countries that are not clicked on
+    if (countries[i] != country & countries[i] != "EU") {
+      document.getElementById("checkbox" + countries[i]).checked = false;
+    }
+
+    // check box of selected country
+    else {
+      document.getElementById("checkbox" + country).checked = true;
+    }
+  };
+
+  // draw radar chart of selected country
+  radarChart.draw("#radarchart", [data[country]]);
+
+  updateLegendRadar([country]);
+
+};
+
+/**
+* updates the radar chart based on selected countries
+*/
+function updateRadar(countries, countriesOld, data) {
+
+  // set maximum number of countries
+  maxNumber = 4;
+  if (countries.length > maxNumber) {
+    countries = alertFunction(countries, maxNumber);
+  };
+
+  // prepare needed data for radar chart
+  var dataCountries = [];
+  var displayedCountries = [];
+  for (i = 0, n = countries.length; i < n; i++) {
+    displayedCountries.push(countries[i]);
+    dataCountries.push(data[countries[i]]);
+  };
+
+  // draw chart if at least one country is selected
+  if (dataCountries.length > 0) {
+    radarChart.draw("#radarchart", dataCountries);
+  }
+
+  // return error message when no country is selected
+  else {
+    if (startDropdown) {
+      alert("Oops! At least one country has to be selected for the radar chart!");
+      document.getElementById("checkbox" + countriesOld[0]).checked = true;
+      if (typeof(countriesOld[0]) != undefined) {
+        displayedCountries = str(countriesOld[0]);
+      }
+    }
+
+    // return no error message if country is selected for first time
+    else {
+      startDropdown = true;
+    }
+  }
+
+  updateLegendRadar(displayedCountries);
+};
+
+function alertFunction(countries, maxNumber) {
+  var txt;
+  var country = prompt("Oops! At most 4 countries can be selected at the same"
+                        + "time. Type the country code of the country that you"
+                        + "want to remove. You can choose between " + countries[0]
+                        + ", " + countries[1] + ", " + countries[2] + ", "
+                        + countries[3] + " or " + countries[4], countries[0]);
+  if (countries.indexOf(country) < 0) {
+      alertFunction(countries, maxNumber);
+  }
+  else if (country == null) {
+    alert("hoi");
+  }
+  else {
+      // remove country from countries
+      var index = countries.indexOf(country);
+      if (index > -1) {
+        countries.splice(index, 1);
+      };
+      document.getElementById("checkbox" + country).checked = false;
+      return countries;
+  }
+};
+
+function updateLegendRadar(displayedCountries) {
+
+  d3.selectAll("svg.legend-chart").remove();
+
+  var colorscale = ["#1f78b4", "#6a3d9a", "#33a02c", "#fb9a99"];
+
+  var svg = d3.select("#radarLegend")
+  	.append("svg")
+    .attr("class", "legend-chart")
+  	.attr("width", widthRadar + 200)
+  	.attr("height", heightRadar - 50)
+
+  //Create the title for the legend
+  var text = svg.append("text")
+  	.attr("class", "title")
+  	.attr("transform", "translate(90,0)")
+  	.attr("x", widthRadar - 70)
+  	.attr("y", 10)
+  	.attr("font-size", "12px")
+  	.attr("fill", "#404040")
+  	.text("Selected countries");
+
+  //Initiate Legend
+  var legend = svg.append("g")
+  	.attr("class", "legend")
+  	.attr("height", 100)
+  	.attr("width", 200)
+  	.attr("transform", "translate(90,20)")
+  	;
+  	//Create colour squares
+  	legend.selectAll("rect")
+  	  .data(displayedCountries)
+  	  .enter()
+  	  .append("rect")
+      .attr("class", "radarLegend")
+  	  .attr("x", widthRadar - 65)
+  	  .attr("y", function(d, i){ return i * 20;})
+  	  .attr("width", 10)
+  	  .attr("height", 10)
+  	  .style("fill", function(d, i){ return colorscale[i];})
+  	  ;
+  	//Create text next to squares
+  	legend.selectAll("text")
+  	  .data(displayedCountries)
+  	  .enter()
+  	  .append("text")
+      .attr("class", "radarLegend")
+  	  .attr("x", widthRadar - 52)
+  	  .attr("y", function(d, i){ return i * 20 + 9;})
+  	  .attr("font-size", "11px")
+  	  .attr("fill", "#737373")
+  	  .text(function(d) { return d; })
+}

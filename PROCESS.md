@@ -55,3 +55,6 @@ Today, I fixed the problem of the data of the new two variables. Furthermore, I 
 Today I added the interactive values on hover of the stacked graph using an [example](https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91) which I also used in the subject *Data Processing*. I also implemented the legend for this chart and updated the axes. I further implemented a search bar in the dropdown menu of the radar chart using an example from [W3Schools](https://www.w3schools.com/howto/howto_js_filter_dropdown.asp). The major remaining tasks are cleaning my coe, finding bugs and updating Github. Currently, my application looks as follows:
 
 ![update](/doc/log11.PNG)
+
+## 25th of june 2018
+Today, I started cleaning my code. I've been busy doing this all day, because my code really was a mess. I added files and merged files, I changed the variables to camelCase and I sorted functions and global variables. The legend for my stacked graph isn't working anymore and this is a problem I will solve tomorrow.

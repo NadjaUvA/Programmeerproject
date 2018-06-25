@@ -376,5 +376,19 @@
             "axis": "CO2 emission",
             "value": 0.45806451612903226
         }
+    ],
+    "EU": [
+        {
+            "axis": "Recycled waste",
+            "value": 0.464230430268188
+        },
+        {
+            "axis": "Renewable energy",
+            "value": 0.1451496842498908
+        },
+        {
+            "axis": "CO2 emission",
+            "value": 0.4315412186451613
+        }
     ]
 }

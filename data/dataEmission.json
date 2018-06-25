@@ -2,16 +2,6 @@
     "AUT": [
         {
             "name": "partial",
-            "values": []
-        },
-        {
-            "name": "total",
-            "values": []
-        }
-    ],
-    "BEL": [
-        {
-            "name": "partial",
             "values": [
                 {
                     "year": "1990",
@@ -281,7 +271,7 @@
             ]
         }
     ],
-    "CZE": [
+    "BEL": [
         {
             "name": "partial",
             "values": [
@@ -553,7 +543,7 @@
             ]
         }
     ],
-    "DNK": [
+    "CZE": [
         {
             "name": "partial",
             "values": [
@@ -825,7 +815,7 @@
             ]
         }
     ],
-    "FIN": [
+    "DNK": [
         {
             "name": "partial",
             "values": [
@@ -1097,7 +1087,7 @@
             ]
         }
     ],
-    "FRA": [
+    "FIN": [
         {
             "name": "partial",
             "values": [
@@ -1369,7 +1359,7 @@
             ]
         }
     ],
-    "DEU": [
+    "FRA": [
         {
             "name": "partial",
             "values": [
@@ -1641,7 +1631,7 @@
             ]
         }
     ],
-    "HUN": [
+    "DEU": [
         {
             "name": "partial",
             "values": [
@@ -1913,7 +1903,7 @@
             ]
         }
     ],
-    "IRL": [
+    "HUN": [
         {
             "name": "partial",
             "values": [
@@ -2185,7 +2175,7 @@
             ]
         }
     ],
-    "ITA": [
+    "IRL": [
         {
             "name": "partial",
             "values": [
@@ -2457,7 +2447,7 @@
             ]
         }
     ],
-    "LUX": [
+    "ITA": [
         {
             "name": "partial",
             "values": [
@@ -2729,7 +2719,7 @@
             ]
         }
     ],
-    "NLD": [
+    "LUX": [
         {
             "name": "partial",
             "values": [
@@ -3001,7 +2991,7 @@
             ]
         }
     ],
-    "POL": [
+    "NLD": [
         {
             "name": "partial",
             "values": [
@@ -3273,7 +3263,7 @@
             ]
         }
     ],
-    "PRT": [
+    "POL": [
         {
             "name": "partial",
             "values": [
@@ -3545,7 +3535,7 @@
             ]
         }
     ],
-    "SVK": [
+    "PRT": [
         {
             "name": "partial",
             "values": [
@@ -3817,7 +3807,7 @@
             ]
         }
     ],
-    "ESP": [
+    "SVK": [
         {
             "name": "partial",
             "values": [
@@ -4089,7 +4079,7 @@
             ]
         }
     ],
-    "SWE": [
+    "ESP": [
         {
             "name": "partial",
             "values": [
@@ -4361,7 +4351,7 @@
             ]
         }
     ],
-    "GBR": [
+    "SWE": [
         {
             "name": "partial",
             "values": [
@@ -4633,7 +4623,7 @@
             ]
         }
     ],
-    "HRV": [
+    "GBR": [
         {
             "name": "partial",
             "values": [
@@ -4905,7 +4895,7 @@
             ]
         }
     ],
-    "CYP": [
+    "HRV": [
         {
             "name": "partial",
             "values": [
@@ -5177,7 +5167,7 @@
             ]
         }
     ],
-    "EST": [
+    "CYP": [
         {
             "name": "partial",
             "values": [
@@ -5449,7 +5439,7 @@
             ]
         }
     ],
-    "LVA": [
+    "EST": [
         {
             "name": "partial",
             "values": [
@@ -5721,7 +5711,7 @@
             ]
         }
     ],
-    "LTU": [
+    "LVA": [
         {
             "name": "partial",
             "values": [
@@ -5993,7 +5983,7 @@
             ]
         }
     ],
-    "MLT": [
+    "LTU": [
         {
             "name": "partial",
             "values": [
@@ -6265,7 +6255,7 @@
             ]
         }
     ],
-    "ROU": [
+    "MLT": [
         {
             "name": "partial",
             "values": [
@@ -6537,7 +6527,7 @@
             ]
         }
     ],
-    "SVN": [
+    "ROU": [
         {
             "name": "partial",
             "values": [
@@ -6809,7 +6799,7 @@
             ]
         }
     ],
-    "SLV": [
+    "SVN": [
         {
             "name": "partial",
             "values": [

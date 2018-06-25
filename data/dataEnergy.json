@@ -2,16 +2,6 @@
     "AUS": [
         {
             "name": "partial",
-            "values": []
-        },
-        {
-            "name": "total",
-            "values": []
-        }
-    ],
-    "AUT": [
-        {
-            "name": "partial",
             "values": [
                 {
                     "year": "1990",
@@ -281,7 +271,7 @@
             ]
         }
     ],
-    "BEL": [
+    "AUT": [
         {
             "name": "partial",
             "values": [
@@ -553,7 +543,7 @@
             ]
         }
     ],
-    "CAN": [
+    "BEL": [
         {
             "name": "partial",
             "values": [
@@ -825,7 +815,7 @@
             ]
         }
     ],
-    "CZE": [
+    "CAN": [
         {
             "name": "partial",
             "values": [
@@ -1097,7 +1087,7 @@
             ]
         }
     ],
-    "DNK": [
+    "CZE": [
         {
             "name": "partial",
             "values": [
@@ -1369,7 +1359,7 @@
             ]
         }
     ],
-    "FIN": [
+    "DNK": [
         {
             "name": "partial",
             "values": [
@@ -1641,7 +1631,7 @@
             ]
         }
     ],
-    "FRA": [
+    "FIN": [
         {
             "name": "partial",
             "values": [
@@ -1913,7 +1903,7 @@
             ]
         }
     ],
-    "DEU": [
+    "FRA": [
         {
             "name": "partial",
             "values": [
@@ -2185,7 +2175,7 @@
             ]
         }
     ],
-    "GRC": [
+    "DEU": [
         {
             "name": "partial",
             "values": [
@@ -2457,7 +2447,7 @@
             ]
         }
     ],
-    "HUN": [
+    "GRC": [
         {
             "name": "partial",
             "values": [
@@ -2729,7 +2719,7 @@
             ]
         }
     ],
-    "ISL": [
+    "HUN": [
         {
             "name": "partial",
             "values": [
@@ -3001,7 +2991,7 @@
             ]
         }
     ],
-    "IRL": [
+    "ISL": [
         {
             "name": "partial",
             "values": [
@@ -3273,7 +3263,7 @@
             ]
         }
     ],
-    "ITA": [
+    "IRL": [
         {
             "name": "partial",
             "values": [
@@ -3545,7 +3535,7 @@
             ]
         }
     ],
-    "JPN": [
+    "ITA": [
         {
             "name": "partial",
             "values": [
@@ -3817,7 +3807,7 @@
             ]
         }
     ],
-    "KOR": [
+    "JPN": [
         {
             "name": "partial",
             "values": [
@@ -4089,7 +4079,7 @@
             ]
         }
     ],
-    "LUX": [
+    "KOR": [
         {
             "name": "partial",
             "values": [
@@ -4361,7 +4351,7 @@
             ]
         }
     ],
-    "MEX": [
+    "LUX": [
         {
             "name": "partial",
             "values": [
@@ -4633,7 +4623,7 @@
             ]
         }
     ],
-    "NLD": [
+    "MEX": [
         {
             "name": "partial",
             "values": [
@@ -4905,7 +4895,7 @@
             ]
         }
     ],
-    "NZL": [
+    "NLD": [
         {
             "name": "partial",
             "values": [
@@ -5177,7 +5167,7 @@
             ]
         }
     ],
-    "NOR": [
+    "NZL": [
         {
             "name": "partial",
             "values": [
@@ -5449,7 +5439,7 @@
             ]
         }
     ],
-    "POL": [
+    "NOR": [
         {
             "name": "partial",
             "values": [
@@ -5721,7 +5711,7 @@
             ]
         }
     ],
-    "PRT": [
+    "POL": [
         {
             "name": "partial",
             "values": [
@@ -5993,7 +5983,7 @@
             ]
         }
     ],
-    "SVK": [
+    "PRT": [
         {
             "name": "partial",
             "values": [
@@ -6265,7 +6255,7 @@
             ]
         }
     ],
-    "ESP": [
+    "SVK": [
         {
             "name": "partial",
             "values": [
@@ -6537,7 +6527,7 @@
             ]
         }
     ],
-    "SWE": [
+    "ESP": [
         {
             "name": "partial",
             "values": [
@@ -6809,7 +6799,7 @@
             ]
         }
     ],
-    "CHE": [
+    "SWE": [
         {
             "name": "partial",
             "values": [
@@ -7081,7 +7071,7 @@
             ]
         }
     ],
-    "TUR": [
+    "CHE": [
         {
             "name": "partial",
             "values": [
@@ -7353,7 +7343,7 @@
             ]
         }
     ],
-    "GBR": [
+    "TUR": [
         {
             "name": "partial",
             "values": [
@@ -7625,7 +7615,7 @@
             ]
         }
     ],
-    "USA": [
+    "GBR": [
         {
             "name": "partial",
             "values": [
@@ -7897,7 +7887,7 @@
             ]
         }
     ],
-    "OEU": [
+    "USA": [
         {
             "name": "partial",
             "values": [
@@ -8169,7 +8159,7 @@
             ]
         }
     ],
-    "ALB": [
+    "OEU": [
         {
             "name": "partial",
             "values": [
@@ -8441,7 +8431,7 @@
             ]
         }
     ],
-    "DZA": [
+    "ALB": [
         {
             "name": "partial",
             "values": [
@@ -8713,7 +8703,7 @@
             ]
         }
     ],
-    "ARG": [
+    "DZA": [
         {
             "name": "partial",
             "values": [
@@ -8985,7 +8975,7 @@
             ]
         }
     ],
-    "ARM": [
+    "ARG": [
         {
             "name": "partial",
             "values": [
@@ -9257,7 +9247,7 @@
             ]
         }
     ],
-    "AZE": [
+    "ARM": [
         {
             "name": "partial",
             "values": [
@@ -9529,7 +9519,7 @@
             ]
         }
     ],
-    "BGD": [
+    "AZE": [
         {
             "name": "partial",
             "values": [
@@ -9801,7 +9791,7 @@
             ]
         }
     ],
-    "BLR": [
+    "BGD": [
         {
             "name": "partial",
             "values": [
@@ -10073,7 +10063,7 @@
             ]
         }
     ],
-    "BIH": [
+    "BLR": [
         {
             "name": "partial",
             "values": [
@@ -10345,7 +10335,7 @@
             ]
         }
     ],
-    "BRA": [
+    "BIH": [
         {
             "name": "partial",
             "values": [
@@ -10617,7 +10607,7 @@
             ]
         }
     ],
-    "BRN": [
+    "BRA": [
         {
             "name": "partial",
             "values": [
@@ -10889,7 +10879,7 @@
             ]
         }
     ],
-    "BGR": [
+    "BRN": [
         {
             "name": "partial",
             "values": [
@@ -11161,7 +11151,7 @@
             ]
         }
     ],
-    "KHM": [
+    "BGR": [
         {
             "name": "partial",
             "values": [
@@ -11433,7 +11423,7 @@
             ]
         }
     ],
-    "CHL": [
+    "KHM": [
         {
             "name": "partial",
             "values": [
@@ -11705,7 +11695,7 @@
             ]
         }
     ],
-    "CHN": [
+    "CHL": [
         {
             "name": "partial",
             "values": [
@@ -11977,7 +11967,7 @@
             ]
         }
     ],
-    "COL": [
+    "CHN": [
         {
             "name": "partial",
             "values": [
@@ -12249,7 +12239,7 @@
             ]
         }
     ],
-    "HRV": [
+    "COL": [
         {
             "name": "partial",
             "values": [
@@ -12521,7 +12511,7 @@
             ]
         }
     ],
-    "CYP": [
+    "HRV": [
         {
             "name": "partial",
             "values": [
@@ -12793,7 +12783,7 @@
             ]
         }
     ],
-    "EGY": [
+    "CYP": [
         {
             "name": "partial",
             "values": [
@@ -13065,7 +13055,7 @@
             ]
         }
     ],
-    "EST": [
+    "EGY": [
         {
             "name": "partial",
             "values": [
@@ -13337,7 +13327,7 @@
             ]
         }
     ],
-    "ETH": [
+    "EST": [
         {
             "name": "partial",
             "values": [
@@ -13609,7 +13599,7 @@
             ]
         }
     ],
-    "GEO": [
+    "ETH": [
         {
             "name": "partial",
             "values": [
@@ -13881,7 +13871,7 @@
             ]
         }
     ],
-    "GHA": [
+    "GEO": [
         {
             "name": "partial",
             "values": [
@@ -14153,7 +14143,7 @@
             ]
         }
     ],
-    "HTI": [
+    "GHA": [
         {
             "name": "partial",
             "values": [
@@ -14425,7 +14415,7 @@
             ]
         }
     ],
-    "HKG": [
+    "HTI": [
         {
             "name": "partial",
             "values": [
@@ -14697,7 +14687,7 @@
             ]
         }
     ],
-    "IND": [
+    "HKG": [
         {
             "name": "partial",
             "values": [
@@ -14969,7 +14959,7 @@
             ]
         }
     ],
-    "IDN": [
+    "IND": [
         {
             "name": "partial",
             "values": [
@@ -15241,7 +15231,7 @@
             ]
         }
     ],
-    "IRN": [
+    "IDN": [
         {
             "name": "partial",
             "values": [
@@ -15513,7 +15503,7 @@
             ]
         }
     ],
-    "ISR": [
+    "IRN": [
         {
             "name": "partial",
             "values": [
@@ -15785,7 +15775,7 @@
             ]
         }
     ],
-    "KAZ": [
+    "ISR": [
         {
             "name": "partial",
             "values": [
@@ -16057,7 +16047,7 @@
             ]
         }
     ],
-    "LVA": [
+    "KAZ": [
         {
             "name": "partial",
             "values": [
@@ -16329,7 +16319,7 @@
             ]
         }
     ],
-    "LTU": [
+    "LVA": [
         {
             "name": "partial",
             "values": [
@@ -16601,7 +16591,7 @@
             ]
         }
     ],
-    "MKD": [
+    "LTU": [
         {
             "name": "partial",
             "values": [
@@ -16873,7 +16863,7 @@
             ]
         }
     ],
-    "MYS": [
+    "MKD": [
         {
             "name": "partial",
             "values": [
@@ -17145,7 +17135,7 @@
             ]
         }
     ],
-    "MLT": [
+    "MYS": [
         {
             "name": "partial",
             "values": [
@@ -17417,7 +17407,7 @@
             ]
         }
     ],
-    "MDA": [
+    "MLT": [
         {
             "name": "partial",
             "values": [
@@ -17689,7 +17679,7 @@
             ]
         }
     ],
-    "MOZ": [
+    "MDA": [
         {
             "name": "partial",
             "values": [
@@ -17961,7 +17951,7 @@
             ]
         }
     ],
-    "NGA": [
+    "MOZ": [
         {
             "name": "partial",
             "values": [
@@ -18233,7 +18223,7 @@
             ]
         }
     ],
-    "PAK": [
+    "NGA": [
         {
             "name": "partial",
             "values": [
@@ -18505,7 +18495,7 @@
             ]
         }
     ],
-    "PRY": [
+    "PAK": [
         {
             "name": "partial",
             "values": [
@@ -18777,7 +18767,7 @@
             ]
         }
     ],
-    "PER": [
+    "PRY": [
         {
             "name": "partial",
             "values": [
@@ -19049,7 +19039,7 @@
             ]
         }
     ],
-    "PHL": [
+    "PER": [
         {
             "name": "partial",
             "values": [
@@ -19321,7 +19311,7 @@
             ]
         }
     ],
-    "ROU": [
+    "PHL": [
         {
             "name": "partial",
             "values": [
@@ -19593,7 +19583,7 @@
             ]
         }
     ],
-    "RUS": [
+    "ROU": [
         {
             "name": "partial",
             "values": [
@@ -19865,7 +19855,7 @@
             ]
         }
     ],
-    "SAU": [
+    "RUS": [
         {
             "name": "partial",
             "values": [
@@ -20137,7 +20127,7 @@
             ]
         }
     ],
-    "SGP": [
+    "SAU": [
         {
             "name": "partial",
             "values": [
@@ -20409,7 +20399,7 @@
             ]
         }
     ],
-    "SVN": [
+    "SGP": [
         {
             "name": "partial",
             "values": [
@@ -20681,7 +20671,7 @@
             ]
         }
     ],
-    "ZAF": [
+    "SVN": [
         {
             "name": "partial",
             "values": [
@@ -20953,7 +20943,7 @@
             ]
         }
     ],
-    "SDN": [
+    "ZAF": [
         {
             "name": "partial",
             "values": [
@@ -21225,7 +21215,7 @@
             ]
         }
     ],
-    "TWN": [
+    "SDN": [
         {
             "name": "partial",
             "values": [
@@ -21497,7 +21487,7 @@
             ]
         }
     ],
-    "TZA": [
+    "TWN": [
         {
             "name": "partial",
             "values": [
@@ -21769,7 +21759,7 @@
             ]
         }
     ],
-    "THA": [
+    "TZA": [
         {
             "name": "partial",
             "values": [
@@ -22041,7 +22031,7 @@
             ]
         }
     ],
-    "UKR": [
+    "THA": [
         {
             "name": "partial",
             "values": [
@@ -22313,7 +22303,7 @@
             ]
         }
     ],
-    "ARE": [
+    "UKR": [
         {
             "name": "partial",
             "values": [
@@ -22585,7 +22575,7 @@
             ]
         }
     ],
-    "URY": [
+    "ARE": [
         {
             "name": "partial",
             "values": [
@@ -22857,7 +22847,7 @@
             ]
         }
     ],
-    "VNM": [
+    "URY": [
         {
             "name": "partial",
             "values": [
@@ -23129,7 +23119,7 @@
             ]
         }
     ],
-    "ZMB": [
+    "VNM": [
         {
             "name": "partial",
             "values": [
@@ -23401,7 +23391,7 @@
             ]
         }
     ],
-    "WLD": [
+    "ZMB": [
         {
             "name": "partial",
             "values": [
@@ -23673,7 +23663,7 @@
             ]
         }
     ],
-    "SRB": [
+    "WLD": [
         {
             "name": "partial",
             "values": [
@@ -23945,7 +23935,7 @@
             ]
         }
     ],
-    "MNE": [
+    "SRB": [
         {
             "name": "partial",
             "values": [
@@ -24217,7 +24207,7 @@
             ]
         }
     ],
-    "EU28": [
+    "MNE": [
         {
             "name": "partial",
             "values": [
@@ -24489,7 +24479,7 @@
             ]
         }
     ],
-    "OECD": [
+    "EU28": [
         {
             "name": "partial",
             "values": [
@@ -24761,7 +24751,7 @@
             ]
         }
     ],
-    "G20": [
+    "OECD": [
         {
             "name": "partial",
             "values": [
@@ -25033,7 +25023,7 @@
             ]
         }
     ],
-    "AGO": [
+    "G20": [
         {
             "name": "partial",
             "values": [
@@ -25305,7 +25295,7 @@
             ]
         }
     ],
-    "BHR": [
+    "AGO": [
         {
             "name": "partial",
             "values": [
@@ -25577,7 +25567,7 @@
             ]
         }
     ],
-    "BEN": [
+    "BHR": [
         {
             "name": "partial",
             "values": [
@@ -25849,7 +25839,7 @@
             ]
         }
     ],
-    "BOL": [
+    "BEN": [
         {
             "name": "partial",
             "values": [
@@ -26121,7 +26111,7 @@
             ]
         }
     ],
-    "BWA": [
+    "BOL": [
         {
             "name": "partial",
             "values": [
@@ -26393,7 +26383,7 @@
             ]
         }
     ],
-    "CMR": [
+    "BWA": [
         {
             "name": "partial",
             "values": [
@@ -26665,7 +26655,7 @@
             ]
         }
     ],
-    "COG": [
+    "CMR": [
         {
             "name": "partial",
             "values": [
@@ -26937,7 +26927,7 @@
             ]
         }
     ],
-    "CRI": [
+    "COG": [
         {
             "name": "partial",
             "values": [
@@ -27209,7 +27199,7 @@
             ]
         }
     ],
-    "CIV": [
+    "CRI": [
         {
             "name": "partial",
             "values": [
@@ -27481,7 +27471,7 @@
             ]
         }
     ],
-    "CUB": [
+    "CIV": [
         {
             "name": "partial",
             "values": [
@@ -27753,7 +27743,7 @@
             ]
         }
     ],
-    "PRK": [
+    "CUB": [
         {
             "name": "partial",
             "values": [
@@ -28025,7 +28015,7 @@
             ]
         }
     ],
-    "COD": [
+    "PRK": [
         {
             "name": "partial",
             "values": [
@@ -28297,7 +28287,7 @@
             ]
         }
     ],
-    "DOM": [
+    "COD": [
         {
             "name": "partial",
             "values": [
@@ -28569,7 +28559,7 @@
             ]
         }
     ],
-    "ECU": [
+    "DOM": [
         {
             "name": "partial",
             "values": [
@@ -28841,7 +28831,7 @@
             ]
         }
     ],
-    "SLV": [
+    "ECU": [
         {
             "name": "partial",
             "values": [
@@ -29113,7 +29103,7 @@
             ]
         }
     ],
-    "ERI": [
+    "SLV": [
         {
             "name": "partial",
             "values": [
@@ -29385,7 +29375,7 @@
             ]
         }
     ],
-    "GAB": [
+    "ERI": [
         {
             "name": "partial",
             "values": [
@@ -29657,7 +29647,7 @@
             ]
         }
     ],
-    "GTM": [
+    "GAB": [
         {
             "name": "partial",
             "values": [
@@ -29929,7 +29919,7 @@
             ]
         }
     ],
-    "HND": [
+    "GTM": [
         {
             "name": "partial",
             "values": [
@@ -30201,7 +30191,7 @@
             ]
         }
     ],
-    "IRQ": [
+    "HND": [
         {
             "name": "partial",
             "values": [
@@ -30473,7 +30463,7 @@
             ]
         }
     ],
-    "JAM": [
+    "IRQ": [
         {
             "name": "partial",
             "values": [
@@ -30745,7 +30735,7 @@
             ]
         }
     ],
-    "JOR": [
+    "JAM": [
         {
             "name": "partial",
             "values": [
@@ -31017,7 +31007,7 @@
             ]
         }
     ],
-    "KEN": [
+    "JOR": [
         {
             "name": "partial",
             "values": [
@@ -31289,7 +31279,7 @@
             ]
         }
     ],
-    "KWT": [
+    "KEN": [
         {
             "name": "partial",
             "values": [
@@ -31561,7 +31551,7 @@
             ]
         }
     ],
-    "KGZ": [
+    "KWT": [
         {
             "name": "partial",
             "values": [
@@ -31833,7 +31823,7 @@
             ]
         }
     ],
-    "LBN": [
+    "KGZ": [
         {
             "name": "partial",
             "values": [
@@ -32105,7 +32095,7 @@
             ]
         }
     ],
-    "LBY": [
+    "LBN": [
         {
             "name": "partial",
             "values": [
@@ -32377,7 +32367,7 @@
             ]
         }
     ],
-    "MNG": [
+    "LBY": [
         {
             "name": "partial",
             "values": [
@@ -32649,7 +32639,7 @@
             ]
         }
     ],
-    "MAR": [
+    "MNG": [
         {
             "name": "partial",
             "values": [
@@ -32921,7 +32911,7 @@
             ]
         }
     ],
-    "MMR": [
+    "MAR": [
         {
             "name": "partial",
             "values": [
@@ -33193,7 +33183,7 @@
             ]
         }
     ],
-    "NAM": [
+    "MMR": [
         {
             "name": "partial",
             "values": [
@@ -33465,7 +33455,7 @@
             ]
         }
     ],
-    "NPL": [
+    "NAM": [
         {
             "name": "partial",
             "values": [
@@ -33737,7 +33727,7 @@
             ]
         }
     ],
-    "NIC": [
+    "NPL": [
         {
             "name": "partial",
             "values": [
@@ -34009,7 +33999,7 @@
             ]
         }
     ],
-    "NER": [
+    "NIC": [
         {
             "name": "partial",
             "values": [
@@ -34281,7 +34271,7 @@
             ]
         }
     ],
-    "OMN": [
+    "NER": [
         {
             "name": "partial",
             "values": [
@@ -34553,7 +34543,7 @@
             ]
         }
     ],
-    "PAN": [
+    "OMN": [
         {
             "name": "partial",
             "values": [
@@ -34825,7 +34815,7 @@
             ]
         }
     ],
-    "QAT": [
+    "PAN": [
         {
             "name": "partial",
             "values": [
@@ -35097,7 +35087,7 @@
             ]
         }
     ],
-    "SEN": [
+    "QAT": [
         {
             "name": "partial",
             "values": [
@@ -35369,7 +35359,7 @@
             ]
         }
     ],
-    "LKA": [
+    "SEN": [
         {
             "name": "partial",
             "values": [
@@ -35641,7 +35631,7 @@
             ]
         }
     ],
-    "SYR": [
+    "LKA": [
         {
             "name": "partial",
             "values": [
@@ -35913,7 +35903,7 @@
             ]
         }
     ],
-    "TJK": [
+    "SYR": [
         {
             "name": "partial",
             "values": [
@@ -36185,7 +36175,7 @@
             ]
         }
     ],
-    "TGO": [
+    "TJK": [
         {
             "name": "partial",
             "values": [
@@ -36457,7 +36447,7 @@
             ]
         }
     ],
-    "TTO": [
+    "TGO": [
         {
             "name": "partial",
             "values": [
@@ -36729,7 +36719,7 @@
             ]
         }
     ],
-    "TUN": [
+    "TTO": [
         {
             "name": "partial",
             "values": [
@@ -37001,7 +36991,7 @@
             ]
         }
     ],
-    "TKM": [
+    "TUN": [
         {
             "name": "partial",
             "values": [
@@ -37273,7 +37263,7 @@
             ]
         }
     ],
-    "UZB": [
+    "TKM": [
         {
             "name": "partial",
             "values": [
@@ -37545,7 +37535,7 @@
             ]
         }
     ],
-    "VEN": [
+    "UZB": [
         {
             "name": "partial",
             "values": [
@@ -37817,7 +37807,7 @@
             ]
         }
     ],
-    "YEM": [
+    "VEN": [
         {
             "name": "partial",
             "values": [
@@ -38089,7 +38079,7 @@
             ]
         }
     ],
-    "ZWE": [
+    "YEM": [
         {
             "name": "partial",
             "values": [

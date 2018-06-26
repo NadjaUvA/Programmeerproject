@@ -4,7 +4,7 @@
 * Nadja van 't Hoff (11030720)
 */
 
-var widthRadar = 250, heightRadar = 250;
+var widthRadar = 200, heightRadar = 200;
 
 var selectedCountry = 0;
 var selectedCountryOld = 0;
@@ -16,6 +16,7 @@ var stackedGraphStarted = false;
 var startDropdown = false;
 var map = 0;
 var gauge1, gauge2, gauge3;
+var tooltip;
 
 // set width, height and margins
 var width = 525, heightStackedGraph = 275;
@@ -148,21 +149,6 @@ window.onload = function() {
         stackedGraphStarted = updateStackedGraph(selectedCountry, selectedVariable, dataWaste, dataEnergy, dataEmission);
       }
     });
-
-    function update_border_color(selectedCountry, selectedCountryOld, countries) {
-      if ($.inArray(selectedCountry, countries) != -1) {
-        if (selectedCountryOld != 0) {
-          var countryOld = document.getElementsByClassName("datamaps-subunit " + selectedCountryOld)[0];
-          countryOld.style.stroke = "#ffffff";
-        }
-        var country = document.getElementsByClassName("datamaps-subunit " + selectedCountry)[0];
-        country.style.stroke = "#000000";
-      }
-      else {
-        selectedCountry = selectedCountryOld;
-      }
-      return selectedCountry;
-    };
 
   };
 };

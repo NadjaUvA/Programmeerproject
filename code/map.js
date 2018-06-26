@@ -72,3 +72,18 @@ function drawMap(dataMap) {
           return legendText[i];
       });
 };
+
+function update_border_color(selectedCountry, selectedCountryOld, countries) {
+  if ($.inArray(selectedCountry, countries) != -1) {
+    if (selectedCountryOld != 0) {
+      var countryOld = document.getElementsByClassName("datamaps-subunit " + selectedCountryOld)[0];
+      countryOld.style.stroke = "#ffffff";
+    }
+    var country = document.getElementsByClassName("datamaps-subunit " + selectedCountry)[0];
+    country.style.stroke = "#000000";
+  }
+  else {
+    selectedCountry = selectedCountryOld;
+  }
+  return selectedCountry;
+};

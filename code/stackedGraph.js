@@ -9,6 +9,7 @@ function startStackedGraph(country, data, variable, years, maxTotal, varNames, a
 
   // set attributes of the linegraph
   var stackedGraph = d3.select("#stackedGraph").append("svg")
+    .attr("id", "stacked-graph")
     .attr("width", width)
     .attr("height", heightStackedGraph)
     .append("g")
@@ -146,19 +147,19 @@ function updateLegendGraph(legendText, legendColor) {
 
   d3.selectAll(".legend-graph").remove();
 
-  var stackedGraph = d3.select("#stackedGraph");
+  var stackedGraph = d3.select("#stacked-graph");
 
-  var legend = stackedGraph.selectAll(".legendGraph")
+  var legend = stackedGraph.selectAll(".legend-graph")
     .data(legendText)
     .enter().append("g")
       .attr("class", "legend-graph")
       .attr("transform", function (d, i) {
-        return "translate(55," + i * 20 + ")";
+        return "translate(100," + (100 + i * 20) + ")";
       });
 
   legend.append("rect")
       .attr("x", innerWidth - margin.right * 1.5 - 15)
-      .attr("y", - 50)
+      .attr("y", - 100)
       .attr("width", 10)
       .attr("height", 10)
       .style("fill", function(d, i){ return legendColor[i]; })
@@ -166,7 +167,7 @@ function updateLegendGraph(legendText, legendColor) {
 
   legend.append("text")
       .attr("x", innerWidth - margin.right * 1.5)
-      .attr("y", - 44)
+      .attr("y", - 94)
       .attr("dy", ".35em")
       .style("text-anchor", "start")
       .text(function (d) { return d; });

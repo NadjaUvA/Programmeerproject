@@ -1,7 +1,7 @@
 """
 Nadja van 't Hoff (11030720)
 This code converts data into JSON format and writes it to a file for the
-stacked graph
+stacked graph.
 """
 
 import json
@@ -90,7 +90,7 @@ def convertVariableData(file, nameJSON):
         jsonString = json.dump(data, f, indent = 4)
 
 # define files to convert and json names
-dataFiles = ["waste.csv", "energy.csv", "emission.csv"]
+dataFiles = ["csvFiles\waste.csv", "csvFiles\energy.csv", "csvFiles\emission.csv"]
 namesJSON = ["dataWaste.json", "dataEnergy.json", "dataEmission.json"]
 
 # convert data for every variable

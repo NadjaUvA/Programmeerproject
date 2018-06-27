@@ -5,13 +5,13 @@
 *
 * Liquid Fill Gauge v1.1
 *
-* Small changes are made by Nadja van 't Hoff (11030720)
+* Some changes to the original file are made by Nadja van 't Hoff (11030720)
 */
 
 /**
 * specifies default style of the circles in the circle menu
 */
-function liquidFillGaugeDefaultSettings(){
+function liquidFillGaugeDefaultSettings() {
   return {
     minValue: 0,
     maxValue: 100,
@@ -34,7 +34,7 @@ function liquidFillGaugeDefaultSettings(){
     textColor: "#000000",
     waveTextColor: "#33a02c"
   };
-}
+};
 
 /**
 * creates a circle element with waves and specified value
@@ -53,14 +53,14 @@ function loadLiquidFillGauge(elementId, value, maximum, config) {
     var waveHeightScale;
     if(config.waveHeightScaling){
       waveHeightScale = d3.scale.linear()
-        .range([0, config.waveHeight,0])
+        .range([0, config.waveHeight, 0])
         .domain([0, 50, 100]);
     }
     else {
       waveHeightScale = d3.scale.linear()
         .range([config.waveHeight,config.waveHeight])
         .domain([0, 100]);
-    }
+    };
 
     // specify options of the circles
     var textPixels = (config.textSize * radius / 2);
@@ -77,19 +77,19 @@ function loadLiquidFillGauge(elementId, value, maximum, config) {
     var waveClipWidth = waveLength * waveClipCount;
 
     // round functions so that correct number of decimal places is displayed
-    var textRounder = function(value){ return Math.round(value); };
-    if(parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))){
-        textRounder = function(value){ return parseFloat(value).toFixed(1); };
+    var textRounder = function(value) { return Math.round(value); };
+    if (parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))) {
+        textRounder = function(value) { return parseFloat(value).toFixed(1); };
     }
-    if(parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))){
-        textRounder = function(value){ return parseFloat(value).toFixed(2); };
+    if (parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))) {
+        textRounder = function(value) { return parseFloat(value).toFixed(2); };
     }
 
     // set data for building the clip wave area
     var data = [];
-    for(var i = 0; i <= 40 * waveClipCount; i++){
+    for (var i = 0; i <= 40 * waveClipCount; i++) {
         data.push({x: i / (40 * waveClipCount), y: (i / (40))});
-    }
+    };
 
     // set scales for drawing the outer circle
     var gaugeCircleX = d3.scale.linear().range([0, 2 * Math.PI]).domain([0, 1]);
@@ -141,7 +141,7 @@ function loadLiquidFillGauge(elementId, value, maximum, config) {
       .x(function(d) { return waveScaleX(d.x); } )
       .y0(function(d) { return waveScaleY(Math.sin(Math.PI * 2 * config.waveOffset * -1
         + Math.PI * 2 * (1 - config.waveCount) + d.y * 2 * Math.PI)); })
-      .y1(function(d) { return (fillCircleRadius * 2 + waveHeight); } );
+      .y1(function(d) { return (fillCircleRadius * 2 + waveHeight); });
     var waveGroup = gaugeGroup.append("defs")
       .append("clipPath")
       .attr("id", "clipWave" + elementId);
@@ -169,8 +169,8 @@ function loadLiquidFillGauge(elementId, value, maximum, config) {
       .attr("transform","translate(" + radius + "," + textRiseScaleY(config.textVertPosition) + ")");
 
     // make the value count up.
-    if(config.valueCountUp){
-      var textTween = function(){
+    if (config.valueCountUp) {
+      var textTween = function() {
         var i = d3.interpolate(this.textContent, textFinalValue);
         return function(t) { this.textContent = textRounder(i(t)) + percentText; }
       };
@@ -184,7 +184,7 @@ function loadLiquidFillGauge(elementId, value, maximum, config) {
 
     // make the wave rise
     var waveGroupXPosition = fillCircleMargin + fillCircleRadius * 2 - waveClipWidth;
-    if(config.waveRise){
+    if (config.waveRise) {
       waveGroup.attr("transform","translate(" + waveGroupXPosition + ","
         + waveRiseScale(0) + ")")
         .transition()
@@ -197,7 +197,7 @@ function loadLiquidFillGauge(elementId, value, maximum, config) {
       waveGroup.attr("transform","translate(" + waveGroupXPosition + ","
         + waveRiseScale(fillPercent) + ")");
     };
-    if(config.waveAnimate) animateWave();
+    if(config.waveAnimate) { animateWave(); };
 
     /**
     * adds the animation to the wave
@@ -209,7 +209,7 @@ function loadLiquidFillGauge(elementId, value, maximum, config) {
           .ease("linear")
           .attr("transform","translate(" + waveAnimateScale(1) + ",0)")
           .attr("T", 1)
-          .each("end", function(){
+          .each("end", function() {
               wave.attr("T", 0);
               animateWave(config.waveAnimateTime);
           });
@@ -218,24 +218,24 @@ function loadLiquidFillGauge(elementId, value, maximum, config) {
     /**
     * updates the values and wave height of the circles
     */
-    function GaugeUpdater(){
+    function GaugeUpdater() {
 
       // set the new value of the circle to correct format
-      this.update = function(value){
+      this.update = function(value) {
         var newFinalValue = parseFloat(value).toFixed(2);
         var textRounderUpdater = function(value){ return Math.round(value); };
-        if(parseFloat(newFinalValue) != parseFloat(textRounderUpdater(newFinalValue))){
+        if(parseFloat(newFinalValue) != parseFloat(textRounderUpdater(newFinalValue))) {
           textRounderUpdater = function(value){ return parseFloat(value).toFixed(1); };
-        }
+        };
         if(parseFloat(newFinalValue) != parseFloat(textRounderUpdater(newFinalValue))){
           textRounderUpdater = function(value){ return parseFloat(value).toFixed(2); };
-        }
-        var textTween = function(){
+        };
+        var textTween = function() {
           var i = d3.interpolate(this.textContent, parseFloat(value).toFixed(2));
           return function(t) { this.textContent = textRounderUpdater(i(t)) + percentText; }
         };
 
-        // update text
+        // update text in circle
         text1.transition()
           .duration(config.waveRiseTime)
           .tween("text", textTween);
@@ -260,7 +260,7 @@ function loadLiquidFillGauge(elementId, value, maximum, config) {
             .x(function(d){ return waveScaleX(d.x); })
             .y0(function(d){ return waveScaleY(Math.sin(Math.PI * 2 * config.waveOffset * -1
               + Math.PI * 2 * (1 - config.waveCount) + d.y * 2 * Math.PI)); })
-            .y1(function(d){ return (fillCircleRadius * 2 + waveHeight); } );
+            .y1(function(d) { return (fillCircleRadius * 2 + waveHeight); });
         }
         else {
             newClipArea = clipArea;
@@ -278,15 +278,16 @@ function loadLiquidFillGauge(elementId, value, maximum, config) {
           .attr("transform","translate(" + newWavePosition + ",0)")
           .attr("T","1")
           .each("end", function(){
-            if(config.waveAnimate){
+            if (config.waveAnimate) {
                 wave.attr("transform","translate(" + waveAnimateScale(0) + ",0)");
                 animateWave(config.waveAnimateTime);
-            }
+            };
           });
         waveGroup.transition()
           .duration(config.waveRiseTime)
           .attr("transform","translate(" + waveGroupXPosition + "," + newHeight + ")")
         };
     };
+
     return new GaugeUpdater();
 };

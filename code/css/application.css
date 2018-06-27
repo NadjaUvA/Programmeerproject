@@ -122,6 +122,21 @@ input[type="checkbox"] {
   position: absolute;
 }
 
+.levels {
+  font-family: sans-serif;
+  font-size: 10px;
+}
+
+.legend-radar {
+  font-family: sans-serif;
+  font-size: 11px;
+}
+
+.radar-line {
+  stroke: grey
+  stroke-width: 1px
+}
+
 .axis path,
 .axis line {
   fill: none;

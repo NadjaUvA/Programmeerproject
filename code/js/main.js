@@ -1,6 +1,6 @@
 /**
 * This script creates an application with linked graphs that visualize the
-* environmental progress of European countries
+* environmental progress of European countries.
 *
 * Nadja van 't Hoff (11030720)
 */
@@ -24,7 +24,7 @@ var x = d3.time.scale()
   .range([0, innerWidthStackedGraph]);
 var color = d3.scale.ordinal();
 
-// create axes of the linegraph
+// create axes of the stacked graph
 var xAxisStackedGraph = d3.svg.axis()
   .scale(x)
   .orient("bottom");
@@ -51,20 +51,22 @@ window.onload = function() {
 			return alert(error);
 		}
 
-    // // make list of country codes
+    // make list of country codes
     var dataKeys = Object.keys(dataCircles);
-    countries = dataKeys.slice(1, dataKeys.length);
+    var countries = dataKeys.slice(1, dataKeys.length);
 
     // store maximum values from data
     var maxRecycled = dataCircles["max"][0],
       maxRenewable = dataCircles["max"][1],
       maxCO2 = dataCircles["max"][2];
 
-    // adjust data of every variable for every country
+    // adjust data of every environmental variable variable
     dataVariables = [dataWaste, dataEnergy, dataEmission];
     var parseDate = d3.time.format("%Y").parse;
     for (var l = 0, p = dataVariables.length; l < p; l++) {
       dataVariable = dataVariables[l];
+
+      // adjust data for every country
       for (var k = 0, o = countries.length; k < o; k++) {
         data = dataVariable[countries[k]];
         if (typeof(data) != "undefined") {
@@ -91,28 +93,31 @@ window.onload = function() {
     d3.selectAll("#fillgauge1").on("click", function(d, i) {
       selectedVariable = "waste";
       if (selectedCountry != 0) {
-        stackedGraphStarted = updateStackedGraph(selectedCountry, selectedVariable, dataWaste, dataEnergy, dataEmission);
-      }
+        stackedGraphStarted = updateStackedGraph(selectedCountry, selectedVariable,
+          dataWaste, dataEnergy, dataEmission);
+      };
     });
 
     // add interactivity to second circle
     d3.selectAll("#fillgauge2").on("click", function(d, i) {
       selectedVariable = "energy";
       if (selectedCountry != 0) {
-        stackedGraphStarted = updateStackedGraph(selectedCountry, selectedVariable, dataWaste, dataEnergy, dataEmission);
-      }
+        stackedGraphStarted = updateStackedGraph(selectedCountry, selectedVariable,
+          dataWaste, dataEnergy, dataEmission);
+      };
     });
 
     // add interactivity to third circle
     d3.selectAll("#fillgauge3").on("click", function(d, i) {
       selectedVariable = "emission";
       if (selectedCountry != 0) {
-        stackedGraphStarted = updateStackedGraph(selectedCountry, selectedVariable, dataWaste, dataEnergy, dataEmission);
-      }
+        stackedGraphStarted = updateStackedGraph(selectedCountry, selectedVariable,
+          dataWaste, dataEnergy, dataEmission);
+      };
     });
 
     // update the chart when input field is changed
-		$("input").change(function(){
+		$("input").change(function() {
       var selectedCountriesOld = selectedCountries;
       var selectedCountries = [];
 			for (var i = 0, n = countries.length - 1; i < n; i++) {
@@ -147,8 +152,9 @@ window.onload = function() {
 
       // update stacked graph if a circle has been clicked on as well
       if (selectedVariable != 0) {
-        stackedGraphStarted = updateStackedGraph(selectedCountry, selectedVariable, dataWaste, dataEnergy, dataEmission);
-      }
+        stackedGraphStarted = updateStackedGraph(selectedCountry, selectedVariable,
+          dataWaste, dataEnergy, dataEmission);
+      };
     });
   };
 };

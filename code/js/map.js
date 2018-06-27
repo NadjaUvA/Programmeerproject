@@ -1,6 +1,6 @@
 /**
 * This script contains a function that draws the European map with Datamaps and
-* a function that updates the border color of the selected country
+* a function that updates the border color of the selected country.
 *
 * Nadja van 't Hoff (11030720)
 */
@@ -11,7 +11,7 @@
 function drawMap(dataMap) {
 
   // determine min and max of performance values
-  var onlyValues = dataMap.map(function(obj){ return obj[1]; });
+  var onlyValues = dataMap.map(function(obj) { return obj[1]; });
   var minValue = Math.min.apply(null, onlyValues)
       maxValue = Math.max.apply(null, onlyValues);
 
@@ -22,7 +22,7 @@ function drawMap(dataMap) {
 
   // fill dataset in appropriate format
   var dataset = {}
-  dataMap.forEach(function(item){
+  dataMap.forEach(function(item) {
       var iso = item[0],
               value = item[1];
       dataset[iso] = { numberOfThings: value, fillColor: paletteScale(value) };
@@ -45,7 +45,6 @@ function drawMap(dataMap) {
     },
 
     fills: { defaultFill: "#f0f0f0" },
-
     data: dataset,
 
     // set hover specifications
@@ -57,7 +56,7 @@ function drawMap(dataMap) {
       },
       highlightOnHover: false,
       popupOnHover: true
-    },
+    }
   });
 
   // set color scale for legend of map
@@ -73,8 +72,10 @@ function drawMap(dataMap) {
   var keys = legend.selectAll("li.key")
       .data(colors.range());
 
+  // define legend text
+  var legendText = ["0: Environment unfriendly", "0.5", "1", "1.5", "2", "2.5: Environment friendly"];
+
   // add colors and text to legend of map
-  var legendText = ["0: Environment unfriendly", "0.5", "1", "1.5", "2", "2.5: Environment friendly"]
   keys.enter().append("li")
       .attr("class", "key")
       .style("border-top-color", String)
@@ -93,7 +94,7 @@ function update_border_color(selectedCountry, selectedCountryOld, countries) {
     if (selectedCountryOld != 0) {
       var countryOld = document.getElementsByClassName("datamaps-subunit " + selectedCountryOld)[0];
       countryOld.style.stroke = "#ffffff";
-    }
+    };
 
     // update new country's border color to black
     var country = document.getElementsByClassName("datamaps-subunit " + selectedCountry)[0];
@@ -104,5 +105,6 @@ function update_border_color(selectedCountry, selectedCountryOld, countries) {
   else {
     selectedCountry = selectedCountryOld;
   };
+
   return selectedCountry;
 };

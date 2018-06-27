@@ -1,14 +1,14 @@
 """
 Nadja van 't Hoff (11030720)
 This code converts data of 2015 into JSON format and writes it to three files of
-which one is used for the radar chart, one for the circle menu and one for the map
+which one is used for the radar chart, one for the circle menu and one for the map.
 """
 
 import json
 import csv
 
 # open CSV file to read data
-with open("data2015.csv", "r") as File:
+with open("csvFiles/data2015.csv", "r") as File:
     reader = csv.reader(File, delimiter = ";")
     next(reader, None)
 
@@ -37,7 +37,7 @@ dataRadar = {}
 dataMap = []
 
 # open CSV file to read dataCircles
-with open("data2015.csv", "r") as File:
+with open("csvFiles/data2015.csv", "r") as File:
     reader = csv.reader(File, delimiter = ";")
     next(reader, None)
     i = 0

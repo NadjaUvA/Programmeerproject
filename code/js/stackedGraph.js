@@ -1,6 +1,6 @@
 /**
 * This script contains the functions for the stacked graph. One function to start
-* the graph, one to update it, one for the interactive values one for the legend
+* the graph, one to update it, one for the interactive values one for the legend.
 *
 * Nadja van 't Hoff (11030720)
 */
@@ -51,22 +51,22 @@ function startStackedGraph(country, data, variable, years, maxTotal, varNames,
   // define the function of the layers of the graph
   var stack = d3.layout.stack()
     .offset("wiggle")
-    .values(function (d) { return d.values; })
-    .x(function (d) { return d.year; })
-    .y(function (d) { return d.y; });
+    .values(function(d) { return d.values; })
+    .x(function(d) { return d.year; })
+    .y(function(d) { return d.y; });
 
   // define the function of the areas of the graph
   var area = d3.svg.area()
     .interpolate("cardinal")
-    .x(function (d) { return x(d.year); })
-    .y0(function (d) { return y(d.y0); })
-    .y1(function (d) { return y(d.y); });
+    .x(function(d) { return x(d.year); })
+    .y0(function(d) { return y(d.y0); })
+    .y1(function(d) { return y(d.y); });
 
   // add the layers to the graph
   graph.append("path")
     .attr("class", "streamPath")
-    .attr("d", function (d) { return area(d.values); })
-    .style("fill", function (d) { return color(d.name); })
+    .attr("d", function(d) { return area(d.values); })
+    .style("fill", function(d) { return color(d.name); })
     .style("stroke", "grey");
 
   // add a group for the interactive effects
@@ -91,12 +91,13 @@ function updateStackedGraph(country, variable, dataWaste, dataEnergy, dataEmissi
     color.range(["#b2df8a", "#C0C0C0"]);
     var legendText = ["Total waste " + country, "Recycled waste " + country];
     var legendColor = ["#C0C0C0", "#b2df8a"];
-    axisText = "Waste in thousand tonnes";
+    var axisText = "Waste in thousand tonnes";
   }
   else if (variable == "energy") {
     var data = dataEnergy[country];
     color.range(["#b2df8a", "#C0C0C0"]);
-    var legendText = ["Total energy production " + country, "Renewable energy production " + country];
+    var legendText = ["Total energy production " + country,
+      "Renewable energy production " + country];
     var legendColor = ["#C0C0C0", "#b2df8a"];
     var axisText = "Energy production in million TOE";
   }
@@ -106,7 +107,7 @@ function updateStackedGraph(country, variable, dataWaste, dataEnergy, dataEmissi
     var legendText = ["Total gas emission " + country, "CO2 emission " + country]
     var legendColor = ["#C0C0C0", "#fdbf6f"];
     var axisText = "Gas emission in million tonnes";
-  }
+  };
 
   if (typeof(data) != "undefined") {
 
@@ -123,7 +124,7 @@ function updateStackedGraph(country, variable, dataWaste, dataEnergy, dataEmissi
     };
 
     // get variable names
-    var varNames = []
+    var varNames = [];
     for (var i = 0, n = data.length; i < n; i++) {
       varNames.push(data[i]["name"]);
     };
@@ -160,39 +161,39 @@ function updateStackedGraph(country, variable, dataWaste, dataEnergy, dataEmissi
       // define the function of the layers of the graph
       var stack = d3.layout.stack()
         .offset("wiggle")
-        .values(function (d) { return d.values; })
-        .x(function (d) { return d.year; })
-        .y(function (d) { return d.y; });
+        .values(function(d) { return d.values; })
+        .x(function(d) { return d.year; })
+        .y(function(d) { return d.y; });
 
       // define the function of areas of the graph
       var area = d3.svg.area()
         .interpolate("cardinal")
-        .x(function (d) { return x(d.year); })
-        .y0(function (d) { return y(d.y0); })
-        .y1(function (d) { return y(d.y); });
+        .x(function(d) { return x(d.year); })
+        .y0(function(d) { return y(d.y0); })
+        .y1(function(d) { return y(d.y); });
 
       // add the layers to the graph
       stackedGraph.selectAll(".series")
         .data(data)
         .select("path")
         .attr("class", "streamPath")
-        .attr("d", function (d) { return area(d.values); })
-        .style("fill", function (d) { return color(d.name); })
+        .attr("d", function(d) { return area(d.values); })
+        .style("fill", function(d) { return color(d.name); })
         .style("stroke", "grey");
 
       // add interactive effects
       stackedGraphValues(data, country, years);
 
       // add the legend
-      updateLegendGraph(legendText, legendColor)
-
+      updateLegendGraph(legendText, legendColor);
     };
   }
 
   // give alertr if no data is available on user's selection
   else {
     alert("Sorry, we don't have data available for " + country + " on " + variable);
-  }
+  };
+
   return true;
 };
 
@@ -256,7 +257,8 @@ function stackedGraphValues(data, country, years) {
               idx = bisect(d.values, xDate);
 
           // save data of where the mouse is
-          var yValues = [data[0]["values"][idx]["y"].toFixed(2), data[1]["values"][idx]["y"].toFixed(2)];
+          var yValues = [data[0]["values"][idx]["y"].toFixed(2),
+            data[1]["values"][idx]["y"].toFixed(2)];
           var xValue = years[idx];
 
           // set position of the circles
@@ -271,7 +273,6 @@ function stackedGraphValues(data, country, years) {
             .attr("x", function(d, i) { return x(xValue); })
             .attr("y", function(d, i) { return y(d); })
             .text(function(d) { return d; });
-
         });
     });
 };
@@ -290,7 +291,7 @@ function updateLegendGraph(legendText, legendColor) {
     .data(legendText)
     .enter().append("g")
       .attr("class", "legend-graph")
-      .attr("transform", function (d, i) {
+      .attr("transform", function(d, i) {
         return "translate(100," + (100 + i * 20) + ")";
       });
 
@@ -300,7 +301,7 @@ function updateLegendGraph(legendText, legendColor) {
       .attr("y", - 100)
       .attr("width", 10)
       .attr("height", 10)
-      .style("fill", function(d, i){ return legendColor[i]; })
+      .style("fill", function(d, i) { return legendColor[i]; })
       .style("stroke", "grey");
 
   // add text for the legend content
@@ -309,5 +310,5 @@ function updateLegendGraph(legendText, legendColor) {
       .attr("y", - 94)
       .attr("dy", ".35em")
       .style("text-anchor", "start")
-      .text(function (d) { return d; });
+      .text(function(d) { return d; });
 };

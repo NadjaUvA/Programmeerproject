@@ -1,13 +1,14 @@
 /**
 * This file contains the variable, the start function and the update function of the
-* radar chart as well as the alert function for the dropdown menu
+* radar chart as well as the alert function for the dropdown menu.
 *
 * Nadja van 't Hoff (11030720)
+* Source for variable radarChart: https://gist.github.com/nbremer/6506614
 */
 
 // define radarChart variable
 var radarChart = {
-  draw: function(id, dataRadar){
+  draw: function(id, dataRadar) {
 
   // specify options of the radar chart
   var cfg = {
@@ -29,8 +30,8 @@ var radarChart = {
   };
 
   // determine maximum values and set variables
-  cfg.maxValue = Math.max(cfg.maxValue, d3.max(dataRadar, function(i){
-    return d3.max(i.map(function(o){ return o.value; })
+  cfg.maxValue = Math.max(cfg.maxValue, d3.max(dataRadar, function(i) {
+    return d3.max(i.map(function(o) { return o.value; })
   )}));
   var allAxis = (dataRadar[0].map(function(i, j) {return i.axis} ));
   var total = allAxis.length;
@@ -53,16 +54,16 @@ var radarChart = {
       .data(allAxis)
       .enter()
       .append("svg:line")
-      .attr("x1", function(d, i){
+      .attr("x1", function(d, i) {
        return levelFactor * (1 - cfg.factor * Math.sin(i * cfg.radians / total));
       })
-      .attr("y1", function(d, i){
+      .attr("y1", function(d, i) {
        return levelFactor * (1 - cfg.factor * Math.cos(i * cfg.radians / total));
       })
-      .attr("x2", function(d, i){
+      .attr("x2", function(d, i) {
        return levelFactor * (1 - cfg.factor * Math.sin((i + 1) * cfg.radians / total));
       })
-      .attr("y2", function(d, i){
+      .attr("y2", function(d, i) {
        return levelFactor * (1 - cfg.factor * Math.cos((i + 1) * cfg.radians / total));
       })
       .attr("class", "line")
@@ -82,11 +83,9 @@ var radarChart = {
       .data([1])
       .enter()
       .append("svg:text")
-      .attr("x", function(d){ return levelFactor * (1 - cfg.factor * Math.sin(0)); })
-      .attr("y", function(d){ return levelFactor * (1 - cfg.factor * Math.cos(0)); })
+      .attr("x", function(d) { return levelFactor * (1 - cfg.factor * Math.sin(0)); })
+      .attr("y", function(d) { return levelFactor * (1 - cfg.factor * Math.cos(0)); })
       .attr("class", "legend")
-      .style("font-family", "sans-serif")
-      .style("font-size", "10px")
       .attr("transform", "translate(" + (cfg.w / 2 - levelFactor + cfg.ToRight) + ", "
             + (cfg.h / 2 - levelFactor) + ")")
       .attr("fill", "#737373")
@@ -102,6 +101,7 @@ var radarChart = {
 
   // add the lines of the axis
   axis.append("line")
+    .attr("class", "radar-line")
     .attr("x1", cfg.w / 2)
     .attr("y1", cfg.h / 2)
     .attr("x2", function(d, i) {
@@ -110,16 +110,12 @@ var radarChart = {
     .attr("y2", function(d, i) {
       return cfg.h / 2 * (1 - cfg.factor * Math.cos(i * cfg.radians / total));
     })
-    .attr("class", "line")
-    .style("stroke", "grey")
-    .style("stroke-width", "1px");
+    .attr("class", "line");
 
   // add the correct percentages of the axis
   axis.append("text")
-    .attr("class", "legend")
+    .attr("class", "legend-radar")
     .text(function(d) {return d})
-    .style("font-family", "sans-serif")
-    .style("font-size", "11px")
     .attr("text-anchor", "middle")
     .attr("dy", "1.5em")
     .attr("transform", function(d, i) {return "translate(0, -10)"})
@@ -134,10 +130,12 @@ var radarChart = {
 
   // add data values to the areas of the chart
   series = 0;
-  dataRadar.forEach(function(y, x){
+  dataRadar.forEach(function(y, x) {
     dataValues = [];
+
+    // add data values to the bullets of the chart
     g.selectAll(".nodes")
-      .data(y, function(j, i){
+      .data(y, function(j, i) {
         dataValues.push([
         cfg.w / 2 * (1 - (parseFloat(Math.max(j.value, 0)) / cfg.maxValue)
           * cfg.factor * Math.sin(i * cfg.radians / total)),
@@ -146,6 +144,8 @@ var radarChart = {
         ]);
       });
     dataValues.push(dataValues[0]);
+
+    // add data values to the areas of the chart
     g.selectAll(".area")
       .data([dataValues])
       .enter()
@@ -166,7 +166,7 @@ var radarChart = {
       .style("fill-opacity", cfg.opacityArea)
 
       // add interactivity to the areas of the chart
-      .on("mouseover", function (d) {
+      .on("mouseover", function(d) {
         z = "polygon." + d3.select(this).attr("class");
         g.selectAll("polygon")
          .transition(200)
@@ -175,7 +175,7 @@ var radarChart = {
          .transition(200)
          .style("fill-opacity", .7);
       })
-      .on("mouseout", function(){
+      .on("mouseout", function() {
         g.selectAll("polygon")
           .transition(200)
           .style("fill-opacity", cfg.opacityArea);
@@ -185,36 +185,35 @@ var radarChart = {
 
   // add the circles at the edges of each area
   series=0;
-  dataRadar.forEach(function(y, x){
+  dataRadar.forEach(function(y, x) {
     g.selectAll(".nodes")
       .data(y).enter()
       .append("svg:circle")
       .attr("class", "radar-chart-serie" + series)
       .attr("r", cfg.radius)
-      .attr("alt", function(j) { return Math.max(j.value, 0) })
+      .attr("alt", function(j) { return Math.max(j.value, 0); })
       .attr("cx", function(j, i) {
         dataValues.push([
         cfg.w / 2 * (1 - (parseFloat(Math.max(j.value, 0)) / cfg.maxValue)
           * cfg.factor * Math.sin(i * cfg.radians / total)),
-        cfg.h / 2 * (1 - (parseFloat(Math.max(j.value,
-          0)) / cfg.maxValue) * cfg.factor * Math.cos(i * cfg.radians / total))
+        cfg.h / 2 * (1 - (parseFloat(Math.max(j.value, 0)) / cfg.maxValue)
+          * cfg.factor * Math.cos(i * cfg.radians / total))
       ]);
-      return cfg.w / 2 * (1 - (Math.max(j.value,
-        0) / cfg.maxValue) * cfg.factor * Math.sin(i * cfg.radians / total));
+      return cfg.w / 2 * (1 - (Math.max(j.value, 0) / cfg.maxValue)
+        * cfg.factor * Math.sin(i * cfg.radians / total));
       })
-      .attr("cy", function(j, i){
-        return cfg.h / 2 * (1 - (Math.max(j.value,
-          0) / cfg.maxValue) * cfg.factor * Math.cos(i * cfg.radians / total));
+      .attr("cy", function(j, i) {
+        return cfg.h / 2 * (1 - (Math.max(j.value, 0) / cfg.maxValue)
+          * cfg.factor * Math.cos(i * cfg.radians / total));
       })
-      .attr("data-id", function(j){ return j.axis; })
+      .attr("data-id", function(j) { return j.axis; })
       .style("fill", cfg.color[series]).style("fill-opacity", .9)
 
-      // add calue display and color update of area to the circles
-      .on("mouseover", function (d){
+      // add value display and color update of area to the circles
+      .on("mouseover", function (d) {
         newX =  parseFloat(d3.select(this).attr("cx")) - 10;
         newY =  parseFloat(d3.select(this).attr("cy")) - 5;
-        tooltip
-          .attr("x", newX)
+        tooltip.attr("x", newX)
           .attr("y", newY)
           .text(Format(d.value))
           .transition(200)
@@ -227,7 +226,7 @@ var radarChart = {
           .transition(200)
           .style("fill-opacity", .7);
       })
-      .on("mouseout", function(){
+      .on("mouseout", function() {
         tooltip
           .transition(200)
           .style("opacity", 0);
@@ -236,7 +235,7 @@ var radarChart = {
           .style("fill-opacity", cfg.opacityArea);
         })
       .append("svg:title")
-      .text(function(j){ return Math.max(j.value, 0); });
+      .text(function(j) { return Math.max(j.value, 0); });
       series++;
   });
 
@@ -245,7 +244,7 @@ var radarChart = {
     .style("opacity", 0)
     .style("font-family", "sans-serif")
     .style("font-size", "13px");
-  };
+  }
 };
 
 /*
@@ -262,7 +261,7 @@ function startRadar(country, data, countries) {
     // check box of selected country
     else {
       document.getElementById("checkbox" + country).checked = true;
-    }
+    };
   };
 
   // draw radar chart of selected country
@@ -303,7 +302,7 @@ function updateRadar(countries, countriesOld, data) {
       document.getElementById("checkbox" + countriesOld[0]).checked = true;
       if (typeof(countriesOld[0]) != undefined) {
         displayedCountries = str(countriesOld[0]);
-      }
+      };
     }
 
     // return no error message if country is selected for first time
@@ -358,7 +357,7 @@ function updateLegendRadar(displayedCountries) {
   	.append("svg")
     .attr("class", "legend-chart")
   	.attr("width", widthRadar + 200)
-  	.attr("height", heightRadar - 50)
+  	.attr("height", heightRadar - 50);
 
   // create the title for the legend
   var text = svg.append("text")
@@ -384,20 +383,20 @@ function updateLegendRadar(displayedCountries) {
 	  .append("rect")
     .attr("class", "radarLegend")
 	  .attr("x", widthRadar - 65)
-	  .attr("y", function(d, i){ return i * 20;})
+	  .attr("y", function(d, i) { return i * 20; })
 	  .attr("width", 10)
 	  .attr("height", 10)
-	  .style("fill", function(d, i){ return colorscale[i];});
+	  .style("fill", function(d, i) { return colorscale[i]; });
 
-  	// create text next to squares
-  	legend.selectAll("text")
-  	  .data(displayedCountries)
-  	  .enter()
-  	  .append("text")
-      .attr("class", "radarLegend")
-  	  .attr("x", widthRadar - 52)
-  	  .attr("y", function(d, i){ return i * 20 + 9;})
-  	  .attr("font-size", "11px")
-  	  .attr("fill", "#737373")
-  	  .text(function(d) { return d; })
-}
+	// create text next to squares
+	legend.selectAll("text")
+	  .data(displayedCountries)
+	  .enter()
+	  .append("text")
+    .attr("class", "radarLegend")
+	  .attr("x", widthRadar - 52)
+	  .attr("y", function(d, i) { return i * 20 + 9; })
+	  .attr("font-size", "11px")
+	  .attr("fill", "#737373")
+	  .text(function(d) { return d; });
+};

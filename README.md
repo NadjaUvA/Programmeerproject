@@ -1,12 +1,13 @@
 # Programmeerproject
+## Comparing the environmental performance of European countries
+
 Nadja van 't Hoff (11030720)
 
 https://nadjauva.github.io/Programmeerproject/index.html
 
-https://nadjauva.github.io/NadjaUvA/Programmeerproject/index.html
+## Purpose
 
-https://nadjauva.github.io/Programmeerproject/index.html/
 
-https://nadjauva.github.io/Programmeerproject/
+## Sources of external code
 
-## Application goals
+License of liquidFillGauge: license Open source under BSD 2-clause (http://choosealicense.com/licenses/bsd-2-clause/), Copyright (c) 2015, Curtis Bratton

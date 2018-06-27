@@ -58,3 +58,6 @@ Today I added the interactive values on hover of the stacked graph using an [exa
 
 ## 25th of june 2018
 Today, I started cleaning my code. I've been busy doing this all day, because my code really was a mess. I added files and merged files, I changed the variables to camelCase and I sorted functions and global variables. The legend for my stacked graph isn't working anymore and this is a problem I will solve tomorrow.
+
+## 26th of june 2018
+Today, I went on cleaning my code and I solved the problem of the legends.

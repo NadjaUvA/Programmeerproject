@@ -292,7 +292,7 @@ function updateLegendGraph(legendText, legendColor) {
     .enter().append("g")
       .attr("class", "legend-graph")
       .attr("transform", function(d, i) {
-        return "translate(100," + (100 + i * 20) + ")";
+        return "translate(-150," + (100 + i * 20) + ")";
       });
 
   // add boxes for the legend colors

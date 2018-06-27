@@ -87,7 +87,7 @@ function drawMap(dataMap) {
 /**
 * update the border color of the selected country
 */
-function update_border_color(selectedCountry, selectedCountryOld, countries) {
+function updateBorderColor(selectedCountry, selectedCountryOld, countries) {
   if ($.inArray(selectedCountry, countries) != -1) {
 
     // set already selected country to border color white
@@ -97,8 +97,10 @@ function update_border_color(selectedCountry, selectedCountryOld, countries) {
     };
 
     // update new country's border color to black
-    var country = document.getElementsByClassName("datamaps-subunit " + selectedCountry)[0];
-    country.style.stroke = "#000000";
+    if (selectedCountry != "EU") {
+      var country = document.getElementsByClassName("datamaps-subunit " + selectedCountry)[0];
+      country.style.stroke = "#000000";
+    };
   }
 
   // do not update color when country does not belong to EU

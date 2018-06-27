@@ -11,7 +11,7 @@ body {
 	font-style: normal;
 	font-weight: bold;
 	background-color: White;
-  padding: 20px;
+  padding: 10px;
 }
 
 .subheader {
@@ -22,9 +22,28 @@ body {
   padding: 5px;
 }
 
+.subsubheader {
+	text-align: center;
+	font-style: normal;
+	font-weight: bold;
+  font-size: 12.5px;
+	background-color: White;
+  padding: 5px;
+}
+
 .container {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
+}
+
+.resetBtn {
+	font-style: normal;
+  font-size: 14px;
+  color: Black;
+	background: Silver;
+  border-color: White;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .datamaps-subunit {
@@ -62,6 +81,10 @@ li.key {
   top: 33%;
 }
 
+.circle_menu {
+  padding-left: 50px;
+}
+
 .dropdown {
 	position: absolute;
 	padding: none;
@@ -69,10 +92,10 @@ li.key {
 
 .btn {
 	font-style: normal;
-  font-size: 14px;
+  font-size: 13px;
 	float: left;
 	float: top;
-  color: White;
+  color: Black;
 	background: Silver;
   border-color: White;
   padding-top: 2px;

@@ -61,3 +61,8 @@ Today, I started cleaning my code. I've been busy doing this all day, because my
 
 ## 26th of june 2018
 Today, I went on cleaning my code and I solved the problem of the legends.
+
+## 27th of june 2018
+Today, I finished cleaning my code. I implemented a button to reset the values to the European average. I also updated my git. Currently, my application looks as follows:
+
+![update](/doc/log12.PNG)

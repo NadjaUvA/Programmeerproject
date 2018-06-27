@@ -29,21 +29,25 @@
 	</head>
 	<body>
 		<div>
-			<h3 class="header">A comparison of the countries of the European Union on environment variables</h3>
+			<h3 class="header">The European Union and the environment: A never-ending story</h3>
 		</div>
 		<div class="container" id="figures">
+			<h6 class="subheader" style="width: 100%">The fight of the European Union for environmental improvement</h6>
+			<h6 class="subheader" style="width: 100%">How to use this application</h6>
+			<button type="button" class="resetBtn btn-outline-secondary">Reset values to European average</button>
 			<div class="row">
-				<h6 class="subheader" style="width: 100%">The current environmental friendliness of the countries of the European Union</h6>
 				<div class="col-sm text-left">
 					<div class="container" style='border: "White"'>
+						<h6 class="subsubheader" style="width: 100%">Step 1: Select a country by clicking on it</h6>
 						<div id="map" style="position: relative; height: 250px; width: 400px;"></div>
 						<div id="legend" style="width: 400px;">
-							<normal>Environmental friendliness of a country relative to other countries</normal>
+							<normal>Relative environmental friendliness in 2015</normal>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm text-left">
 					<div class="container">
+						<h6 class="subsubheader" style="width: 100%">Step 2: Select a variable by clicking on its circle</h6>
 						<div class="circle_menu">
 							<div class="row" style="height: 100px; width: 100%;">
 								<svg id="fillgauge1" width="50px"></svg>
@@ -62,10 +66,10 @@
 				</div>
 			</div>
 			<div class="row">
-				<h6 class="subheader" style="width: 100%">A comparison of the performance of different countries</h6>
 				<div class="w-100"></div>
 				<div class="col-6 text-left">
 					<div class="container">
+						<h6 class="subsubheader" style="width: 100%">A comparison of the relative performance between countries</h6>
 						<div class="col-sm-2 sidenav" id="dropdown">
 								<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">Countries<span class="caret"></span></button>
 								<ul class="dropdown-menu"  id="dropdown-menu" data-live-search="true">
@@ -106,6 +110,7 @@
 				</div>
 				<div class="col-6 text-left">
 					<div class="container">
+						<h6 class="subsubheader" style="width: 100%">The development of environmental variables of a country over time</h6>
 						<div id="stackedGraph"></div>
 					</div>
 				</div>
@@ -113,7 +118,11 @@
 		</div>
 		<footer class="container-fluid text-center">
 			<p class="student-info"> Nadja van 't Hoff (11030720) </p>
-			<p class="source">Source: <a href="https://data.oecd.org/pop/population.htm#indicator-chart"> OECD Data</a></p>
+			<div class="source">Sources: </div>
+			<div><a href="https://data.oecd.org/waste/municipal-waste.htm">OECD data on waste</a></div>
+			<div><a href="http://ec.europa.eu/eurostat/tgm/table.do?tab=table&plugin=1&language=en&pcode=t2020_rt120">Eurostat data on recycling</a></div>
+			<div><a href="https://data.oecd.org/energy.htm#profile-Energy">OECD data on energy</a></div>
+			<div><a href="https://data.oecd.org/air/air-and-ghg-emissions.htm">OECD data on gas emission</a></div>
 		</footer>
 	</body>
 </html>

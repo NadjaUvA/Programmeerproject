@@ -254,13 +254,15 @@ function startRadar(country, data, countries) {
   for (var i = 0, n = countries.length; i < n; i++) {
 
     // uncheck all boxes of countries that are not clicked on
-    if (countries[i] != country & countries[i] != "EU") {
-      document.getElementById("checkbox" + countries[i]).checked = false;
-    }
+    if (country != "EU") {
+      if (countries[i] != country & countries[i] != "EU") {
+        document.getElementById("checkbox" + countries[i]).checked = false;
+      }
 
-    // check box of selected country
-    else {
-      document.getElementById("checkbox" + country).checked = true;
+      // check box of selected country
+      else {
+        document.getElementById("checkbox" + country).checked = true;
+      };
     };
   };
 
@@ -371,7 +373,7 @@ function updateLegendRadar(displayedCountries) {
 
   // initiate legend
   var legend = svg.append("g")
-  	.attr("class", "legend")
+  	.attr("class", "legendChart")
   	.attr("height", 100)
   	.attr("width", 200)
   	.attr("transform", "translate(170,20)");

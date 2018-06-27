@@ -6,14 +6,14 @@
 */
 
 // initiate global variables
-var widthRadar = 200, heightRadar = 200;
+var widthRadar = 180, heightRadar = 180;
 var selectedCountry = 0, selectedCountryOld = 0, selectedVariable = 0;
 var stackedGraphStarted = false; startDropdown = false;
 var map;
 
 // set global width, height and margins of stacked graph
 var widthStackedGraph = 525, heightStackedGraph = 275;
-var margin = {top: 50, right: 125, bottom: 50, left: 40},
+var margin = {top: 70, right: 125, bottom: 50, left: 40},
       innerWidthStackedGraph = widthStackedGraph - margin.left - margin.right,
       innerHeightStackedGraph = heightStackedGraph - margin.top - margin.bottom;
 
@@ -116,9 +116,32 @@ window.onload = function() {
       };
     });
 
-    // update the chart when input field is changed
+    // reset to average european values when button is clicked
+    $(".resetBtn").click(function(){
+
+      // update circles and radar chart with average of europe
+      gauge1.update(dataCircles["EU"][0]);
+      gauge2.update(dataCircles["EU"][1]);
+      gauge3.update(dataCircles["EU"][2]);
+
+      // update radar chart and map
+      startRadar("EU", dataRadar, countries);
+      updateBorderColor("EU", selectedCountry, countries);
+
+      // reset stacked graph and global variables
+      $("#stackedGraph").empty();
+      stackedGraphStarted = false;
+      selectedCountry = 0;
+
+      // uncheck boxes of radarChart
+      for (i = 0; i < countries.length - 1; i++) {
+        document.getElementById("checkbox" + countries[i]).checked = false;
+      };
+    });
+
+    // update the radar chart and map when input field is changed
 		$("input").change(function() {
-      var selectedCountriesOld = selectedCountries;
+      selectedCountriesOld = selectedCountries;
       var selectedCountries = [];
 			for (var i = 0, n = countries.length - 1; i < n; i++) {
 				var countryChecked = document.getElementById("checkbox" + countries[i]).checked;
@@ -132,7 +155,7 @@ window.onload = function() {
 
       // update country border if page is opened for the first time
       if (selectedCountryOld == 0 && selectedCountries.length == 1)  {
-        update_border_color(selectedCountries[0], selectedCountryOld, countries);
+        updateBorderColor(selectedCountries[0], selectedCountryOld, countries);
       };
     });
 
@@ -142,7 +165,7 @@ window.onload = function() {
       // keep track of selected countries
       selectedCountryOld = selectedCountry;
       selectedCountry = d3.select(this)[0][0].classList[1];
-      selectedCountry = update_border_color(selectedCountry, selectedCountryOld, countries);
+      selectedCountry = updateBorderColor(selectedCountry, selectedCountryOld, countries);
 
       // update circle menu and start radar chart
       gauge1.update(dataCircles[selectedCountry][0]);

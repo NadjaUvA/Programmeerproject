@@ -41,7 +41,6 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 
-/* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
     width: 100%;
 }
@@ -108,7 +107,6 @@ input[type="checkbox"] {
       transform:scale(1.1, 1.1);
 }
 
-/* The search field */
 #myInput {
   font-size: 11px;
   padding: 3px 5px 3px 5px;
@@ -118,7 +116,6 @@ input[type="checkbox"] {
   height: 25px !important;
 }
 
-/* The search field when it gets focus/clicked on */
 #myInput:focus {outline: 3px solid #ddd;}
 
 #radarLegend {
@@ -135,7 +132,6 @@ input[type="checkbox"] {
 	font: 11px sans-serif;
 	font-weight: bold;
 }
-
 
 footer {
     font: 12px sans-serif;

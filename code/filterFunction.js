@@ -1,11 +1,17 @@
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
+/**
+* This script contains functions such that when the user clicks on the dropwdown
+* button, toggle between hiding and showing the dropdown content
+*
+* Nadja van 't Hoff (11030720)
+*/
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
 function filterFunction() {
+
+  // select element that coincides with input of searchbar
   var input, filter, ul, li, a, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();

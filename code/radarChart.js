@@ -1,6 +1,6 @@
 /**
 * This file contains the variable, the start function and the update function of the
-* radar chart
+* radar chart as well as the alert function for the dropdown menu
 *
 * Nadja van 't Hoff (11030720)
 */
@@ -34,7 +34,7 @@ var radarChart = {
   )}));
   var allAxis = (dataRadar[0].map(function(i, j) {return i.axis} ));
   var total = allAxis.length;
-  var radius = cfg.factor*Math.min(cfg.w / 2, cfg.h / 2);
+  var radius = cfg.factor * Math.min(cfg.w / 2, cfg.h / 2);
   var Format = d3.format("%");
   d3.select(id).select("svg").remove();
 
@@ -105,7 +105,7 @@ var radarChart = {
     .attr("x1", cfg.w / 2)
     .attr("y1", cfg.h / 2)
     .attr("x2", function(d, i) {
-      return cfg.w / 2 * (1-cfg.factor * Math.sin(i * cfg.radians / total));
+      return cfg.w / 2 * (1 - cfg.factor * Math.sin(i * cfg.radians / total));
     })
     .attr("y2", function(d, i) {
       return cfg.h / 2 * (1 - cfg.factor * Math.cos(i * cfg.radians / total));
@@ -194,15 +194,19 @@ var radarChart = {
       .attr("alt", function(j) { return Math.max(j.value, 0) })
       .attr("cx", function(j, i) {
         dataValues.push([
-        cfg.w / 2 * (1 - (parseFloat(Math.max(j.value, 0)) / cfg.maxValue) * cfg.factor * Math.sin(i * cfg.radians / total)),
-        cfg.h / 2 * (1 - (parseFloat(Math.max(j.value, 0)) / cfg.maxValue) * cfg.factor * Math.cos(i * cfg.radians / total))
+        cfg.w / 2 * (1 - (parseFloat(Math.max(j.value, 0)) / cfg.maxValue)
+          * cfg.factor * Math.sin(i * cfg.radians / total)),
+        cfg.h / 2 * (1 - (parseFloat(Math.max(j.value,
+          0)) / cfg.maxValue) * cfg.factor * Math.cos(i * cfg.radians / total))
       ]);
-      return cfg.w / 2 * (1 - (Math.max(j.value, 0) / cfg.maxValue) * cfg.factor * Math.sin(i * cfg.radians / total));
+      return cfg.w / 2 * (1 - (Math.max(j.value,
+        0) / cfg.maxValue) * cfg.factor * Math.sin(i * cfg.radians / total));
       })
       .attr("cy", function(j, i){
-        return cfg.h / 2 * (1 - (Math.max(j.value, 0) / cfg.maxValue) * cfg.factor * Math.cos(i * cfg.radians / total));
+        return cfg.h / 2 * (1 - (Math.max(j.value,
+          0) / cfg.maxValue) * cfg.factor * Math.cos(i * cfg.radians / total));
       })
-      .attr("data-id", function(j){return j.axis})
+      .attr("data-id", function(j){ return j.axis; })
       .style("fill", cfg.color[series]).style("fill-opacity", .9)
 
       // add calue display and color update of area to the circles
@@ -232,7 +236,7 @@ var radarChart = {
           .style("fill-opacity", cfg.opacityArea);
         })
       .append("svg:title")
-      .text(function(j){ return Math.max(j.value, 0) });
+      .text(function(j){ return Math.max(j.value, 0); });
       series++;
   });
 
@@ -244,7 +248,7 @@ var radarChart = {
   };
 };
 
-/**
+/*
 * resets the radar chart with country selected from map
 */
 function startRadar(country, data, countries) {
@@ -264,11 +268,11 @@ function startRadar(country, data, countries) {
   // draw radar chart of selected country
   radarChart.draw("#radarChart", [data[country]]);
 
+  // add legend to the chart
   updateLegendRadar([country]);
-
 };
 
-/**
+/*
 * updates the radar chart based on selected countries
 */
 function updateRadar(countries, countriesOld, data) {
@@ -305,24 +309,27 @@ function updateRadar(countries, countriesOld, data) {
     // return no error message if country is selected for first time
     else {
       startDropdown = true;
-    }
-  }
+    };
+  };
 
+  // add legend to the chart
   updateLegendRadar(displayedCountries);
 };
 
+/*
+* returns an alert when more than specified number of boxes is checked
+*/
 function alertFunction(countries, maxNumber) {
-  var txt;
+
+  // define alert text
   var country = prompt("Oops! At most 4 countries can be selected at the same"
-                        + "time. Type the country code of the country that you"
-                        + "want to remove. You can choose between " + countries[0]
-                        + ", " + countries[1] + ", " + countries[2] + ", "
-                        + countries[3] + " or " + countries[4], countries[0]);
+    + "time. Type the country code of the country that you want to remove. "
+    + "You can choose between " + countries[0] + ", " + countries[1] + ", "
+    + countries[2] + ", " + countries[3] + " or " + countries[4], countries[0]);
+
+  // return error message
   if (countries.indexOf(country) < 0) {
       alertFunction(countries, maxNumber);
-  }
-  else if (country == null) {
-    alert("hoi");
   }
   else {
       // remove country from countries
@@ -330,17 +337,23 @@ function alertFunction(countries, maxNumber) {
       if (index > -1) {
         countries.splice(index, 1);
       };
+
+      // uncheck checkbox of chosen country
       document.getElementById("checkbox" + country).checked = false;
       return countries;
-  }
+  };
 };
 
+/*
+* updates the legend of the radar chart
+*/
 function updateLegendRadar(displayedCountries) {
 
   d3.selectAll("svg.legend-chart").remove();
 
   var colorscale = ["#1f78b4", "#6a3d9a", "#33a02c", "#fb9a99"];
 
+  // define legend
   var svg = d3.select("#radarLegend")
   	.append("svg")
     .attr("class", "legend-chart")
@@ -364,7 +377,7 @@ function updateLegendRadar(displayedCountries) {
   	.attr("width", 200)
   	.attr("transform", "translate(170,20)");
 
-	// create colour squares
+	// create color squares
 	legend.selectAll("rect")
 	  .data(displayedCountries)
 	  .enter()

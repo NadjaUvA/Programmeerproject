@@ -1,35 +1,27 @@
 /**
-* an application with linked graphs that visualize the environmental progress of European countries
+* This script creates an application with linked graphs that visualize the
+* environmental progress of European countries
 *
 * Nadja van 't Hoff (11030720)
 */
 
+// initiate global variables
 var widthRadar = 200, heightRadar = 200;
+var selectedCountry = 0, selectedCountryOld = 0, selectedVariable = 0;
+var stackedGraphStarted = false; startDropdown = false;
+var map;
 
-var selectedCountry = 0;
-var selectedCountryOld = 0;
-var selectedVariable = 0;
-var legendText = 0;
-var legendColor = 0;
-var axisText = 0;
-var stackedGraphStarted = false;
-var startDropdown = false;
-var map = 0;
-var gauge1, gauge2, gauge3;
-var tooltip;
-
-// set width, height and margins
-var width = 525, heightStackedGraph = 275;
+// set global width, height and margins of stacked graph
+var widthStackedGraph = 525, heightStackedGraph = 275;
 var margin = {top: 50, right: 125, bottom: 50, left: 40},
-      innerWidth = width - margin.left - margin.right,
+      innerWidthStackedGraph = widthStackedGraph - margin.left - margin.right,
       innerHeightStackedGraph = heightStackedGraph - margin.top - margin.bottom;
 
-// define functions to scale width and height for the linegraph
+// define global functions to scale width and height for the stacked graph
 var y = d3.scale.linear()
   .range([innerHeightStackedGraph, 0]);
 var x = d3.time.scale()
-  .range([0, innerWidth]);
-
+  .range([0, innerWidthStackedGraph]);
 var color = d3.scale.ordinal();
 
 // create axes of the linegraph
@@ -40,7 +32,6 @@ var	yAxisStackedGraph = d3.svg.axis()
   .scale(y)
   .orient("left");
 
-// add map
 window.onload = function() {
 
   // wait loading the figures until the data is loaded
@@ -69,7 +60,7 @@ window.onload = function() {
       maxRenewable = dataCircles["max"][1],
       maxCO2 = dataCircles["max"][2];
 
-    // adjust data for every country (convert to numbers and javascript dates)
+    // adjust data of every variable for every country
     dataVariables = [dataWaste, dataEnergy, dataEmission];
     var parseDate = d3.time.format("%Y").parse;
     for (var l = 0, p = dataVariables.length; l < p; l++) {
@@ -79,6 +70,8 @@ window.onload = function() {
         if (typeof(data) != "undefined") {
           for (var j = 0, m = data.length; j < m; j++) {
             for (var i = 0, n = (data[0]["values"]).length; i < n; i++) {
+
+              // convert strings to numbers and to javascript dates
               data[j]["values"][i]["year"] = parseDate(data[j]["values"][i]["year"])
               data[j]["values"][i]["y"] = +data[j]["values"][i]["y"];
               data[j]["values"][i]["y0"] = +data[j]["values"][i]["y0"];
@@ -91,8 +84,10 @@ window.onload = function() {
     // draw map and legend of map
     drawMap(dataMap);
 
+    // draw circle menu
     drawCircles(maxRecycled, maxRenewable, maxCO2);
 
+    // add interactivity to first circle
     d3.selectAll("#fillgauge1").on("click", function(d, i) {
       selectedVariable = "waste";
       if (selectedCountry != 0) {
@@ -100,6 +95,7 @@ window.onload = function() {
       }
     });
 
+    // add interactivity to second circle
     d3.selectAll("#fillgauge2").on("click", function(d, i) {
       selectedVariable = "energy";
       if (selectedCountry != 0) {
@@ -107,6 +103,7 @@ window.onload = function() {
       }
     });
 
+    // add interactivity to third circle
     d3.selectAll("#fillgauge3").on("click", function(d, i) {
       selectedVariable = "emission";
       if (selectedCountry != 0) {
@@ -114,11 +111,10 @@ window.onload = function() {
       }
     });
 
-    var selectedCountries = [];
     // update the chart when input field is changed
 		$("input").change(function(){
       var selectedCountriesOld = selectedCountries;
-      selectedCountries = [];
+      var selectedCountries = [];
 			for (var i = 0, n = countries.length - 1; i < n; i++) {
 				var countryChecked = document.getElementById("checkbox" + countries[i]).checked;
 				if (countryChecked) {
@@ -126,29 +122,33 @@ window.onload = function() {
 				};
 			};
 
-      // execute update
+      // execute update of the radar chart with new countries
       updateRadar(selectedCountries, selectedCountriesOld, dataRadar);
 
       // update country border if page is opened for the first time
       if (selectedCountryOld == 0 && selectedCountries.length == 1)  {
         update_border_color(selectedCountries[0], selectedCountryOld, countries);
       };
-
     });
 
     // update circle menu and radar chart when country is clicked
     map.svg.selectAll(".datamaps-subunit").on("click", function() {
+
+      // keep track of selected countries
       selectedCountryOld = selectedCountry;
       selectedCountry = d3.select(this)[0][0].classList[1];
       selectedCountry = update_border_color(selectedCountry, selectedCountryOld, countries);
+
+      // update circle menu and start radar chart
       gauge1.update(dataCircles[selectedCountry][0]);
       gauge2.update(dataCircles[selectedCountry][1]);
       gauge3.update(dataCircles[selectedCountry][2]);
       startRadar(selectedCountry, dataRadar, countries);
+
+      // update stacked graph if a circle has been clicked on as well
       if (selectedVariable != 0) {
         stackedGraphStarted = updateStackedGraph(selectedCountry, selectedVariable, dataWaste, dataEnergy, dataEmission);
       }
     });
-
   };
 };

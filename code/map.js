@@ -1,3 +1,13 @@
+/**
+* This script contains a function that draws the European map with Datamaps and
+* a function that updates the border color of the selected country
+*
+* Nadja van 't Hoff (11030720)
+*/
+
+/*
+* update the legend of the stacked graph
+*/
 function drawMap(dataMap) {
 
   // determine min and max of performance values
@@ -41,7 +51,7 @@ function drawMap(dataMap) {
     // set hover specifications
     geographyConfig: {
 
-      // don"t change color on mouse hover
+      // don't change color on mouse hover
       highlightFillColor: function(geo) {
           return geo["fillColor"] || "#F5F5F5";
       },
@@ -73,17 +83,26 @@ function drawMap(dataMap) {
       });
 };
 
+/**
+* update the border color of the selected country
+*/
 function update_border_color(selectedCountry, selectedCountryOld, countries) {
   if ($.inArray(selectedCountry, countries) != -1) {
+
+    // set already selected country to border color white
     if (selectedCountryOld != 0) {
       var countryOld = document.getElementsByClassName("datamaps-subunit " + selectedCountryOld)[0];
       countryOld.style.stroke = "#ffffff";
     }
+
+    // update new country's border color to black
     var country = document.getElementsByClassName("datamaps-subunit " + selectedCountry)[0];
     country.style.stroke = "#000000";
   }
+
+  // do not update color when country does not belong to EU
   else {
     selectedCountry = selectedCountryOld;
-  }
+  };
   return selectedCountry;
 };

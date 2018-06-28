@@ -6,15 +6,27 @@ Nadja van 't Hoff (11030720)
 ## The application
 My application is depicted below. Four charts allow for an insight into the performance on three different environmental variables (waste, energy and emission) of the countries in the EU:
 
-* **Map**: The colors give an indication on the environmental friendliness based on a self-created index. The map is linked to the radar chart and the stacked graph
+* **Map**: The colors give an indication on the environmental friendliness based on a self-created index. The map is linked to the radar chart and the stacked graph.
 * **Circle menu**: The heigth of the waves give an indication of the relative performance of the selected country on the variable belonging to that circle. The circles are linked to the stacked graph.
 * **Radar chart**: The radar chart allows for relative comparison of the selected countries: The axes show the performance compared to the maximum value of the variable. The radar chart is linked to the map.
 * **Stacked graph**: The layers of the graph show the composition of one of the variables waste, energy and emission. Exact values are shown on hover. The legend and y-axis update according to the selected country from the map and the circle menu. The stacked graph is linked to the map and the circle menu.
 
 ![image of application](/doc/application.PNG)
 
-
 ## The technical design
+
+The following image gives an overview of the technical design of my code:
+
+![image of technical design](/doc/diagramFinal.PNG)
+
+Unlike I expected in my first technical design, I have multiple javascript files (I heavily didn't use separate code files in *Data Processing*). I have the following files (I did not include the file with the Datamaps specifications in this design report, since I do not think that this adds to the explanation):
+* **main file**: The global variables are set and the data is loaded and prepared. Furthermore, the initialization of the charts is called from this file and all links are created.
+* **map file**: The map is specified and a function is created that updates the border color of a selected country to black and of the previous selected country to white.
+* **stacked graph file**: Four functions are specified in this file. One to start the graph, one to update the graph according to the selected country and variable (these are both global variables that are kept track of), one to add the interactive view of values on hover and a legend function.
+* **circle menu**: The function in this file is called once from the main file to draw the circles. These are initiated with the values of the European average
+* **liquidFillGauge file**: This file specifies the settings of the circles and an update function which makes updating these circles very easy.
+* **Radar chart file**: This file contains a variable that defines the radar chart, a function to start the cahrt, an update function, a function that displays the correct alert when more than four countries are selected in the dropdown menu and a function to draw the legend. The radar chart updates when a checkbox is checked in the dropdown menu.
+* **filter file**: This file contains a filter that matches the search terms from the search bar in the dropdown menu to the possible
 
 ## The challenges
 

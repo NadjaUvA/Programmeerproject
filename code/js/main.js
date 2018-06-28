@@ -89,6 +89,11 @@ window.onload = function() {
     // draw circle menu
     drawCircles(maxRecycled, maxRenewable, maxCO2);
 
+    // fill circles and radar chart with average of europe
+    gauge1.update(dataCircles["EU"][0]);
+    gauge2.update(dataCircles["EU"][1]);
+    gauge3.update(dataCircles["EU"][2]);
+
     // add interactivity to first circle
     d3.selectAll("#fillgauge1").on("click", function(d, i) {
       selectedVariable = "waste";

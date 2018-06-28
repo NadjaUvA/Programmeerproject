@@ -32,9 +32,81 @@
 			<h3 class="header">The European Union and the environment: A never-ending story</h3>
 		</div>
 		<div class="container" id="figures">
-			<h6 class="subheader" style="width: 100%">The fight of the European Union for environmental improvement</h6>
+			<h6 class="subheader" style="width: 100%">The European Union and environmental goals</h6>
+			<p>
+				<p>
+					The earth is warming up and getting <em>hot</em>. No wonder that the environment is a <em>hot</em> topic.
+					Though this warming up is stressful, the politicians in the European Union keep a <em>cool</em> head.
+					They try to <em>coo</em>l down the environment by formulating
+					<a href="https://www.eea.europa.eu/themes/climate/trends-and-projections-in-europe/trends-and-projections-in-europe-2016/1-overall-progress-towards-the">targets</a>
+					with a strict deadline. The greenhouse gas emission needs to be lowered and renewable energy production needs to be increases. Oh, and not to forget:
+					it really is <em>cool</em> now to
+					<a href="https://www.letsdoitworld.org/2016/07/recycling-cool-not-enough/">recycle waste</a>.
+					No pressure.
+					You would think that the European Union is getting a bit <em>hot</em> with all these goals.
+					But the European Union has a way to keep its <em>cool</em>: Pointing fingers at eachother.
+					If no one reaches the goals, will everyone be punsihed? Probably not.
+				</p>
+				<p>
+					The application at the bottom of this page helps the European Union to keep an eye on each other
+					and see whether they perform best or worst on the three mentioned environmental variables:
+					waste, ernergy and emission.
+					But more important is that it helps environmental acvtivists to see which country really needs to catch up
+					with the others and which country really has improved on recycling, gas emission and renewable energy
+					during the last few years.
+			<p>
 			<h6 class="subheader" style="width: 100%">How to use this application</h6>
-			<button type="button" class="resetBtn btn-outline-secondary">Reset values to European average</button>
+			<p class="variable-warning">
+				<img src="doc/warning.PNG" width=50px, height=50px></img>
+				Be aware while using this application that it is <em>positive</em> and amazing if
+				the amount of recycled waste and produced renewable energy is high. But: Having a lot of gas emission is <em>negative</em>
+				and terrible!
+			</p>
+			<p>
+				<strong class="textheader">Step 1: The map</strong>
+			</p>
+			<p>
+				To evaluate the countries, I established an index for each of the countries. For every variable,
+				one point could be received. A country yields one full point if it performs best (or a value of
+				zero in the case of the gas emission variable, since this ) on that variable compared to the other countries.
+				So the index gives a relative score. If data was not available, then the country is punished with the minimal
+				amount of points on this variable.
+				When a country is clicked on, the radar chart is updated for this country.
+			</p>
+			<p>
+				<strong class="textheader">Step 2: The variables menu</strong>
+			</p>
+			<p>
+				The circle menu has more information on the year 2015 for the country selected in the map.
+				A full circle indicates that a country performs best per capita (or worst per capita in case of
+				the emission) on this variable.
+				The development of the selected variable in the circle menu will be shown in for the selected country in the map
+				in the stacked graph at the right bottom of the page.
+			</p>
+			<p>
+				<strong class="textheader">The radar chart: A comparison of the performance of countries in 2015</strong>
+			</p>
+			<p>
+				In the radar chart, the relative performance on the different variables can be compared
+				for different countries. Again, the score relative to the best (or worst in case of
+				emission) performing country is displayed.
+				The dropdown menu allows to choose between different coutnries. No more than 4 countries can
+				be compared at the same time. When clicking on the map, the radar chart will be updated for that
+				selected country.
+			</p>
+			<p>
+				<strong class="textheader">The stacked graph: An insight into the development of a country on one of the variables</strong>
+			</p>
+			<p>
+				The stacked graph shows the performance of a country on one of the three variables
+				during the last years. It is activitated when a country and a variable have been clicked
+				on in <em>step 1</em> and <em>step 2</em>. The exact values are shown on hover.
+			</p>
+			<p>
+				And not to forget: A button to reset the values to the European average in 2015!
+				<img src="doc/thumbsup.PNG" width=40px height=40px></img>
+			</p>
+			<p><button type="button" class="resetBtn btn-outline-secondary">Reset values to European average</button></p>
 			<div class="row">
 				<div class="col-sm text-left">
 					<div class="container" style='border: "White"'>
@@ -110,7 +182,7 @@
 				</div>
 				<div class="col-6 text-left">
 					<div class="container">
-						<h6 class="subsubheader" style="width: 100%">The development of environmental variables of a country over time</h6>
+						<h6 class="subsubheader" style="width: 100%">The development of an environmental variable of a country</h6>
 						<div id="stackedGraph"></div>
 					</div>
 				</div>

@@ -22,7 +22,7 @@ To evaluate the countries, I established an index for each of the countries. For
 
 The circle menu presents more information on the year 2015 for the country selected in the map. From the black border, it can be seen what country is selected. A full circle indicates that this country relatively performs best per capita (or worst per capita in case of the emission) on this variable. The development of the selected variable in the circle menu will be shown in the stacked graph at the right bottom of the page for the country that was selected in the map.
 
-![image of circle menu](/doc/circleMenu.PNG "Circle menu")
+![image of circle menu](/doc/circleMenu.PNG)
 
 In the radar chart, the relative performance on the different variables can be compared for different countries. Again, the score relative to the best (or worst in case of emission) performing country is displayed. The dropdown menu allows to choose between different countries. It also has a search bar option where countries can be searched for. No more than 4 countries can
 be compared at the same time. If the user clicks on more than 4 countries, an alert pops up asking which country needs to be removed from the radar chart. An alert will also appear if the user tries to unclick all checkboxes of the dropdown menu once the radar chart is activated. When clicking on a country in the map, the radar chart will be updated for that selected country and all earlier selections in the dropdown menu will be erased.
@@ -60,8 +60,8 @@ Images:
 * [warning image](http://scream-queens.wikia.com/wiki/File:Spoiler_alert.png)
 * [thumbs up image](http://www.emoji.co.uk/view/7284/)
 
-## Copyright
+## Copyright notice
 
-When code is copied from this repository, it is required to preserve the copyright and license notices. I provide an express grant of patent rights. The code may be distributed under different terms and without source code.
+When code is copied from this repository, it is required to preserve the copyright and license notices. I, Nadja van 't Hoff, provide an express grant of patent rights. The code may be distributed under different terms and without source code.
 
 Limitations of the copyright are the trademark use, liability and warranty.

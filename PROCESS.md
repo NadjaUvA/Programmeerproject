@@ -13,9 +13,8 @@ Then, I made the radar chart using an [example](https://gist.github.com/nbremer/
 
 Difficulties that I encounter are that my values are not given as percentages, so I transformed my data. The axes still need to be converted and the country codes need to be added to the data to allow for interactivity.
 
-
 ## 10th of june 2018
-Today I worked on the circle menu and I changed the data for the circle menu and radar chart to *per capita* values, so that the countries can be compared. I still need to make a dictionary out of the values for the radar chart which will aloow easy updates. I encountered while experimenting that the best way to do this is in Javascript. I still have to ask for help on the layout of my page. The circles need to be on the right of the map. The current layout is as follows:
+Today I worked on the circle menu and I changed the data for the circle menu and radar chart to *per capita* values, so that the countries can be compared. I still need to make a dictionary out of the values for the radar chart which will allow easy updates. I encountered while experimenting that the best way to do this is in Javascript. I still have to ask for help on the layout of my page. The circles need to be on the right of the map. The current layout is as follows:
 
 ![layout](/doc/log4.PNG)
 
@@ -66,3 +65,8 @@ Today, I went on cleaning my code and I solved the problem of the legends.
 Today, I finished cleaning my code. I implemented a button to reset the values to the European average. I also updated my git. Currently, my application looks as follows:
 
 ![update](/doc/log12.PNG)
+
+## 28th of june 2018
+Today, I updated all md files on my github page and made a few last changes. A challenge of today was to correctly organize everything. Currently, my application looks as follows:
+
+![final update](/doc/application.PNG)

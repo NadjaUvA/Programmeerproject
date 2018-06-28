@@ -47,10 +47,10 @@
 * indentation in github is different
 
 ## Evaluation
-Comments: 3
-Names: 4
-Formatting: 2
-Organization: 3
-Flow: 3
-Idiom: 4
-Structure: 4
+* Comments: 3
+* Names: 4
+* Formatting: 2
+* Organization: 3
+* Flow: 3
+* Idiom: 4
+* Structure: 4

@@ -1,6 +1,6 @@
 # Programmeerproject
 
-## Application: Comparing the environmental performance of European countries
+## Comparing the environmental performance of the countries in the EU
 
 Nadja van 't Hoff (11030720)
 
@@ -12,7 +12,7 @@ My application is depicted below. I have four charts that give an insight into t
 
 ![image of application](/doc/application.PNG)
 
-By clicking the button on top of the charts, the user is able to reset the values to the European average values in 2015.
+By clicking the button on top of the charts, the user is able to reset the values of the circle menu and the radar chart to the European average values in 2015. The stacked graph will be removed from the page.
 
 ![image of reset button](/doc/resetButton.PNG)
 
@@ -22,14 +22,14 @@ To evaluate the countries, I established an index for each of the countries. For
 
 The circle menu presents more information on the year 2015 for the country selected in the map. From the black border, it can be seen what country is selected. A full circle indicates that this country relatively performs best per capita (or worst per capita in case of the emission) on this variable. The development of the selected variable in the circle menu will be shown in the stacked graph at the right bottom of the page for the country that was selected in the map.
 
-![image of circle menu](/doc/circleMenu.PNG)
+![image of circle menu](/doc/circleMenu.PNG "Circle menu")
 
 In the radar chart, the relative performance on the different variables can be compared for different countries. Again, the score relative to the best (or worst in case of emission) performing country is displayed. The dropdown menu allows to choose between different countries. It also has a search bar option where countries can be searched for. No more than 4 countries can
-be compared at the same time. If the user clicks on more than 4 countries, an alert pops up asking which country needs to be removed from the radar chart. When clicking on a country in the map, the radar chart will be updated for that selected country and all earlier selections in the dropdown menu will be erased.
+be compared at the same time. If the user clicks on more than 4 countries, an alert pops up asking which country needs to be removed from the radar chart. An alert will also appear if the user tries to unclick all checkboxes of the dropdown menu once the radar chart is activated. When clicking on a country in the map, the radar chart will be updated for that selected country and all earlier selections in the dropdown menu will be erased.
 
 ![image of radar chart](/doc/radarChart.PNG)
 
-The stacked graph shows the performance of a country on one of the three variables during the last years. It is activitated when a country and a variable have been clicked on in step 1 and step 2 (the order of selecting a country or variable does not matter). The exact values are shown on hover. The legend depicts which variable and country are selected.
+The stacked graph shows the performance of a country on one of the three variables during the last years. It is activitated when a country and a variable have been clicked on in step 1 and step 2 (the order of selecting a country or variable does not matter). The exact values are shown on hover. The legend depicts which variable and country are selected and the y axis updates when another variable is clicked to show the correct scale.
 
 ![image of stacked graph](/doc/stackedGraph.PNG)
 

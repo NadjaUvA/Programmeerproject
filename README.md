@@ -6,6 +6,8 @@ Nadja van 't Hoff (11030720)
 
 https://nadjauva.github.io/Programmeerproject/
 
+[Product demo video](https://www.youtube.com/watch?v=jAWLNrtln_o&feature=youtu.be) (Unfortunately, alerts cannot be seen in the video)
+
 ## The description
 
 My application is depicted below. I have four charts that give an insight into the performance on three environmental variables (waste and recycling, energy production and greenhouse gas emission) and development of the countries of the European Union: A map, a circle menu, a radar chart and a stacked graph.

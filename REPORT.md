@@ -26,8 +26,11 @@ Unlike I expected in my first technical design, I have multiple javascript files
 * **circle menu**: The function in this file is called once from the main file to draw the circles. These are initiated with the values of the European average
 * **liquidFillGauge file**: This file specifies the settings of the circles and an update function which makes updating these circles very easy.
 * **Radar chart file**: This file contains a variable that defines the radar chart, a function to start the cahrt, an update function, a function that displays the correct alert when more than four countries are selected in the dropdown menu and a function to draw the legend. The radar chart updates when a checkbox is checked in the dropdown menu.
-* **filter file**: This file contains a filter that matches the search terms from the search bar in the dropdown menu to the possible
+* **filter file**: This file contains a filter that matches the search terms from the search bar in the dropdown menu to the possible input fields of the checkboxes.
 
 ## The challenges
+
+On my way to the final application, I encountered several challenges:
+*
 
 ## The design decisions

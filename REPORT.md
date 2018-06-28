@@ -33,9 +33,12 @@ Unlike I expected in my first technical design, I have multiple javascript files
 On my way to the final application, I encountered several challenges, leading to different design choices:
 
 * In week 1, the data formed a challenge. I couldn't find data on the goals on waste, energy and emission which is why I did not show the performance of the countries relative to the goals that were set, but I showed the performance relative to the maximum value, meaning that the countries are now compared to each other instead of to the goals.
-* In week 3, when I started working on the slider, I noticed that it really didn't make any sense, because an interactivity of the stacked graph on hover also would be enough. Or otherwise stated: The slider wasn't really connected to any data. So I decided not to implement the slider, but instead I added an interactivity of the values on hover.
-* In week 4, I found
-
+* In week 2, I noticed that I forgot to add legends to the charts in my original design. Since legends really are impeccable, I decided to change my original design.
+* In week 3, when I started working on the slider, I noticed that it really didn't make any sense, because an interactivity of the stacked graph on hover also would be enough. Or otherwise stated: The slider wasn't really connected to any data or update of a graph. So I decided not to implement the slider, but instead I added an interactivity of the values on hover.
+* In week 4, I had to replace the slider for another interactivity, since I wouldn't meet the requirements of the project otherwise. I found that it would be of added value to add a reset button. This button resets the circle menu and radar chart to the European average values. This adds another measure of relative performance.
 * Not a challenge, but certainly a design choice: A lot of people implemented several tabs on their page with Bootstrap navbar. However, I wanted my application to be like one whole application. I didn't think that there was enough information and that it made sense not to implement such a bar.
+* Finally, I really made a mess out of my code on the way to my final product and I had to spend 1,5 day on cleaning it in week 4. I really learned a lesson from this: Next time, sort the code and add comments right from the beginning!
 
 ## The design decisions
+
+I am glad that I implemented a reset button instead of a slider, because this gives much more information. The added legends are logically valuable, too. First, I was a disappointed that I couldn't find the right data on the goals. However, this really enables the user to compare countries to each other and gives an insight into the performance from a different angle. In a perfect world with more time, I would not change my current solution. Instead, I would add a button that allows a user to switch the relative view: From the performance relative to the maximum values (as it is implemented now) to the performance relative to the goals (as it was meant to be implemented). This way, the user would get the best of both worlds. 

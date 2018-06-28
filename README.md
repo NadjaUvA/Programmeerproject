@@ -8,7 +8,7 @@ https://nadjauva.github.io/Programmeerproject/
 My application is depicted below this description. ## Application goals
 The goal of this application is to inform the user. The user can obtain information on the environmental betterment that a country has been through since 1990 and the environmental performance of that country relatively to Europe through interactive charts. I have four charts that give an insight into the environmental performance and development of the countries of the European Union: A map, a circle menu, a radar chart and a stacked graph.
 
-![image of application](/doc/application.PNG)
+![image of application](/doc/application.PNG =100x20)
 
 And not to forget: A button to reset the values to the European average in 2015!
 

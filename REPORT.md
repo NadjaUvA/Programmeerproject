@@ -19,7 +19,7 @@ The following image gives an overview of the technical design of my code:
 
 ![image of technical design](/doc/diagramFinal.PNG)
 
-Unlike I expected in my first technical design, I have multiple javascript files (I didn't use separate code files in *Data Processing*). I have the following files (I did not include the file with the Datamaps specifications in this design report, since I do not think that this adds to the explanation):
+Unlike I expected in my first technical design, I have multiple javascript files (I didn't use separate code files in *Data Processing*). I have the following files:
 * **main file**: The global variables are set and the data is loaded and prepared. Furthermore, the initialization of the charts is called from this file and all links are created.
 * **map file**: The map is specified and a function is created that updates the border color of a selected country to black and of the previous selected country to white.
 * **stacked graph file**: Four functions are specified in this file. One to start the graph, one to update the graph according to the selected country and variable (these are both global variables that are kept track of), one to add the interactive view of values on hover and a legend function.

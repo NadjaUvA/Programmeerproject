@@ -3,11 +3,12 @@
 ## Application: Comparing the environmental performance of European countries
 
 Nadja van 't Hoff (11030720)
+
 https://nadjauva.github.io/Programmeerproject/
 
-## Application description
+## The description
 
-My application is depicted below this description. I have four charts that give an insight into the environmental performance and development of the countries of the European Union: A map, a circle menu, a radar chart and a stacked graph.
+My application is depicted below. I have four charts that give an insight into the environmental performance and development of the countries of the European Union: A map, a circle menu, a radar chart and a stacked graph.
 
 ![image of application](/doc/application.PNG)
 
@@ -34,14 +35,30 @@ The stacked graph shows the performance of a country on one of the three variabl
 
 ## The purpose of the application
 
-The goal of this application is to inform the user on the relative environmental performance of the countries of the European Union. The user can obtain information on the environmental betterment that a country has been through since 1990 and the environmental performance of that country in 2015 relatively to other European countries through interactive charts.
+The goal of this application is to inform the user on the relative environmental performance of the countries of the European Union. The user can obtain information on the environmental betterment that a country has been through since 1990 and the environmental performance of that country in 2015 relatively to other European countries through the interactive charts.
 
-The European Union has formulated [20-20-20 targets](https://www.eea.europa.eu/themes/climate/trends-and-projections-in-europe/trends-and-projections-in-europe-2016/1-overall-progress-towards-the) to reduce greenhouse gas emission and to increase the use of renewable energy. Moreover, the European Union wants to reduce [waste](https://www.theguardian.com/environment/2018/jan/16/eu-declares-war-on-plastic-waste-2030) and recycle more. Though it is generally known that these goals need to be reached, only few people are aware of the progress each country in Europe makes. Especially to politicians and environmental activists, an overview that combines information about these goals can be extremely valuable. This project offers an overview of the performance of an European Country on the environmental goals relatively to the other European Countries as well as its progress since 1990, which is often used as an index year.
-
+The European Union has formulated [20-20-20 targets](https://www.eea.europa.eu/themes/climate/trends-and-projections-in-europe/trends-and-projections-in-europe-2016/1-overall-progress-towards-the) to reduce greenhouse gas emission and to increase the use of renewable energy. Moreover, the European Union wants to reduce [waste](https://www.theguardian.com/environment/2018/jan/16/eu-declares-war-on-plastic-waste-2030) and recycle more. Though it is generally known that these goals need to be reached, only few people are aware of the progress each country in Europe makes. Especially to politicians and environmental activists, an overview that combines information about these goals can be extremely valuable. Since it is suspected that most goals won't be met and that finally, the relative performance of a country will be more important as opposed to actually getting to the goal, this project offers an overview of the performance of a European country on the environmental performance relatively to the other European Countries as well as its progress since 1990, which is often used as an index year.
 
 ## Sources of external code
 
-License of liquidFillGauge: license Open source under BSD 2-clause (http://choosealicense.com/licenses/bsd-2-clause/), Copyright (c) 2015, Curtis Bratton
+Map:
+* http://datamaps.github.io/
+* https://stackoverflow.com/questions/27215394/d3-datamaps-onclick-events-on-bubbles
+* http://eyeseast.github.io/visible-data/2013/08/27/responsive-legends-with-d3/
+
+Circle menu:
+* [liquidFillGauge](http://bl.ocks.org/brattonc/5e5ce9beee483220e2f6) of (c) Curtis Bratton (2015)
+
+Radar chart:
+* https://gist.github.com/nbremer/6506614
+* https://www.w3schools.com/howto/howto_js_filter_dropdown.asp
+
+Stacked graph:
+* https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91
+
+Images:
+* [warning image](http://scream-queens.wikia.com/wiki/File:Spoiler_alert.png)
+* [thumbs up image](http://www.emoji.co.uk/view/7284/)
 
 ## Copyright
 

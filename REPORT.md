@@ -30,7 +30,12 @@ Unlike I expected in my first technical design, I have multiple javascript files
 
 ## The challenges
 
-On my way to the final application, I encountered several challenges:
-*
+On my way to the final application, I encountered several challenges, leading to different design choices:
+
+* In week 1, the data formed a challenge. I couldn't find data on the goals on waste, energy and emission which is why I did not show the performance of the countries relative to the goals that were set, but I showed the performance relative to the maximum value, meaning that the countries are now compared to each other instead of to the goals.
+* In week 3, when I started working on the slider, I noticed that it really didn't make any sense, because an interactivity of the stacked graph on hover also would be enough. Or otherwise stated: The slider wasn't really connected to any data. So I decided not to implement the slider, but instead I added an interactivity of the values on hover.
+* In week 4, I found
+
+* Not a challenge, but certainly a design choice: A lot of people implemented several tabs on their page with Bootstrap navbar. However, I wanted my application to be like one whole application. I didn't think that there was enough information and that it made sense not to implement such a bar.
 
 ## The design decisions

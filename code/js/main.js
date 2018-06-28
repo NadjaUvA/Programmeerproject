@@ -36,12 +36,12 @@ window.onload = function() {
 
   // wait loading the figures until the data is loaded
   queue()
-    .defer(d3.json, "../data/dataCircles.json")
-    .defer(d3.json, "../data/dataRadar.json")
-    .defer(d3.json, "../data/dataMap.json")
-    .defer(d3.json, "../data/dataWaste.json")
-    .defer(d3.json, "../data/dataEnergy.json")
-    .defer(d3.json, "../data/dataEmission.json")
+    .defer(d3.json, "data/dataCircles.json")
+    .defer(d3.json, "data/dataRadar.json")
+    .defer(d3.json, "data/dataMap.json")
+    .defer(d3.json, "data/dataWaste.json")
+    .defer(d3.json, "data/dataEnergy.json")
+    .defer(d3.json, "data/dataEmission.json")
     .await(make_figures);
 
   function make_figures(error, dataCircles, dataRadar, dataMap, dataWaste, dataEnergy, dataEmission) {
